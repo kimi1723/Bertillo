@@ -30,6 +30,8 @@
 	// Header
 	.header {
 		&-box {
+			min-height: 55vh;
+
 			&__heading {
 				font-size: 9rem;
 
@@ -49,10 +51,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
 		&-box {
 			padding: 3em 3em 5em;
 			width: calc(100% / 3);
 			height: clamp(350px, 450px, 550px);
+
 			&__heading {
 				font-size: 4rem;
 

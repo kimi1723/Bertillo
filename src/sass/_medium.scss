@@ -37,6 +37,7 @@
 		background-image: url(/dist/img/desktop/header-bg.jpg);
 
 		&-box {
+			min-height: 70vh;
 			&__heading {
 				font-size: 8.5rem;
 			}
