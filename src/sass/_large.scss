@@ -1,0 +1,102 @@
+@media (min-width: 992px) {
+	html {
+		scroll-padding-top: 100px;
+	}
+	// Nawigacja
+	.navbar {
+		&__logo {
+			font-size: 3.2rem;
+		}
+
+		&-links {
+			position: relative;
+			top: 0;
+			flex-direction: row;
+			padding-bottom: 0;
+			height: 100%;
+			min-height: 97px;
+			transform: translateX(0);
+		}
+
+		&__link {
+			font-size: 2.3rem;
+		}
+
+		&-hamburger {
+			display: none;
+		}
+	}
+
+	// Header
+	.header {
+		&-box {
+			&__heading {
+				font-size: 9rem;
+
+				&-span {
+					font-size: 2.5rem;
+				}
+			}
+
+			&__offer-link {
+				font-size: 3rem;
+			}
+		}
+	}
+
+	// O nas
+	.aboutus {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&-box {
+			padding: 3em 3em 5em;
+			width: calc(100% / 3);
+			height: clamp(350px, 450px, 550px);
+			&__heading {
+				font-size: 4rem;
+
+				.fa-solid {
+					font-size: 5rem;
+				}
+			}
+
+			&__content {
+				font-size: 1.8rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	html {
+		scroll-padding-top: 113px;
+	}
+
+	// Nawigacja
+	.navbar {
+		&__logo {
+			font-size: 3.5rem;
+		}
+
+		&__link {
+			font-size: 2.6rem;
+		}
+	}
+
+	// Header
+	.header {
+		&-box {
+			min-height: 45vh;
+
+			&__heading {
+				font-size: 9rem;
+
+				&-span,
+				&__offer-link {
+					font-size: 3rem;
+				}
+			}
+		}
+	}
+}

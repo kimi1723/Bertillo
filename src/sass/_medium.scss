@@ -1,0 +1,61 @@
+@media (min-width: 576px) {
+	// Header
+	.header {
+		&-box {
+			&__heading {
+				font-size: 7rem;
+			}
+
+			&__offer-link {
+				font-size: 2.5rem;
+			}
+		}
+	}
+
+	// O nas
+	.aboutus {
+		&-box {
+			padding: 2.5em 2.5em 3.5em;
+
+			&__heading {
+				font-size: 3rem;
+
+				.fa-solid {
+					font-size: 4rem;
+				}
+			}
+			&__content {
+				font-size: 1.5rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	// Header
+	.header {
+		background-image: url(/dist/img/desktop/header-bg.jpg);
+
+		&-box {
+			&__heading {
+				font-size: 8.5rem;
+			}
+		}
+	}
+
+	// O nas
+	.aboutus {
+		&-box {
+			&__heading {
+				font-size: 3.5rem;
+
+				.fa-solid {
+					font-size: 4.5rem;
+				}
+			}
+			&__content {
+				font-size: 1.7rem;
+			}
+		}
+	}
+}

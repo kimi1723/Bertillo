@@ -1,0 +1,11 @@
+@media (max-height: 440px) {
+	.navbar {
+		&-links {
+			height: calc(100vh - 73px);
+		}
+
+		&__link {
+			padding: 0.3em 2em;
+		}
+	}
+}
