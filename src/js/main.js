@@ -3,6 +3,9 @@ const navIcon = document.querySelector('.navbar-hamburger');
 const navLinks = document.querySelectorAll('.navbar__link');
 const logo = document.querySelector('.navbar__logo');
 
+const listItems = document.querySelectorAll('.offer-products-box__list-item-button');
+const itemArrowsToRemove = document.querySelectorAll('.fa-chevron-down');
+
 const handleNav = () => {
 	nav.classList.toggle('navbar-links--active');
 	navIcon.classList.toggle('navbar-hamburger--active');
@@ -15,6 +18,52 @@ const handleNavByLogo = () => {
 	}
 };
 
+const turnDownItemArrow = () => {
+	itemArrowsToRemove.forEach(itemArrow => {
+		itemArrow.classList.remove('fa-chevron-up');
+		itemArrow.classList.add('fa-chevron-down');
+	});
+};
+
+const turnUpItemArrow = itemArrow => {
+	itemArrow.classList.remove('fa-chevron-down');
+	itemArrow.classList.add('fa-chevron-up');
+};
+
+const removeItemDescriptions = () => {
+	const itemDescriptions = document.querySelectorAll('.offer-products-box__list-item-description');
+
+	itemDescriptions.forEach(desc => desc.classList.remove('offer-products-box__list-item-description--active'));
+};
+
+const addItemDescription = (e, itemNumber, itemDescription) => {
+	if (itemDescription.classList.contains('offer-products-box__list-item-description--active')) {
+	} else {
+		itemDescription.classList.add('offer-products-box__list-item-description--active');
+	}
+};
+
+const handleItem = e => {
+	const itemNumber = e.target.dataset.item;
+	const itemDescription = document.querySelector(`[data-description="${itemNumber}"]`);
+	const itemArrow = document.querySelector(`i[data-item="${itemNumber}"`);
+
+	if (
+		itemDescription.classList.contains('offer-products-box__list-item-description--active') &&
+		itemArrow.classList.contains('fa-chevron-up')
+	) {
+		removeItemDescriptions();
+		turnDownItemArrow();
+	} else {
+		removeItemDescriptions();
+		addItemDescription(e, itemNumber, itemDescription);
+		turnDownItemArrow();
+		turnUpItemArrow(itemArrow);
+	}
+};
+
 navIcon.addEventListener('click', handleNav);
 navLinks.forEach(link => link.addEventListener('click', handleNav));
 logo.addEventListener('click', handleNavByLogo);
+
+listItems.forEach(item => item.addEventListener('click', handleItem));
