@@ -53,21 +53,9 @@
 		justify-content: center;
 
 		&-box {
-			padding: 3em 3em 5em;
+			padding: 1em 3em 5em;
 			width: calc(100% / 3);
 			height: clamp(350px, 450px, 550px);
-
-			&__heading {
-				font-size: 4rem;
-
-				.fa-solid {
-					font-size: 5rem;
-				}
-			}
-
-			&__content {
-				font-size: 1.8rem;
-			}
 		}
 	}
 }
@@ -91,7 +79,7 @@
 	// Header
 	.header {
 		&-box {
-			min-height: 45vh;
+			min-height: 55vh;
 
 			&__heading {
 				font-size: 9rem;
