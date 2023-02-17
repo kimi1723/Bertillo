@@ -91,4 +91,24 @@
 			}
 		}
 	}
+
+	// O nas
+	.aboutus {
+		&-box {
+			&__content {
+				font-size: 1.6rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 1440px) {
+	// O nas
+	.aboutus {
+		&-box {
+			&__content {
+				font-size: 1.8rem;
+			}
+		}
+	}
 }

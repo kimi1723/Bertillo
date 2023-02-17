@@ -18,6 +18,12 @@ const handleNavByLogo = () => {
 	}
 };
 
+const handleImage = itemNumber => {
+	const image = document.querySelector('.offer-products-box__img');
+
+	image.setAttribute('src', `/dist/img/mobile/img${itemNumber}.jpg`);
+};
+
 const turnDownItemArrow = () => {
 	itemArrowsToRemove.forEach(itemArrow => {
 		itemArrow.classList.remove('fa-chevron-up');
@@ -54,11 +60,13 @@ const handleItem = e => {
 	) {
 		removeItemDescriptions();
 		turnDownItemArrow();
+		handleImage('-basic');
 	} else {
 		removeItemDescriptions();
 		addItemDescription(e, itemNumber, itemDescription);
 		turnDownItemArrow();
 		turnUpItemArrow(itemArrow);
+		handleImage(itemNumber);
 	}
 };
 

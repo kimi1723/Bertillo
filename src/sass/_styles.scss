@@ -254,19 +254,21 @@ body {
 // Oferta
 .offer {
 	padding: 2em;
-	background-color: black;
-
+	background: rgb(0, 212, 255);
+	background: linear-gradient(
+		90deg,
+		rgba(0, 212, 255, 1) 0%,
+		rgba(174, 174, 181, 0.30575980392156865) 0%,
+		rgba(49, 55, 54, 0.022846638655462215) 100%
+	);
 	&-box {
-		flex-direction: column;
-		justify-content: space-between;
-
 		&__heading {
 			padding: 1em 0 0.2em;
 			margin-bottom: 1.8em;
 			text-align: center;
 			font-size: 3rem;
-			color: c.$white;
-			border-bottom: 1px solid c.$white;
+			color: c.$matte-black;
+			border-bottom: 1px solid c.$matte-black;
 		}
 	}
 
@@ -278,22 +280,21 @@ body {
 
 		&__list {
 			padding-top: 2em;
-			font-size: 1.8rem;
-			color: c.$white;
 
 			&-item {
 				padding: 1.5em 0 0.5em;
-				border-bottom: 1px solid c.$white;
+				border-bottom: 1px solid c.$matte-black;
 
 				&:last-of-type {
 					border-bottom: none;
 				}
 
 				&-button {
-					font-weight: normal;
-					font-size: 1.8rem;
+					text-align: left;
+					font-weight: bold;
+					font-size: 1.5rem;
+					color: c.$matte-black;
 					outline: none;
-					color: c.$white;
 					background: transparent;
 					border: none;
 					transition: color 0.3s;
@@ -309,6 +310,7 @@ body {
 					display: none;
 					padding: 0.5em 0;
 					font-size: 1.4rem;
+					color: c.$dark;
 				}
 
 				&-description--active {
