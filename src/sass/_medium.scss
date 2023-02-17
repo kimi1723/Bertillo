@@ -60,4 +60,41 @@
 			}
 		}
 	}
+
+	// Oferta
+	.offer {
+		&-box {
+			&__heading {
+				font-size: 4.5rem;
+				margin-bottom: 0.5em;
+			}
+		}
+		&-products-box {
+			display: flex;
+			justify-content: space-around;
+			align-items: flex-start;
+			padding: 1em;
+
+			&__img {
+				margin: 0 1em;
+				max-width: 50%;
+				height: auto;
+				max-height: 410px;
+			}
+
+			&__list {
+				padding-top: 0;
+				width: 45%;
+
+				&-item {
+					&:first-of-type {
+						padding: 0 0 0.5em;
+					}
+					&-button {
+						font-size: 1.8rem;
+					}
+				}
+			}
+		}
+	}
 }

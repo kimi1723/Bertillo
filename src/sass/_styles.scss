@@ -264,7 +264,7 @@ body {
 	&-box {
 		&__heading {
 			padding: 1em 0 0.2em;
-			margin-bottom: 1.8em;
+
 			text-align: center;
 			font-size: 3rem;
 			color: c.$matte-black;
@@ -274,13 +274,13 @@ body {
 
 	&-products-box {
 		&__img {
+			margin: 2em 0 1em;
 			width: 100%;
+			height: 200px;
 			object-fit: cover;
 		}
 
 		&__list {
-			padding-top: 2em;
-
 			&-item {
 				padding: 1.5em 0 0.5em;
 				border-bottom: 1px solid c.$matte-black;
