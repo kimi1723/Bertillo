@@ -1,4 +1,8 @@
 @media (min-width: 576px) {
+	.section {
+		padding: 2em 4em;
+	}
+
 	// Header
 	.header {
 		&-box {
@@ -93,6 +97,30 @@
 					&-button {
 						font-size: 1.8rem;
 					}
+				}
+			}
+		}
+	}
+
+	// Kontakt
+	.contact {
+		&-box {
+			&-form {
+				flex-direction: row;
+				justify-content: space-between;
+				flex-wrap: wrap;
+
+				&__item {
+					&:first-of-type,
+					&:nth-of-type(2),
+					&:nth-of-type(3) {
+						width: 30%;
+					}
+				}
+
+				&__submit-button {
+					left: 100%;
+					transform: translateX(-100%);
 				}
 			}
 		}

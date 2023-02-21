@@ -4,3 +4,13 @@
 	width: 100%;
 	max-width: 1400px;
 }
+
+.section {
+	padding: 2em;
+
+	&__heading {
+		padding: 1em 0 0.2em;
+		text-align: center;
+		font-size: 3rem;
+	}
+}
