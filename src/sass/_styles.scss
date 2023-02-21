@@ -8,7 +8,6 @@ html {
 
 body {
 	font-family: 'Montserrat', sans-serif;
-	height: 300vh;
 }
 
 // Nawigacja
@@ -270,9 +269,9 @@ body {
 
 	&-products-box {
 		&__img {
-			margin: 2em 0 1em;
+			margin: 4em 0 3em;
 			width: 100%;
-			height: 200px;
+			height: 250px;
 			object-fit: cover;
 			border-radius: 8px;
 		}
@@ -423,6 +422,7 @@ body {
 		}
 
 		&__map {
+			margin-top: 3em;
 			width: 100%;
 		}
 	}

@@ -1,6 +1,6 @@
 @media (min-width: 576px) {
 	.section {
-		padding: 2em 4em;
+		padding: 6em 4em;
 	}
 
 	// Header
@@ -33,9 +33,40 @@
 			}
 		}
 	}
+
+	// Oferta
+	.offer {
+		&-products-box {
+			&__img {
+				height: 350px;
+			}
+		}
+	}
+
+	// Kontakt
+	.contact {
+		&-box {
+			&-form {
+				margin: 4em 0;
+
+				&__item {
+					margin: 0.8em 0;
+				}
+			}
+
+			&__map {
+				margin-top: 5em;
+			}
+		}
+	}
 }
 
 @media (min-width: 768px) {
+	.section {
+		&__heading {
+			font-size: 4.5rem;
+		}
+	}
 	// Header
 	.header {
 		background-image: url(/dist/img/desktop/header-bg.jpg);
@@ -69,21 +100,19 @@
 	.offer {
 		&-box {
 			&__heading {
-				font-size: 4.5rem;
 				margin-bottom: 0.5em;
 			}
 		}
+
 		&-products-box {
 			display: flex;
 			justify-content: space-around;
-			align-items: flex-start;
-			padding: 1em;
+			margin: 6em 0;
 
 			&__img {
 				margin: 0 1em;
 				max-width: 50%;
 				height: auto;
-				max-height: 410px;
 			}
 
 			&__list {
@@ -111,6 +140,7 @@
 				flex-wrap: wrap;
 
 				&__item {
+					margin: 1em 0;
 					&:first-of-type,
 					&:nth-of-type(2),
 					&:nth-of-type(3) {
@@ -120,6 +150,7 @@
 
 				&__submit-button {
 					left: 100%;
+					font-size: 2.5rem;
 					transform: translateX(-100%);
 				}
 			}

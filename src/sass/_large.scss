@@ -2,6 +2,15 @@
 	html {
 		scroll-padding-top: 100px;
 	}
+
+	.section {
+		padding: 8em 4em;
+
+		&__heading {
+			font-size: 5rem;
+		}
+	}
+
 	// Nawigacja
 	.navbar {
 		&__logo {
@@ -59,6 +68,17 @@
 			height: clamp(350px, 450px, 550px);
 		}
 	}
+
+	// Kontakt
+	.contact {
+		&-box {
+			&-form {
+				&__item {
+					margin: 1.2em 0;
+				}
+			}
+		}
+	}
 }
 
 @media (min-width: 1200px) {
@@ -98,6 +118,26 @@
 		&-box {
 			&__content {
 				font-size: 1.6rem;
+			}
+		}
+	}
+
+	// Oferta
+	.offer {
+		&-products-box {
+			margin: 8em 0;
+		}
+	}
+
+	// Kontakt
+	.contact {
+		&-box {
+			&-form {
+				margin: 5em 0;
+
+				&__item {
+					margin: 1.5em 0;
+				}
 			}
 		}
 	}
