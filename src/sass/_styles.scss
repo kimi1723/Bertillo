@@ -346,6 +346,54 @@ body {
 				flex-direction: column;
 				margin: 0.3em 0;
 				width: 100%;
+
+				&:last-of-type {
+					flex-direction: row;
+					margin: 0.3em 0 2em;
+					font-size: 1.2rem;
+
+					.contact-box-form__input {
+						position: relative;
+						appearance: none;
+						margin: 0 0.5em 0 0;
+						width: 1.15em;
+						height: 1.15em;
+						font: inherit;
+						color: currentColor;
+						border: 0.15em solid currentColor;
+						border-radius: 0.15em;
+						transition: border 0.3s, box-shadow 0.3s;
+
+						&::before {
+							content: '';
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							width: 0.9em;
+							height: 0.9em;
+							clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+							background-color: c.$leading;
+							transform: translate(-50%, -50%) scale(0);
+							transform-origin: bottom left;
+							transition: 120ms transform ease-in-out;
+						}
+
+						&:checked::before {
+							transform: translate(-50%, -50%) scale(1);
+						}
+
+						&:hover,
+						&:focus {
+							border: 0.15em solid c.$leading;
+							box-shadow: 0 0 5px 2px c.$leading;
+						}
+					}
+
+					.contact-box-form__input,
+					.contact-box-form__label {
+						cursor: pointer;
+					}
+				}
 			}
 
 			&__label {
