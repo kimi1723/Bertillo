@@ -47,8 +47,6 @@
 	.contact {
 		&-box {
 			&-form {
-				margin: 4em 0;
-
 				&__item {
 					margin: 0.8em 0;
 				}
@@ -138,6 +136,7 @@
 				flex-direction: row;
 				justify-content: space-between;
 				flex-wrap: wrap;
+				font-size: 2rem;
 
 				&__item {
 					margin: 1em 0;
@@ -145,6 +144,13 @@
 					&:nth-of-type(2),
 					&:nth-of-type(3) {
 						width: 30%;
+					}
+
+					&:last-of-type {
+						.contact-box-form__input,
+						.contact-box-form__label {
+							font-size: 1.4rem;
+						}
 					}
 				}
 
