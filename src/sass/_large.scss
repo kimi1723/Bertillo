@@ -11,12 +11,12 @@
 		}
 	}
 
+	.logo {
+		font-size: 3.2rem;
+	}
+
 	// Nawigacja
 	.navbar {
-		&__logo {
-			font-size: 3.2rem;
-		}
-
 		&-links {
 			position: relative;
 			top: 0;
@@ -88,6 +88,18 @@
 			}
 		}
 	}
+
+	// Stopka
+	.footer {
+		&-box {
+			padding: 3em 0;
+			&-info {
+				&__list {
+					display: flex;
+				}
+			}
+		}
+	}
 }
 
 @media (min-width: 1200px) {
@@ -95,12 +107,12 @@
 		scroll-padding-top: 113px;
 	}
 
+	.logo {
+		font-size: 3.5rem;
+	}
+
 	// Nawigacja
 	.navbar {
-		&__logo {
-			font-size: 3.5rem;
-		}
-
 		&__link {
 			font-size: 2.6rem;
 		}
@@ -135,6 +147,19 @@
 	.offer {
 		&-products-box {
 			margin: 8em 0;
+		}
+	}
+
+	// Stopka
+	.footer {
+		&-box {
+			&-info {
+				&__list {
+					&-link {
+						font-size: 1.8rem;
+					}
+				}
+			}
 		}
 	}
 }

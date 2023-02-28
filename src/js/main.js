@@ -1,10 +1,12 @@
 const nav = document.querySelector('.navbar');
 const navIcon = document.querySelector('.navbar-hamburger');
 const navLinks = document.querySelectorAll('.navbar__link');
-const logo = document.querySelector('.navbar__logo');
+const logos = document.querySelectorAll('.logo');
 
 const listItems = document.querySelectorAll('.offer-products-box__list-item-button');
 const itemArrowsToRemove = document.querySelectorAll('.fa-chevron-down');
+
+const copyrightSpan = document.querySelector('.footer-box__copyright-year');
 
 const handleNav = () => {
 	nav.classList.toggle('navbar-links--active');
@@ -70,8 +72,15 @@ const handleItem = e => {
 	}
 };
 
+const handleCopyrightYear = () => {
+	const actualYear = new Date().getFullYear();
+	copyrightSpan.textContent = actualYear;
+};
+
 navIcon.addEventListener('click', handleNav);
 navLinks.forEach(link => link.addEventListener('click', handleNav));
-logo.addEventListener('click', handleNavByLogo);
+logos.forEach(logo => logo.addEventListener('click', handleNavByLogo));
 
 listItems.forEach(item => item.addEventListener('click', handleItem));
+
+handleCopyrightYear();
