@@ -3,6 +3,10 @@
 		padding: 6em 4em;
 	}
 
+	.logo {
+		font-size: 3.5rem;
+	}
+
 	// Header
 	.header {
 		&-box {
@@ -81,6 +85,11 @@
 			font-size: 4.5rem;
 		}
 	}
+
+	.logo {
+		font-size: 4rem;
+	}
+
 	// Header
 	.header {
 		background-image: url(/dist/img/desktop/header-bg.jpg);
