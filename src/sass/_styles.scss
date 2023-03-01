@@ -92,7 +92,7 @@ body {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		min-height: 40vh;
+		min-height: calc(100vh - 74px);
 		background-color: c.$white;
 		transform: translateX(102%);
 		opacity: 0;
@@ -179,6 +179,7 @@ body {
 
 // O nas
 .aboutus {
+	padding-top: 8em;
 	color: c.$white;
 
 	&-box {
