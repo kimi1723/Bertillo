@@ -274,7 +274,7 @@ body {
 				&-button {
 					text-align: left;
 					font-weight: bold;
-					font-size: 1.6rem;
+					font-size: 1.8rem;
 					color: c.$matte-black;
 					outline: none;
 					background: transparent;
@@ -293,13 +293,41 @@ body {
 					padding: 0.5em 0;
 					font-size: 1.4rem;
 					color: c.$dark;
-					line-height: 1.5;
+					line-height: 1.4;
+
+					&-bold-text {
+						font-weight: bold;
+					}
+
+					&-single-line-break,
+					&-double-line-break {
+						&::before {
+							white-space: pre;
+						}
+					}
+
+					&-single-line-break {
+						&::before {
+							content: '\a';
+						}
+					}
+
+					&-double-line-break {
+						&::before {
+							content: '\a \a';
+						}
+					}
 
 					&-list {
-						margin-top: 1em;
+						margin-top: 0.6em;
 
 						&-item {
 							margin: 0.6em 0;
+
+							&-heading {
+								font-size: 1.6rem;
+								line-height: 1.1;
+							}
 						}
 					}
 				}

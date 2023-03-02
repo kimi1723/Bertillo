@@ -145,8 +145,21 @@
 					&:first-of-type {
 						padding: 0 0 0.5em;
 					}
+
+					&-description {
+						font-size: 1.6rem;
+
+						&-list {
+							&-item {
+								&-heading {
+									font-size: 1.8rem;
+								}
+							}
+						}
+					}
+
 					&-button {
-						font-size: 1.8rem;
+						font-size: 2rem;
 					}
 				}
 			}
