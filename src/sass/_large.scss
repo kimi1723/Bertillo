@@ -1,6 +1,6 @@
 @media (min-width: 992px) {
 	html {
-		scroll-padding-top: 100px;
+		scroll-padding-top: 109px;
 	}
 
 	.section {
@@ -12,7 +12,7 @@
 	}
 
 	.logo {
-		font-size: 3.2rem;
+		font-size: 4.5rem;
 	}
 
 	// Nawigacja
@@ -102,11 +102,11 @@
 
 @media (min-width: 1200px) {
 	html {
-		scroll-padding-top: 113px;
+		scroll-padding-top: 121px;
 	}
 
 	.logo {
-		font-size: 3.5rem;
+		font-size: 5rem;
 	}
 
 	// Nawigacja
@@ -152,9 +152,17 @@
 			&-info {
 				&__list {
 					&-link {
-						font-size: 1.8rem;
+						font-size: 2rem;
 					}
 				}
+			}
+
+			&__logo {
+				font-size: 6rem;
+			}
+
+			&__copyright {
+				font-size: 1.8rem;
 			}
 		}
 	}

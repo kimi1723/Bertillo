@@ -521,6 +521,10 @@ body {
 		align-items: center;
 		padding: 1.5em 0;
 
+		&__logo {
+			font-size: 4rem;
+		}
+
 		&-info {
 			&__list {
 				text-align: center;
@@ -531,7 +535,7 @@ body {
 
 				&-link {
 					padding: 1em;
-					font-size: 1.4rem;
+					font-size: 1.5rem;
 					color: c.$leading;
 					font-weight: bold;
 					transition: color 0.3s;
@@ -550,7 +554,7 @@ body {
 			padding: 1.5em 0;
 			width: 100%;
 			text-align: center;
-			font-size: 1.2rem;
+			font-size: 1.4rem;
 			color: c.$leading;
 			border-top: 2px solid c.$leading;
 		}

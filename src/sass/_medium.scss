@@ -1,4 +1,8 @@
 @media (min-width: 576px) {
+	html {
+		scroll-padding-top: 85px;
+	}
+
 	.section {
 		padding: 6em 4em;
 	}
@@ -68,18 +72,30 @@
 			flex-direction: row;
 			justify-content: space-around;
 
+			&__logo {
+				font-size: 4.5rem;
+			}
+
 			&-info {
 				&__list {
 					&-link {
-						font-size: 1.6rem;
+						font-size: 1.8rem;
 					}
 				}
+			}
+
+			&__copyright {
+				font-size: 1.6rem;
 			}
 		}
 	}
 }
 
 @media (min-width: 768px) {
+	html {
+		scroll-padding-top: 97px;
+	}
+
 	.section {
 		&__heading {
 			font-size: 4.5rem;
@@ -196,6 +212,15 @@
 					font-size: 2.5rem;
 					transform: translateX(-100%);
 				}
+			}
+		}
+	}
+
+	// Stopka
+	.footer {
+		&-box {
+			&__logo {
+				font-size: 5rem;
 			}
 		}
 	}
