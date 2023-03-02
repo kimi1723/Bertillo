@@ -11,15 +11,31 @@
 		font-size: 3.5rem;
 	}
 
+	// Nawigacja
+	.navbar {
+		&-links {
+			top: 85px;
+			min-height: calc(100vh - 85px);
+		}
+
+		&__link {
+			font-size: 3rem;
+		}
+	}
+
 	// Header
 	.header {
 		&-box {
 			&__heading {
 				font-size: 7rem;
+
+				&-span {
+					font-size: 2.4rem;
+				}
 			}
 
 			&__offer-link {
-				font-size: 2.5rem;
+				font-size: 3rem;
 			}
 		}
 	}
@@ -37,7 +53,13 @@
 				}
 			}
 			&__content {
-				font-size: 1.5rem;
+				font-size: 1.8rem;
+
+				&-link {
+					&:last-of-type {
+						font-size: 2.2rem;
+					}
+				}
 			}
 		}
 	}
@@ -106,6 +128,18 @@
 		font-size: 4rem;
 	}
 
+	// Nawigacja
+	.navbar {
+		&-links {
+			top: 97px;
+			min-height: calc(100vh - 97px);
+		}
+
+		&__link {
+			font-size: 3rem;
+		}
+	}
+
 	// Header
 	.header {
 		background-image: url(/dist/img/desktop/header-bg.jpg);
@@ -126,10 +160,6 @@
 				.fa-solid {
 					font-size: 4.5rem;
 				}
-			}
-
-			&__content {
-				font-size: 1.6rem;
 			}
 		}
 	}

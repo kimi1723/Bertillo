@@ -1,6 +1,6 @@
 @media (min-width: 992px) {
 	html {
-		scroll-padding-top: 109px;
+		scroll-padding-top: 110px;
 	}
 
 	.section {
@@ -29,7 +29,7 @@
 		}
 
 		&__link {
-			font-size: 2.3rem;
+			font-size: 2.5rem;
 		}
 
 		&-hamburger {
@@ -49,7 +49,7 @@
 			}
 
 			&__offer-link {
-				font-size: 3rem;
+				font-size: 3.5rem;
 			}
 		}
 	}
@@ -102,7 +102,7 @@
 
 @media (min-width: 1200px) {
 	html {
-		scroll-padding-top: 121px;
+		scroll-padding-top: 123px;
 	}
 
 	.logo {
@@ -112,30 +112,7 @@
 	// Nawigacja
 	.navbar {
 		&__link {
-			font-size: 2.6rem;
-		}
-	}
-
-	// Header
-	.header {
-		&-box {
-			&__heading {
-				font-size: 9rem;
-
-				&-span,
-				&__offer-link {
-					font-size: 3rem;
-				}
-			}
-		}
-	}
-
-	// O nas
-	.aboutus {
-		&-box {
-			&__content {
-				font-size: 1.6rem;
-			}
+			font-size: 2.8rem;
 		}
 	}
 
@@ -173,7 +150,13 @@
 	.aboutus {
 		&-box {
 			&__content {
-				font-size: 1.8rem;
+				font-size: 2rem;
+
+				&-link {
+					&:last-of-type {
+						font-size: 2.4rem;
+					}
+				}
 			}
 		}
 	}
