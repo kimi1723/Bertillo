@@ -33,3 +33,28 @@
 		color: c.$leading-brighter;
 	}
 }
+
+.link-animation {
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: -1.5%;
+		height: 100%;
+		width: 103%;
+		transform: scaleX(0);
+		background-color: c.$leading-brighter;
+		transition: transform 0.3s;
+		transform-origin: right;
+		z-index: -1;
+	}
+
+	&:hover::before {
+		transform: scaleX(1);
+		transform-origin: left;
+	}
+}
