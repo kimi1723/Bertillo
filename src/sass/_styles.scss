@@ -166,11 +166,11 @@ body {
 			font-size: 2.4rem;
 			color: c.$white;
 			outline: none;
-			border-bottom: 1px solid c.$leading-brighter;
+			border-bottom: 2px solid c.$leading;
 			transition: color 0.3s;
 
 			&::before {
-				bottom: -1px;
+				bottom: -2px;
 			}
 
 			&:hover,
@@ -228,20 +228,27 @@ body {
 				outline: none;
 				transition: color 0.3s;
 
+				&:first-of-type {
+					&:hover,
+					&:focus {
+						color: c.$leading-brighter;
+					}
+				}
+
 				&:last-of-type {
 					padding-bottom: 3px;
 					font-size: 2rem;
 					font-weight: bold;
-					border-bottom: 3px solid c.$leading-brighter;
+					border-bottom: 3px solid c.$leading;
 
 					&::before {
 						bottom: -3px;
 					}
-				}
 
-				&:hover,
-				&:focus {
-					text-shadow: 1px 1px 2px c.$dark;
+					&:hover,
+					&:focus {
+						text-shadow: 1px 1px 2px c.$dark;
+					}
 				}
 			}
 		}
@@ -266,12 +273,47 @@ body {
 	}
 
 	&-products-box {
-		&__img {
+		&-images {
+			position: relative;
 			margin: 4em 0 3em;
-			width: 100%;
-			height: 250px;
-			object-fit: cover;
-			border-radius: 8px;
+
+			&__img {
+				width: 100%;
+				height: 250px;
+				object-fit: cover;
+				border-radius: 8px;
+			}
+
+			&__btn {
+				position: absolute;
+				top: 50%;
+				padding: 0.5em 0.6em;
+				color: c.$white;
+				font-size: 2rem;
+				background-color: rgba(0, 0, 0, 0.8);
+				border: none;
+				transform: translateY(-50%);
+				cursor: pointer;
+
+				&-span {
+					display: block;
+					transition: transform 0.3s;
+				}
+
+				&:hover {
+					.offer-products-box-images__btn-span {
+						transform: scale(0.85);
+					}
+				}
+
+				&--left {
+					left: 0;
+				}
+
+				&--right {
+					right: 0;
+				}
+			}
 		}
 
 		&__list {
@@ -356,8 +398,6 @@ body {
 .contact {
 	background: rgb(2, 0, 36);
 	background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 1) 100%, rgba(112, 112, 112, 1) 100%);
-
-	// background-color: #282f6c;
 
 	&-box {
 		display: flex;
@@ -522,9 +562,6 @@ body {
 .footer {
 	position: relative;
 	padding: 3em 2em 6em;
-	// background-color: #090839;
-	// background: rgb(2, 0, 36);
-	// background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 1) 100%, rgba(112, 112, 112, 1) 100%);
 	background-color: c.$white;
 
 	&-box {
@@ -552,7 +589,8 @@ body {
 					font-weight: bold;
 					transition: color 0.3s;
 
-					&:hover {
+					&:hover,
+					&:focus {
 						color: c.$leading-brighter;
 					}
 				}

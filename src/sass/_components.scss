@@ -47,13 +47,14 @@
 		height: 100%;
 		width: 103%;
 		transform: scaleX(0);
-		background-color: c.$leading-brighter;
+		background-color: c.$leading-lighter;
 		transition: transform 0.3s;
 		transform-origin: right;
 		z-index: -1;
 	}
 
-	&:hover::before {
+	&:hover::before,
+	&:focus::before {
 		transform: scaleX(1);
 		transform-origin: left;
 	}

@@ -3,6 +3,29 @@ const navIcon = document.querySelector('.navbar-hamburger');
 const navLinks = document.querySelectorAll('.navbar__link');
 const logos = document.querySelectorAll('.logo');
 
+const imageCarouselBtns = document.querySelectorAll('.offer-products-box-images__btn');
+let imageNumber = 0;
+
+const changeImage = e => {
+	const image = document.querySelector('.offer-products-box-images__img');
+
+	if (e.target.dataset.direction === 'right' && imageNumber !== 2) {
+		imageNumber++;
+		image.setAttribute('src', `/dist/img/mobile/img${imageNumber}.jpg`);
+	} else if (e.target.dataset.direction === 'left' && imageNumber !== 0) {
+		imageNumber--;
+		image.setAttribute('src', `/dist/img/mobile/img${imageNumber}.jpg`);
+	} else if (e.target.dataset.direction === 'left' && imageNumber === 0) {
+		imageNumber = 2;
+		image.setAttribute('src', `/dist/img/mobile/img${imageNumber}.jpg`);
+	} else if (e.target.dataset.direction === 'right' && imageNumber === 2) {
+		imageNumber = 0;
+		image.setAttribute('src', `/dist/img/mobile/img${imageNumber}.jpg`);
+	}
+};
+
+imageCarouselBtns.forEach(btn => btn.addEventListener('click', changeImage));
+
 const listItems = document.querySelectorAll('.offer-products-box__list-item-button');
 const itemArrowsToRemove = document.querySelectorAll('.fa-chevron-down');
 

@@ -67,8 +67,10 @@
 	// Oferta
 	.offer {
 		&-products-box {
-			&__img {
-				height: 350px;
+			&-images {
+				&__img {
+					height: 350px;
+				}
 			}
 		}
 	}
@@ -177,10 +179,13 @@
 			justify-content: space-around;
 			margin: 6em 0;
 
-			&__img {
+			&-images {
 				margin: 0 1em;
 				max-width: 50%;
-				height: auto;
+
+				&__img {
+					height: auto;
+				}
 			}
 
 			&__list {
