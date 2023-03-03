@@ -3,28 +3,9 @@ const navIcon = document.querySelector('.navbar-hamburger');
 const navLinks = document.querySelectorAll('.navbar__link');
 const logos = document.querySelectorAll('.logo');
 
+const image = document.querySelector('.offer-products-box-images__img');
 const imageCarouselBtns = document.querySelectorAll('.offer-products-box-images__btn');
 let imageNumber = 0;
-
-const changeImage = e => {
-	const image = document.querySelector('.offer-products-box-images__img');
-
-	if (e.target.dataset.direction === 'right' && imageNumber !== 2) {
-		imageNumber++;
-		image.setAttribute('src', `/dist/img/mobile/img${imageNumber}.jpg`);
-	} else if (e.target.dataset.direction === 'left' && imageNumber !== 0) {
-		imageNumber--;
-		image.setAttribute('src', `/dist/img/mobile/img${imageNumber}.jpg`);
-	} else if (e.target.dataset.direction === 'left' && imageNumber === 0) {
-		imageNumber = 2;
-		image.setAttribute('src', `/dist/img/mobile/img${imageNumber}.jpg`);
-	} else if (e.target.dataset.direction === 'right' && imageNumber === 2) {
-		imageNumber = 0;
-		image.setAttribute('src', `/dist/img/mobile/img${imageNumber}.jpg`);
-	}
-};
-
-imageCarouselBtns.forEach(btn => btn.addEventListener('click', changeImage));
 
 const listItems = document.querySelectorAll('.offer-products-box__list-item-button');
 const itemArrowsToRemove = document.querySelectorAll('.fa-chevron-down');
@@ -43,9 +24,23 @@ const handleNavByLogo = () => {
 	}
 };
 
-const handleImage = itemNumber => {
-	const image = document.querySelector('.offer-products-box__img');
+const changeImage = e => {
+	if (e.target.dataset.direction === 'right' && imageNumber !== 3) {
+		imageNumber++;
+		image.setAttribute('src', `/dist/img/mobile/img${imageNumber}.jpg`);
+	} else if (e.target.dataset.direction === 'left' && imageNumber !== 0) {
+		imageNumber--;
+		image.setAttribute('src', `/dist/img/mobile/img${imageNumber}.jpg`);
+	} else if (e.target.dataset.direction === 'left' && imageNumber === 0) {
+		imageNumber = 3;
+		image.setAttribute('src', `/dist/img/mobile/img${imageNumber}.jpg`);
+	} else if (e.target.dataset.direction === 'right' && imageNumber === 3) {
+		imageNumber = 0;
+		image.setAttribute('src', `/dist/img/mobile/img${imageNumber}.jpg`);
+	}
+};
 
+const handleImage = itemNumber => {
 	image.setAttribute('src', `/dist/img/mobile/img${itemNumber}.jpg`);
 };
 
@@ -81,17 +76,44 @@ const handleItem = e => {
 
 	if (
 		itemDescription.classList.contains('offer-products-box__list-item-description--active') &&
-		itemArrow.classList.contains('fa-chevron-up')
+		itemArrow.classList.contains('fa-chevron-up') &&
+		e.target.dataset.item != 3
 	) {
 		removeItemDescriptions();
 		turnDownItemArrow();
-		handleImage('-basic');
+		handleImage('0');
+	} else if (
+		itemDescription.classList.contains('offer-products-box__list-item-description--active') &&
+		itemArrow.classList.contains('fa-chevron-up') &&
+		e.target.dataset.item == 3
+	) {
+		removeItemDescriptions();
+		turnDownItemArrow();
+		handleImage('0');
+
+		imageCarouselBtns.forEach(btn => {
+			btn.classList.add('offer-products-box-images__btn--hidden');
+		});
+	} else if (e.target.dataset.item == 3) {
+		removeItemDescriptions();
+		addItemDescription(e, itemNumber, itemDescription);
+		turnDownItemArrow();
+		turnUpItemArrow(itemArrow);
+		handleImage(itemNumber);
+
+		imageCarouselBtns.forEach(btn => {
+			btn.classList.remove('offer-products-box-images__btn--hidden');
+		});
 	} else {
 		removeItemDescriptions();
 		addItemDescription(e, itemNumber, itemDescription);
 		turnDownItemArrow();
 		turnUpItemArrow(itemArrow);
 		handleImage(itemNumber);
+
+		imageCarouselBtns.forEach(btn => {
+			btn.classList.add('offer-products-box-images__btn--hidden');
+		});
 	}
 };
 
@@ -103,6 +125,8 @@ const handleCopyrightYear = () => {
 navIcon.addEventListener('click', handleNav);
 navLinks.forEach(link => link.addEventListener('click', handleNav));
 logos.forEach(logo => logo.addEventListener('click', handleNavByLogo));
+
+imageCarouselBtns.forEach(btn => btn.addEventListener('click', changeImage));
 
 listItems.forEach(item => item.addEventListener('click', handleItem));
 
