@@ -24,7 +24,7 @@ const handleNavByLogo = () => {
 	}
 };
 
-const changeImage = e => {
+const changeCarouselImage = e => {
 	if (e.target.dataset.direction === 'right' && imageNumber !== 3) {
 		imageNumber++;
 		image.setAttribute('src', `/dist/img/mobile/img${imageNumber}.jpg`);
@@ -126,7 +126,7 @@ navIcon.addEventListener('click', handleNav);
 navLinks.forEach(link => link.addEventListener('click', handleNav));
 logos.forEach(logo => logo.addEventListener('click', handleNavByLogo));
 
-imageCarouselBtns.forEach(btn => btn.addEventListener('click', changeImage));
+imageCarouselBtns.forEach(btn => btn.addEventListener('click', changeCarouselImage));
 
 listItems.forEach(item => item.addEventListener('click', handleItem));
 
