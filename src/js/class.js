@@ -70,7 +70,7 @@ const handleCarousel = e => {
 		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
 	}
 };
-// data-offer-type="" data-images="" data-display-src-path=""
+
 imageCarouselBtns.forEach(btn => btn.addEventListener('click', handleCarousel));
 
 CreateOfferDisplay.prototype.handleOfferDisplay = function (e) {
@@ -94,7 +94,7 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function (e) {
 
 const handleOfferType = e => {
 	displaySrcPath = e.target.dataset.displaySrcPath;
-	numberOfImages = e.target.dataset.images;
+	numberOfImages = e.target.dataset.numberOfImages;
 
 	const offerType = e.target.dataset.offerType;
 	const itemNumber = e.target.dataset.item;
