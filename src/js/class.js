@@ -1,7 +1,7 @@
 const listItems = document.querySelectorAll('.offer-products-box__list-item-button');
 const imageCarouselBtns = document.querySelectorAll('.offer-products-box-images__btn');
 const image = document.querySelector('.offer-products-box-images__img');
-let imageNumber, displaySrcPath;
+let imageNumber, displaySrcPath, numberOfImages;
 
 class CreateOfferDisplay {
 	constructor(offerType, itemNumber, displaySrcPath, numberOfImages) {
@@ -30,6 +30,11 @@ const handleItemVariables = itemNumber => {
 		itemDescription.classList.remove('offer-products-box__list-item-description--active');
 
 		image.setAttribute('src', `/dist/img/offer/main-image.webp`);
+		image.setAttribute(
+			'alt',
+			`Opis standardowych rozwiązań obróbek blacharskich, które wykonujemy według potrzeb klienta. Standardowa długość obróbki wynosi 2m.`,
+		);
+
 		imageCarouselBtns.forEach(btn => {
 			btn.classList.add('offer-products-box-images__btn--hidden');
 		});
@@ -51,15 +56,21 @@ const handleItemVariables = itemNumber => {
 const handleCarousel = e => {
 	const image = document.querySelector('.offer-products-box-images__img');
 
-	if (e.target.dataset.direction === 'right') {
+	if (e.target.dataset.direction === 'right' && imageNumber != numberOfImages) {
 		imageNumber++;
 		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
-	} else if (e.target.dataset.direction === 'left') {
+	} else if (e.target.dataset.direction === 'left' && imageNumber !== 1) {
 		imageNumber--;
+		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
+	} else if (e.target.dataset.direction === 'left' && imageNumber === 1) {
+		imageNumber = numberOfImages;
+		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${numberOfImages}.webp`);
+	} else if (e.target.dataset.direction === 'right' && imageNumber == numberOfImages) {
+		imageNumber = 1;
 		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
 	}
 };
-
+// data-offer-type="" data-images="" data-display-src-path=""
 imageCarouselBtns.forEach(btn => btn.addEventListener('click', handleCarousel));
 
 CreateOfferDisplay.prototype.handleOfferDisplay = function (e) {
@@ -67,6 +78,7 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function (e) {
 
 	imageNumber = 1;
 	image.setAttribute('src', `/dist/img/offer/${this.displaySrcPath}/${imageNumber}.webp`);
+	image.setAttribute('alt', `Wybrana obróbka blacharska`);
 
 	if (this.offerType === 'carousel') {
 		imageCarouselBtns.forEach(btn => {
@@ -82,9 +94,11 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function (e) {
 
 const handleOfferType = e => {
 	displaySrcPath = e.target.dataset.displaySrcPath;
+	numberOfImages = e.target.dataset.images;
+
 	const offerType = e.target.dataset.offerType;
 	const itemNumber = e.target.dataset.item;
-	const numberOfImages = e.target.dataset.images;
+
 	const chosenOffer = new CreateOfferDisplay(offerType, itemNumber, displaySrcPath, numberOfImages);
 
 	chosenOffer.handleOfferDisplay(e);
