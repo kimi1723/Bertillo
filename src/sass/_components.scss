@@ -54,7 +54,7 @@
 	}
 
 	&:hover::before,
-	&:focus::befores {
+	&:focus::before {
 		transform: scaleX(1);
 		transform-origin: left;
 	}

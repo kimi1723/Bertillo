@@ -177,6 +177,7 @@
 		&-products-box {
 			display: flex;
 			justify-content: space-around;
+			align-items: center;
 			margin: 6em 0;
 
 			&-images {
@@ -184,7 +185,9 @@
 				max-width: 50%;
 
 				&__img {
+					min-height: 600px;
 					height: auto;
+					max-height: 700px;
 				}
 			}
 
