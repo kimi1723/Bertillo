@@ -120,6 +120,68 @@ const handleOfferType = e => {
 	chosenOffer.handleOfferDisplay(e);
 };
 
+const submitFormBtn = document.querySelector('.contact-box-form__submit-button');
+
+const sendEmail = (userName, userEmail, userTel, userMsg) => {
+	Email.send({
+		SecureToken: 'f92e3f5f-f024-4385-8998-1d6a74ce63ad',
+		// Host: 'smtp.elasticemail.com',
+		// Username: 'patrykskontakt@gmail.com',
+		// Password: 'C1FED554B7A98FE1B9DA05D889B9109DBDB2',
+		To: 'asdasdq391@gmail.com',
+		From: 'patrykskontakt@gmail.com',
+		Subject: `Wiadomość kontaktowa od ${userEmail.value}`,
+		Body: `<b> Imię: </b> ${userName.value} <br>
+			<b> E-mail: </b> ${userEmail.value}		<br>
+			<b> Numer tel.: </b> ${userTel.value} <br>
+			<b> Treść wiadomości: </b> ${userMsg.value}`,
+	}).then(message => alert('wiadomosc wyslana'));
+};
+
+const resetForm = (userName, userEmail, userTel, userMsg) => {
+	userName.value = '';
+	userEmail.value = '';
+	userTel.value = '';
+	userMsg.value = '';
+};
+
+const handleEmail = e => {
+	e.preventDefault();
+
+	const userName = document.querySelector('#name');
+	const userEmail = document.querySelector('#email');
+	const userTel = document.querySelector('#tel');
+	const userMsg = document.querySelector('#message');
+
+	const nameValidation = /^[a-z\s]*$/gi;
+	const emailValidation = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/gi;
+	const telValidation =
+		/^(\+{0,})(\d{0,})([(]{1}\d{1,3}[)]{0,}){0,}(\s?\d+|\+\d{2,3}\s{1}\d+|\d+){1}[\s|-]?\d+([\s|-]?\d+){1,2}(\s){0,}$/gm;
+
+	if (
+		userName.value.length >= 3 &&
+		userName.value.match(nameValidation) &&
+		userEmail.value.match(emailValidation) &&
+		userTel.value.length >= 9 &&
+		userTel.value.match(telValidation) &&
+		userMsg.value.length >= 3
+	) {
+		const messageSentBox = document.querySelector('.contact-box-form-message-sent');
+		const confirmButton = document.querySelector('.contact-box-form-message-sent-content__confirm-button');
+
+		messageSentBox.classList.remove('contact-box-form-message-sent--hidden');
+		confirmButton.addEventListener('click', e => {
+			e.preventDefault();
+			messageSentBox.classList.add('contact-box-form-message-sent--hidden');
+		});
+
+		// sendEmail(userName, userEmail, userTel, userMsg);
+		// resetForm(userName, userEmail, userTel, userMsg);
+	} else {
+		console.log('err');
+	}
+};
+
 const handleCopyrightYear = () => {
 	const actualYear = new Date().getFullYear();
 	copyrightSpan.textContent = actualYear;
@@ -131,5 +193,7 @@ logos.forEach(logo => logo.addEventListener('click', handleNavByLogo));
 
 imageCarouselBtns.forEach(btn => btn.addEventListener('click', handleCarousel));
 listItems.forEach(item => item.addEventListener('click', handleOfferType));
+
+submitFormBtn.addEventListener('click', handleEmail);
 
 handleCopyrightYear();

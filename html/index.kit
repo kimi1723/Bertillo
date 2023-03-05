@@ -161,7 +161,8 @@
                                         data-offer-type="carousel" data-number-of-images="11"
                                         data-display-src-path="czerpnie-powietrza">Czerpnie powietrza <i
                                             class="fa-solid fa-chevron-down" data-item="2" data-offer-type="carousel"
-                                            data-number-of-images="11" data-display-src-path="czerpnie-powietrza"></i></button>
+                                            data-number-of-images="11"
+                                            data-display-src-path="czerpnie-powietrza"></i></button>
                                 </h3>
                                 <div class="offer-products-box__list-item-description" data-description="2">
                                     <p>Czerpnia powietrza jest to element instalacji wentylacyjnej lub klimatyzacyjnej,
@@ -180,7 +181,8 @@
                                         data-offer-type="carousel" data-number-of-images="5"
                                         data-display-src-path="przedluzki-kominowe">Przedłużki kominowe
                                         <i class="fa-solid fa-chevron-down" data-item="3" data-offer-type="carousel"
-                                            data-number-of-images="5" data-display-src-path="przedluzki-kominowe"></i></button>
+                                            data-number-of-images="5"
+                                            data-display-src-path="przedluzki-kominowe"></i></button>
                                 </h3>
                                 <div class="offer-products-box__list-item-description" data-description="3">
                                     <p>Przedłużka kominowa stosowana jest na przewody dymne w celu przedłużenia komina
@@ -291,7 +293,8 @@
 
                             <li class="offer-products-box__list-item">
                                 <h3><button type="button" class="offer-products-box__list-item-button" data-item="7"
-                                        data-offer-type="carousel" data-number-of-images="6" data-display-src-path="rura">Rura
+                                        data-offer-type="carousel" data-number-of-images="6"
+                                        data-display-src-path="rura">Rura
                                         <i class="fa-solid fa-chevron-down" data-item="7" data-offer-type="carousel"
                                             data-number-of-images="6" data-display-src-path="rura"></i></button></h3>
                                 <div class="offer-products-box__list-item-description" data-description="7">
@@ -399,7 +402,8 @@
                                         data-offer-type="carousel" data-number-of-images="6"
                                         data-display-src-path="parapety">Parapety stalowe
                                         <i class="fa-solid fa-chevron-down" data-item="13" data-offer-type="carousel"
-                                            data-number-of-images="6" data-display-src-path="parapety"></i></button></h3>
+                                            data-number-of-images="6" data-display-src-path="parapety"></i></button>
+                                </h3>
                                 <div class="offer-products-box__list-item-description" data-description="13">
                                     <p>Doskonale wiedząc, jakie warunki muszą przede wszystkim spełniać parapety
                                         montowane na zewnątrz budynków, w produkcji swoich modeli wykonanych ze stali
@@ -519,7 +523,7 @@
                             <label for="tel" class="contact-box-form__label"><i
                                     class="fa-solid fa-phone  contact-box-form__icon"></i>
                                 Telefon:</label>
-                            <input type="tel" id="tel" class="contact-box-form__input">
+                            <input type="tel" id="tel" class="contact-box-form__input" minlength="9" maxlength="15">
                         </div>
 
                         <div class="contact-box-form__item">
@@ -529,7 +533,7 @@
                             <textarea id="message" cols="30" rows="10" class="contact-box-form__textarea"></textarea>
                         </div>
 
-                        <div class="contact-box-form__item">
+                        <div class="contact-box-form__item ">
                             <input type="checkbox" id="data-processing" class="contact-box-form__input"> <label
                                 for="data-processing" class="contact-box-form__label">Wyrażam zgodę na
                                 przetwarzanie moich danych osobowych podanych w
@@ -540,6 +544,17 @@
                         <button type="submit" id="submit" class="contact-box-form__submit-button">Wyślij wiadomość
                         </button>
 
+                        <div class="contact-box-form-message-sent contact-box-form-message-sent--hidden">
+                            <div class="contact-box-form-message-sent-content">
+                                <p class="contact-box-form-message-sent-content__text"> Twoja wiadomość została wysłana.
+                                    <span
+                                        class="contact-box-form-message-sent-content__text--single-line-break">Skontaktujemy
+                                        się z tobą najszybciej jak to możliwe!</span>
+                                </p>
+
+                                <button class="contact-box-form-message-sent-content__confirm-button">Ok</button>
+                            </div>
+                        </div>
 
                     </form>
 
@@ -552,6 +567,7 @@
             </div>
 
         </section>
+
     </main>
 
     <!-- @include 'footer' -->

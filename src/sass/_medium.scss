@@ -237,7 +237,7 @@
 						width: 30%;
 					}
 
-					&:last-of-type {
+					&:nth-of-type(5) {
 						.contact-box-form__input,
 						.contact-box-form__label {
 							font-size: 1.4rem;

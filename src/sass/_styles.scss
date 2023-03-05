@@ -276,6 +276,7 @@ body {
 		&-images {
 			position: relative;
 			margin: 4em 0 3em;
+			width: 100%;
 
 			&__img {
 				width: 100%;
@@ -415,6 +416,7 @@ body {
 		}
 
 		&-form {
+			position: relative;
 			display: flex;
 			flex-direction: column;
 			margin: 3em 0;
@@ -422,13 +424,77 @@ body {
 			font-size: 1.8rem;
 			color: c.$white;
 
+			&-message-sent {
+				position: fixed;
+				top: 0;
+				left: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				opacity: 1;
+				height: 100vh;
+				width: 100vw;
+				background-color: rgba(0, 0, 0, 0.5);
+				z-index: 1000;
+				padding: 0 0.5em;
+				transform: scale(1);
+				transition: opacity 0.5s;
+
+				&--hidden {
+					opacity: 0;
+					transform: scale(0);
+				}
+
+				&-content {
+					display: flex;
+					flex-direction: column;
+					padding: 1em 2em;
+					text-align: center;
+					border-radius: 8px;
+					box-shadow: 0 0 5px 1px c.$dark;
+					background-color: c.$matte-black;
+
+					&__text {
+						color: c.$white;
+
+						&--single-line-break {
+							&::before {
+								content: '\a';
+								white-space: pre;
+							}
+						}
+					}
+
+					&__confirm-button {
+						align-self: flex-end;
+						margin-top: 1em;
+						padding: 0.6em 1.2em;
+						font-size: 1.6rem;
+						text-transform: uppercase;
+						color: c.$white;
+						background: c.$matte-black;
+						border: transparent;
+						outline: none;
+						border-radius: 8px;
+						box-shadow: 0 0 5px 2px c.$dark;
+						transition: background-color 0.3s;
+						cursor: pointer;
+
+						&:hover,
+						&:focus {
+							background-color: c.$dark;
+						}
+					}
+				}
+			}
+
 			&__item {
 				display: flex;
 				flex-direction: column;
 				margin: 0.3em 0;
 				width: 100%;
 
-				&:last-of-type {
+				&:nth-of-type(5) {
 					flex-direction: row;
 					margin: 0.3em 0 2em;
 					font-size: 1.2rem;
