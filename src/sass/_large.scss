@@ -1,6 +1,6 @@
 @media (min-width: 992px) {
 	html {
-		scroll-padding-top: 110px;
+		scroll-padding-top: 100px;
 	}
 
 	.section {
@@ -29,6 +29,7 @@
 		}
 
 		&__link {
+			margin: 0;
 			font-size: 2.5rem;
 		}
 
@@ -83,6 +84,12 @@
 						}
 					}
 				}
+
+				&-message-sent {
+					&-content {
+						width: 60%;
+					}
+				}
 			}
 		}
 	}
@@ -126,7 +133,7 @@
 
 @media (min-width: 1200px) {
 	html {
-		scroll-padding-top: 123px;
+		scroll-padding-top: 101px;
 	}
 
 	.logo {
@@ -144,6 +151,19 @@
 	.offer {
 		&-products-box {
 			margin: 8em 0;
+		}
+	}
+
+	// Kontakt
+	.contact {
+		&-box {
+			&-form {
+				&-message-sent {
+					&-content {
+						width: 50%;
+					}
+				}
+			}
 		}
 	}
 
@@ -179,6 +199,19 @@
 				&-link {
 					&:last-of-type {
 						font-size: 2.4rem;
+					}
+				}
+			}
+		}
+	}
+
+	// Kontakt
+	.contact {
+		&-box {
+			&-form {
+				&-message-sent {
+					&-content {
+						width: 45%;
 					}
 				}
 			}

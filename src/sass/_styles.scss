@@ -424,70 +424,6 @@ body {
 			font-size: 1.8rem;
 			color: c.$white;
 
-			&-message-sent {
-				position: fixed;
-				top: 0;
-				left: 0;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				opacity: 1;
-				height: 100vh;
-				width: 100vw;
-				background-color: rgba(0, 0, 0, 0.5);
-				z-index: 1000;
-				padding: 0 0.5em;
-				transform: scale(1);
-				transition: opacity 0.5s;
-
-				&--hidden {
-					opacity: 0;
-					transform: scale(0);
-				}
-
-				&-content {
-					display: flex;
-					flex-direction: column;
-					padding: 1em 2em;
-					text-align: center;
-					border-radius: 8px;
-					box-shadow: 0 0 5px 1px c.$dark;
-					background-color: c.$matte-black;
-
-					&__text {
-						color: c.$white;
-
-						&--single-line-break {
-							&::before {
-								content: '\a';
-								white-space: pre;
-							}
-						}
-					}
-
-					&__confirm-button {
-						align-self: flex-end;
-						margin-top: 1em;
-						padding: 0.6em 1.2em;
-						font-size: 1.6rem;
-						text-transform: uppercase;
-						color: c.$white;
-						background: c.$matte-black;
-						border: transparent;
-						outline: none;
-						border-radius: 8px;
-						box-shadow: 0 0 5px 2px c.$dark;
-						transition: background-color 0.3s;
-						cursor: pointer;
-
-						&:hover,
-						&:focus {
-							background-color: c.$dark;
-						}
-					}
-				}
-			}
-
 			&__item {
 				display: flex;
 				flex-direction: column;
@@ -554,8 +490,17 @@ body {
 			}
 
 			&__icon {
-				color: c.$leading;
 				margin-right: 0.4em;
+				color: c.$leading;
+			}
+
+			&__error-message {
+				margin-right: 1em;
+				font-size: 1.3rem;
+				color: c.$leading-brighter;
+
+				&--data-processing {
+				}
 			}
 
 			&__input,
@@ -619,6 +564,84 @@ body {
 					}
 				}
 			}
+
+			&-message-sent {
+				&-bg {
+					position: fixed;
+					top: 0;
+					left: 0;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					opacity: 1;
+					height: 100vh;
+					width: 100vw;
+					background-color: rgba(0, 0, 0, 0.5);
+					z-index: 1000;
+					padding: 0 0.5em;
+					transform: scale(1);
+					transition: opacity 0.5s;
+
+					&--hidden {
+						opacity: 0;
+						transform: scale(0);
+					}
+				}
+
+				&-content {
+					position: fixed;
+					top: 50%;
+					left: 50%;
+					display: flex;
+					flex-direction: column;
+					padding: 1em 2em;
+					width: 90%;
+					text-align: center;
+					border-radius: 8px;
+					box-shadow: 0 0 5px 1px c.$dark;
+					background-color: c.$matte-black;
+					transform: translate(-50%, -50%) scale(1);
+					transition: opacity 0.5s, transform 0.5s;
+					z-index: 1000;
+
+					&--hidden {
+						opacity: 0;
+						transform: translate(-50%, -50%) scale(0);
+					}
+
+					&__text {
+						color: c.$white;
+
+						&--single-line-break {
+							&::before {
+								content: '\a';
+								white-space: pre;
+							}
+						}
+					}
+
+					&__confirm-button {
+						align-self: flex-end;
+						margin-top: 1em;
+						padding: 0.6em 1.2em;
+						font-size: 1.6rem;
+						text-transform: uppercase;
+						color: c.$white;
+						background: c.$matte-black;
+						border: transparent;
+						outline: none;
+						border-radius: 8px;
+						box-shadow: 0 0 5px 2px c.$dark;
+						transition: background-color 0.3s;
+						cursor: pointer;
+
+						&:hover,
+						&:focus {
+							background-color: c.$dark;
+						}
+					}
+				}
+			}
 		}
 
 		&__map {
@@ -631,7 +654,7 @@ body {
 // Stopka
 .footer {
 	position: relative;
-	padding: 3em 2em 6em;
+	padding: 0 2em 6em;
 	background-color: c.$white;
 
 	&-box {

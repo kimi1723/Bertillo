@@ -510,20 +510,35 @@
                                     class="fa-solid fa-user contact-box-form__icon"></i>
                                 Imię:</label>
                             <input type="text" id="name" class="contact-box-form__input">
+
+                            <p class="contact-box-form__error-message contact-box-form__error-message--name"><i
+                                    class="fa-solid fa-circle-exclamation"></i> Imię może zawierać tylko litery oraz
+                                musi
+                                posiadać minimum trzy znaki!</p>
+
                         </div>
 
                         <div class="contact-box-form__item">
                             <label for="email" class="contact-box-form__label"><i
                                     class="fa-solid fa-envelope  contact-box-form__icon"></i>
                                 E-mail:</label>
+
                             <input type="email" id="email" class="contact-box-form__input">
+                            <p class="contact-box-form__error-message contact-box-form__error-message--email"><i
+                                    class="fa-solid fa-circle-exclamation"></i> Podaj prawidłowy adres e-mail!</p>
+
                         </div>
 
                         <div class="contact-box-form__item">
                             <label for="tel" class="contact-box-form__label"><i
                                     class="fa-solid fa-phone  contact-box-form__icon"></i>
                                 Telefon:</label>
+
                             <input type="tel" id="tel" class="contact-box-form__input" minlength="9" maxlength="15">
+
+                            <p class="contact-box-form__error-message contact-box-form__error-message--"><i
+                                    class="fa-solid fa-circle-exclamation"></i> Numer telefonu musi składać się z minimum 9 liczb!</p>
+
                         </div>
 
                         <div class="contact-box-form__item">
@@ -531,6 +546,11 @@
                                     class="fa-solid fa-message contact-box-form__icon"></i>
                                 Wiadomość:</label>
                             <textarea id="message" cols="30" rows="10" class="contact-box-form__textarea"></textarea>
+
+                            <p class="contact-box-form__error-message contact-box-form__error-message--"><i
+                                    class="fa-solid fa-circle-exclamation"></i> Wiadomość musi zawierać minimum 3 znaki!
+                            </p>
+
                         </div>
 
                         <div class="contact-box-form__item ">
@@ -539,23 +559,29 @@
                                 przetwarzanie moich danych osobowych podanych w
                                 powyższym formularzu w celu
                                 [CEL ZBIERANIA DANYCH] przez [DANE FIRMY] oraz przez podmioty trzecie.</label>
+
+                            <p class="contact-box-form__error-message contact-box-form__error-message--data-processing"><i
+                                    class="fa-solid fa-circle-exclamation"></i> Aby wysłać wiadomość musisz zaakceptować
+                                zgodę na przetwarzanie danych osobowych!</p>
+
                         </div>
 
                         <button type="submit" id="submit" class="contact-box-form__submit-button">Wyślij wiadomość
                         </button>
 
-                        <div class="contact-box-form-message-sent contact-box-form-message-sent--hidden">
-                            <div class="contact-box-form-message-sent-content">
-                                <p class="contact-box-form-message-sent-content__text"> Twoja wiadomość została wysłana.
-                                    <span
-                                        class="contact-box-form-message-sent-content__text--single-line-break">Skontaktujemy
-                                        się z tobą najszybciej jak to możliwe!</span>
-                                </p>
+                        <div class="contact-box-form-message-sent-bg contact-box-form-message-sent-bg--hidden">
 
-                                <button class="contact-box-form-message-sent-content__confirm-button">Ok</button>
-                            </div>
                         </div>
+                        <div
+                            class="contact-box-form-message-sent-content contact-box-form-message-sent-content--hidden">
+                            <p class="contact-box-form-message-sent-content__text"> Twoja wiadomość została wysłana.
+                                <span
+                                    class="contact-box-form-message-sent-content__text--single-line-break">Skontaktujemy
+                                    się z tobą najszybciej jak to możliwe!</span>
+                            </p>
 
+                            <button class="contact-box-form-message-sent-content__confirm-button">Ok</button>
+                        </div>
                     </form>
 
                     <iframe title="Google maps" id="map" class="contact-box__map"

@@ -152,6 +152,7 @@ const handleEmail = e => {
 	const userEmail = document.querySelector('#email');
 	const userTel = document.querySelector('#tel');
 	const userMsg = document.querySelector('#message');
+	const dataProcessingButton = document.querySelector('#data-processing');
 
 	const nameValidation = /^[a-z\s]*$/gi;
 	const emailValidation = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/gi;
@@ -164,20 +165,32 @@ const handleEmail = e => {
 		userEmail.value.match(emailValidation) &&
 		userTel.value.length >= 9 &&
 		userTel.value.match(telValidation) &&
-		userMsg.value.length >= 3
+		userMsg.value.length >= 3 &&
+		dataProcessingButton.checked
 	) {
-		const messageSentBox = document.querySelector('.contact-box-form-message-sent');
+		const messageSentBackground = document.querySelector('.contact-box-form-message-sent-bg');
+		const messageSentContent = document.querySelector('.contact-box-form-message-sent-content');
 		const confirmButton = document.querySelector('.contact-box-form-message-sent-content__confirm-button');
+		const eventListenersArray = [confirmButton, messageSentBackground];
 
-		messageSentBox.classList.remove('contact-box-form-message-sent--hidden');
-		confirmButton.addEventListener('click', e => {
-			e.preventDefault();
-			messageSentBox.classList.add('contact-box-form-message-sent--hidden');
+		eventListenersArray.forEach(listener => {
+			listener.addEventListener('click', e => {
+				e.preventDefault();
+				messageSentBackground.classList.add('contact-box-form-message-sent-bg--hidden');
+				messageSentContent.classList.add('contact-box-form-message-sent-content--hidden');
+			});
 		});
+
+		messageSentBackground.classList.remove('contact-box-form-message-sent-bg--hidden');
+		messageSentContent.classList.remove('contact-box-form-message-sent-content--hidden');
 
 		// sendEmail(userName, userEmail, userTel, userMsg);
 		// resetForm(userName, userEmail, userTel, userMsg);
-	} else {
+	} else if (userName.value.length >=3 && userName.value.match(nameValidation)) {
+		
+	} 
+	
+	else {
 		console.log('err');
 	}
 };
