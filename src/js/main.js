@@ -145,29 +145,90 @@ const resetForm = (userName, userEmail, userTel, userMsg) => {
 	userMsg.value = '';
 };
 
-const handleEmail = e => {
-	e.preventDefault();
-
-	const userName = document.querySelector('#name');
-	const userEmail = document.querySelector('#email');
-	const userTel = document.querySelector('#tel');
-	const userMsg = document.querySelector('#message');
-	const dataProcessingButton = document.querySelector('#data-processing');
-
+const checkName = () => {
+	const userName = document.querySelector('#name').value;
 	const nameValidation = /^[a-z\s]*$/gi;
+	const nameError = document.querySelector('.contact-box-form__error-message--name');
+
+	if (userName.length >= 3 && userName.match(nameValidation)) {
+		nameError.classList.remove('contact-box-form__error-message--visible');
+		return userName;
+	} else {
+		nameError.classList.add('contact-box-form__error-message--visible');
+	}
+};
+
+const checkEmail = () => {
+	const userEmail = document.querySelector('#email').value;
 	const emailValidation = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/gi;
+	const emailError = document.querySelector('.contact-box-form__error-message--email');
+
+	if (userEmail.match(emailValidation)) {
+		emailError.classList.remove('contact-box-form__error-message--visible');
+		return userEmail;
+	} else {
+		emailError.classList.add('contact-box-form__error-message--visible');
+	}
+};
+
+const checkTel = () => {
+	const userTel = document.querySelector('#tel').value;
+	const telError = document.querySelector('.contact-box-form__error-message--tel');
 	const telValidation =
 		/^(\+{0,})(\d{0,})([(]{1}\d{1,3}[)]{0,}){0,}(\s?\d+|\+\d{2,3}\s{1}\d+|\d+){1}[\s|-]?\d+([\s|-]?\d+){1,2}(\s){0,}$/gm;
 
-	if (
-		userName.value.length >= 3 &&
-		userName.value.match(nameValidation) &&
-		userEmail.value.match(emailValidation) &&
-		userTel.value.length >= 9 &&
-		userTel.value.match(telValidation) &&
-		userMsg.value.length >= 3 &&
-		dataProcessingButton.checked
-	) {
+	if (userTel.length >= 9 && userTel.match(telValidation)) {
+		telError.classList.remove('contact-box-form__error-message--visible');
+		return userTel;
+	} else {
+		telError.classList.add('contact-box-form__error-message--visible');
+	}
+};
+
+const checkMsg = () => {
+	const userMsg = document.querySelector('#message').value;
+	const messageError = document.querySelector('.contact-box-form__error-message--message');
+
+	if (userMsg.length >= 3) {
+		messageError.classList.remove('contact-box-form__error-message--visible');
+		return userMsg;
+	} else {
+		messageError.classList.add('contact-box-form__error-message--visible');
+	}
+};
+
+const checkDataProcessing = () => {
+	const dataProcessing = document.querySelector('#data-processing');
+	const dataProcessingError = document.querySelector('.contact-box-form__error-message--data-processing');
+
+	if (dataProcessing.checked) {
+		dataProcessingError.classList.remove('contact-box-form__error-message--visible');
+		return true;
+	} else {
+		dataProcessingError.classList.add('contact-box-form__error-message--visible');
+	}
+};
+
+const handleEmail = e => {
+	e.preventDefault();
+
+	const userName = checkName();
+	const userEmail = checkEmail();
+	const userTel = checkTel();
+	const userMsg = checkMsg();
+	const dataProcessing = checkDataProcessing();
+
+	const variablesToValidate = [userName, userEmail, userTel, userMsg, dataProcessing];
+
+	let validationsPassed = 0;
+
+	variablesToValidate.forEach(variable => {
+		if (variable != undefined) {
+			validationsPassed++;
+		}
+	});
+
+	if (validationsPassed === 5) {
 		const messageSentBackground = document.querySelector('.contact-box-form-message-sent-bg');
 		const messageSentContent = document.querySelector('.contact-box-form-message-sent-content');
 		const confirmButton = document.querySelector('.contact-box-form-message-sent-content__confirm-button');
@@ -186,12 +247,6 @@ const handleEmail = e => {
 
 		// sendEmail(userName, userEmail, userTel, userMsg);
 		// resetForm(userName, userEmail, userTel, userMsg);
-	} else if (userName.value.length >=3 && userName.value.match(nameValidation)) {
-		
-	} 
-	
-	else {
-		console.log('err');
 	}
 };
 
