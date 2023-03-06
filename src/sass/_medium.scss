@@ -70,6 +70,10 @@
 	.contact {
 		&-box {
 			&-form {
+				&__item {
+					margin: 0.8em 0;
+				}
+
 				&-message-sent {
 					&-content {
 						width: 75%;
@@ -223,11 +227,18 @@
 				font-size: 2rem;
 
 				&__item {
-					margin: 0.2em 0;
+					margin: 1em 0;
 					&:first-of-type,
 					&:nth-of-type(2),
 					&:nth-of-type(3) {
 						width: 30%;
+					}
+
+					&:nth-of-type(5) {
+						.contact-box-form__input,
+						.contact-box-form__label {
+							font-size: 1.4rem;
+						}
 					}
 				}
 
