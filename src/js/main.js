@@ -146,85 +146,96 @@ const resetForm = (userName, userEmail, userTel, userMsg, dataProcessingCheckbox
 	dataProcessingCheckbox.checked = false;
 };
 
-const checkVariables = validationsPassed => {
-	const variablesToCheck = ['name', 'email', 'tel', 'message', 'data-processing'];
-	const validatedVariables = [];
+const checkName = () => {
+	const userName = document.querySelector('#name');
+	const nameValidation = /^[a-z\s]\p{L}*$/giu;
 
-	variablesToCheck.forEach(variableToCheck => {
-		const variable = document.querySelector(`#${variableToCheck}`);
-		const variableError = document.querySelector(`.contact-box-form__error-message--${variableToCheck}`);
+	const nameError = document.querySelector('.contact-box-form__error-message--name');
 
-		switch (variable.id) {
-			case 'name':
-				const nameValidation = /^[a-z\s]\p{L}*$/giu;
+	if (userName.value.length >= 3 && userName.value.match(nameValidation)) {
+		nameError.classList.remove('contact-box-form__error-message--visible');
+		return userName;
+	} else {
+		nameError.classList.add('contact-box-form__error-message--visible');
+		return undefined;
+	}
+};
 
-				if (variable.value.length >= 3 && variable.value.match(nameValidation)) {
-					variableError.classList.remove('contact-box-form__error-message--visible');
-					validationsPassed++;
-					validatedVariables.push(variable);
-				} else {
-					variableError.classList.add('contact-box-form__error-message--visible');
-					return undefined;
-				}
-				break;
+const checkEmail = () => {
+	const userEmail = document.querySelector('#email');
+	const emailValidation = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/gi;
+	const emailError = document.querySelector('.contact-box-form__error-message--email');
 
-			case 'email':
-				const emailValidation = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/gi;
+	if (userEmail.value.match(emailValidation)) {
+		emailError.classList.remove('contact-box-form__error-message--visible');
+		return userEmail;
+	} else {
+		emailError.classList.add('contact-box-form__error-message--visible');
+		return undefined;
+	}
+};
 
-				if (variable.value.match(emailValidation)) {
-					variableError.classList.remove('contact-box-form__error-message--visible');
-					validationsPassed++;
-					validatedVariables.push(variable);
-				} else {
-					variableError.classList.add('contact-box-form__error-message--visible');
-					return undefined;
-				}
+const checkTel = () => {
+	const userTel = document.querySelector('#tel');
+	const telError = document.querySelector('.contact-box-form__error-message--tel');
+	const telValidation =
+		/^(\+{0,})(\d{0,})([(]{1}\d{1,3}[)]{0,}){0,}(\s?\d+|\+\d{2,3}\s{1}\d+|\d+){1}[\s|-]?\d+([\s|-]?\d+){1,2}(\s){0,}$/gm;
 
-				break;
+	if (userTel.value.length >= 9 && userTel.value.match(telValidation)) {
+		telError.classList.remove('contact-box-form__error-message--visible');
+		return userTel;
+	} else {
+		telError.classList.add('contact-box-form__error-message--visible');
+		return undefined;
+	}
+};
 
-			case 'tel':
-				const telValidation =
-					/^(\+{0,})(\d{0,})([(]{1}\d{1,3}[)]{0,}){0,}(\s?\d+|\+\d{2,3}\s{1}\d+|\d+){1}[\s|-]?\d+([\s|-]?\d+){1,2}(\s){0,}$/gm;
+const checkMsg = () => {
+	const userMsg = document.querySelector('#message');
+	const messageError = document.querySelector('.contact-box-form__error-message--message');
 
-				if (variable.value.length >= 9 && variable.value.match(telValidation)) {
-					variableError.classList.remove('contact-box-form__error-message--visible');
-					validationsPassed++;
-					validatedVariables.push(variable);
-				} else {
-					variableError.classList.add('contact-box-form__error-message--visible');
-					return undefined;
-				}
+	if (userMsg.value.length >= 3) {
+		messageError.classList.remove('contact-box-form__error-message--visible');
+		return userMsg;
+	} else {
+		messageError.classList.add('contact-box-form__error-message--visible');
+		return undefined;
+	}
+};
 
-				break;
+const checkDataProcessing = dataProcessingCheckbox => {
+	const dataProcessingError = document.querySelector('.contact-box-form__error-message--data-processing');
 
-			case 'message':
-				if (variable.value.length >= 3) {
-					variableError.classList.remove('contact-box-form__error-message--visible');
-					validationsPassed++;
-					validatedVariables.push(variable);
-				} else {
-					variableError.classList.add('contact-box-form__error-message--visible');
-					return undefined;
-				}
-				break;
+	if (dataProcessingCheckbox.checked) {
+		dataProcessingError.classList.remove('contact-box-form__error-message--visible');
+		return true;
+	} else {
+		dataProcessingError.classList.add('contact-box-form__error-message--visible');
+		return undefined;
+	}
+};
 
-			case 'data-processing':
-				if (variable.checked) {
-					variableError.classList.remove('contact-box-form__error-message--visible');
-					validationsPassed++;
-					validatedVariables.push(variable);
-				} else {
-					variableError.classList.add('contact-box-form__error-message--visible');
-					return undefined;
-				}
-				break;
+const handleForm = e => {
+	e.preventDefault();
+
+	const dataProcessingCheckbox = document.querySelector('#data-processing');
+
+	const userName = checkName();
+	const userEmail = checkEmail();
+	const userTel = checkTel();
+	const userMsg = checkMsg();
+	const dataProcessing = checkDataProcessing(dataProcessingCheckbox);
+
+	const variablesToValidate = [userName, userEmail, userTel, userMsg, dataProcessing];
+
+	let validationsPassed = 0;
+
+	variablesToValidate.forEach(variable => {
+		if (variable != undefined) {
+			validationsPassed++;
 		}
 	});
 
-	handleFormValidation(validationsPassed, validatedVariables);
-};
-
-const handleFormValidation = (validationsPassed, validatedVariables) => {
 	if (validationsPassed === 5) {
 		const messageSentBackground = document.querySelector('.contact-box-form-message-sent-bg');
 		const messageSentContent = document.querySelector('.contact-box-form-message-sent-content');
@@ -239,23 +250,12 @@ const handleFormValidation = (validationsPassed, validatedVariables) => {
 			});
 		});
 
-		validatedVariables.forEach(validatedVariable => {
-			console.log(validatedVariable.value);
-		});
-
 		messageSentBackground.classList.remove('contact-box-form-message-sent-bg--hidden');
 		messageSentContent.classList.remove('contact-box-form-message-sent-content--hidden');
 
 		// sendEmail(userName, userEmail, userTel, userMsg);
 		resetForm(userName, userEmail, userTel, userMsg, dataProcessingCheckbox);
 	}
-};
-const handleForm = e => {
-	e.preventDefault();
-
-	let validationsPassed = 0;
-
-	checkVariables(validationsPassed);
 };
 
 const handleCopyrightYear = () => {
