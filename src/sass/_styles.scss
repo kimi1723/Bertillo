@@ -432,7 +432,7 @@ body {
 
 				&:nth-of-type(5) {
 					display: grid;
-					grid-template-columns: 0.1fr 1.8fr;
+					grid-auto-columns: minmax(auto, max-content);
 					grid-template-rows: repeat(2, 1fr);
 					margin: 0.8em 0 2em 0.3em;
 					font-size: 1.2rem;
