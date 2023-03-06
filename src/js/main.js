@@ -148,7 +148,8 @@ const resetForm = (userName, userEmail, userTel, userMsg, dataProcessingCheckbox
 
 const checkName = () => {
 	const userName = document.querySelector('#name');
-	const nameValidation = /^[a-z\s]*$/gi;
+	const nameValidation = /^[a-z\s]\p{L}*$/giu;
+
 	const nameError = document.querySelector('.contact-box-form__error-message--name');
 
 	if (userName.value.length >= 3 && userName.value.match(nameValidation)) {
