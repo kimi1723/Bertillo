@@ -3,10 +3,14 @@ const navIcon = document.querySelector('.navbar-hamburger');
 const navLinks = document.querySelectorAll('.navbar__link');
 const logos = document.querySelectorAll('.logo');
 
+const aboutusBoxesToAnimate = ['first', 'second', 'third'];
+
 const listItems = document.querySelectorAll('.offer-products-box__list-item-button');
 const imageCarouselBtns = document.querySelectorAll('.offer-products-box-images__btn');
 const image = document.querySelector('.offer-products-box-images__img');
 let imageNumber, displaySrcPath, numberOfImages;
+
+const submitFormBtn = document.querySelector('.contact-box-form__submit-button');
 
 const copyrightSpan = document.querySelector('.footer-box__copyright-year');
 
@@ -21,6 +25,19 @@ const handleNavByLogo = () => {
 		navIcon.classList.remove('navbar-hamburger--active');
 	}
 };
+
+const observer = new IntersectionObserver(entries => {
+	entries.forEach(entry => {
+		if (entry.isIntersecting) {
+			entry.target.classList.add('scale-in-center');
+		}
+	});
+});
+
+aboutusBoxesToAnimate.forEach(box => {
+	const boxToAnimate = document.querySelector(`.scale-in-center--aboutus-${box}`);
+	observer.observe(boxToAnimate);
+});
 
 const turnItemsArrowDown = () => {
 	const itemsArrow = document.querySelectorAll(`i[data-item]`);
@@ -119,8 +136,6 @@ const handleOfferType = e => {
 
 	chosenOffer.handleOfferDisplay(e);
 };
-
-const submitFormBtn = document.querySelector('.contact-box-form__submit-button');
 
 const sendEmail = (userName, userEmail, userTel, userMsg) => {
 	Email.send({

@@ -143,7 +143,8 @@ body {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: space-evenly;
+		justify-content: space-around;
+		padding-top: 15em;
 		min-height: calc(100vh - 73px);
 		text-align: center;
 
@@ -176,6 +177,19 @@ body {
 			&:hover,
 			&:focus {
 				text-shadow: 1px 1px 2px c.$dark;
+			}
+		}
+
+		&__arrow-down-icon {
+			padding: 0.2em 0.4em;
+			font-size: 5rem;
+			color: c.$leading-lighter;
+			transition: color 0.3s;
+			cursor: pointer;
+
+			&:hover,
+			&:focus {
+				color: c.$leading-brighter;
 			}
 		}
 	}
