@@ -138,85 +138,92 @@ const sendEmail = (userName, userEmail, userTel, userMsg) => {
 	}).then(message => alert('wiadomosc wyslana'));
 };
 
-const resetForm = (userName, userEmail, userTel, userMsg) => {
+const resetForm = (userName, userEmail, userTel, userMsg, dataProcessingCheckbox) => {
 	userName.value = '';
 	userEmail.value = '';
 	userTel.value = '';
 	userMsg.value = '';
+	dataProcessingCheckbox.checked = false;
 };
 
 const checkName = () => {
-	const userName = document.querySelector('#name').value;
+	const userName = document.querySelector('#name');
 	const nameValidation = /^[a-z\s]*$/gi;
 	const nameError = document.querySelector('.contact-box-form__error-message--name');
 
-	if (userName.length >= 3 && userName.match(nameValidation)) {
+	if (userName.value.length >= 3 && userName.value.match(nameValidation)) {
 		nameError.classList.remove('contact-box-form__error-message--visible');
 		return userName;
 	} else {
 		nameError.classList.add('contact-box-form__error-message--visible');
+		return undefined;
 	}
 };
 
 const checkEmail = () => {
-	const userEmail = document.querySelector('#email').value;
+	const userEmail = document.querySelector('#email');
 	const emailValidation = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/gi;
 	const emailError = document.querySelector('.contact-box-form__error-message--email');
 
-	if (userEmail.match(emailValidation)) {
+	if (userEmail.value.match(emailValidation)) {
 		emailError.classList.remove('contact-box-form__error-message--visible');
 		return userEmail;
 	} else {
 		emailError.classList.add('contact-box-form__error-message--visible');
+		return undefined;
 	}
 };
 
 const checkTel = () => {
-	const userTel = document.querySelector('#tel').value;
+	const userTel = document.querySelector('#tel');
 	const telError = document.querySelector('.contact-box-form__error-message--tel');
 	const telValidation =
 		/^(\+{0,})(\d{0,})([(]{1}\d{1,3}[)]{0,}){0,}(\s?\d+|\+\d{2,3}\s{1}\d+|\d+){1}[\s|-]?\d+([\s|-]?\d+){1,2}(\s){0,}$/gm;
 
-	if (userTel.length >= 9 && userTel.match(telValidation)) {
+	if (userTel.value.length >= 9 && userTel.value.match(telValidation)) {
 		telError.classList.remove('contact-box-form__error-message--visible');
 		return userTel;
 	} else {
 		telError.classList.add('contact-box-form__error-message--visible');
+		return undefined;
 	}
 };
 
 const checkMsg = () => {
-	const userMsg = document.querySelector('#message').value;
+	const userMsg = document.querySelector('#message');
 	const messageError = document.querySelector('.contact-box-form__error-message--message');
 
-	if (userMsg.length >= 3) {
+	if (userMsg.value.length >= 3) {
 		messageError.classList.remove('contact-box-form__error-message--visible');
 		return userMsg;
 	} else {
 		messageError.classList.add('contact-box-form__error-message--visible');
+		return undefined;
 	}
 };
 
-const checkDataProcessing = () => {
-	const dataProcessing = document.querySelector('#data-processing');
+const checkDataProcessing = dataProcessingCheckbox => {
 	const dataProcessingError = document.querySelector('.contact-box-form__error-message--data-processing');
 
-	if (dataProcessing.checked) {
+	if (dataProcessingCheckbox.checked) {
 		dataProcessingError.classList.remove('contact-box-form__error-message--visible');
 		return true;
 	} else {
 		dataProcessingError.classList.add('contact-box-form__error-message--visible');
+		return undefined;
 	}
 };
 
-const handleEmail = e => {
+const handleForm = e => {
 	e.preventDefault();
+
+	const dataProcessingCheckbox = document.querySelector('#data-processing');
 
 	const userName = checkName();
 	const userEmail = checkEmail();
 	const userTel = checkTel();
 	const userMsg = checkMsg();
-	const dataProcessing = checkDataProcessing();
+	const dataProcessing = checkDataProcessing(dataProcessingCheckbox);
 
 	const variablesToValidate = [userName, userEmail, userTel, userMsg, dataProcessing];
 
@@ -246,7 +253,7 @@ const handleEmail = e => {
 		messageSentContent.classList.remove('contact-box-form-message-sent-content--hidden');
 
 		// sendEmail(userName, userEmail, userTel, userMsg);
-		// resetForm(userName, userEmail, userTel, userMsg);
+		resetForm(userName, userEmail, userTel, userMsg, dataProcessingCheckbox);
 	}
 };
 
@@ -262,6 +269,6 @@ logos.forEach(logo => logo.addEventListener('click', handleNavByLogo));
 imageCarouselBtns.forEach(btn => btn.addEventListener('click', handleCarousel));
 listItems.forEach(item => item.addEventListener('click', handleOfferType));
 
-submitFormBtn.addEventListener('click', handleEmail);
+submitFormBtn.addEventListener('click', handleForm);
 
 handleCopyrightYear();
