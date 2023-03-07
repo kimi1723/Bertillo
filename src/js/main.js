@@ -48,7 +48,7 @@ const turnItemsArrowDown = () => {
 	});
 };
 
-const handleItemVariables = itemNumber => {
+const handleItemVariables = (itemNumber, listItemButton) => {
 	const itemDescriptions = document.querySelectorAll('[data-description]');
 	const itemDescription = document.querySelector(`[data-description="${itemNumber}"]`);
 	const itemArrow = document.querySelector(`i[data-item="${itemNumber}"`);
@@ -62,6 +62,8 @@ const handleItemVariables = itemNumber => {
 			`Opis standardowych rozwiązań obróbek blacharskich, które wykonujemy według potrzeb klienta. Standardowa długość obróbki wynosi 2m.`,
 		);
 
+		listItemButton.classList.remove('offer-products-box__list-item-button--active');
+
 		imageCarouselBtns.forEach(btn => {
 			btn.classList.add('offer-products-box-images__btn--hidden');
 		});
@@ -71,6 +73,12 @@ const handleItemVariables = itemNumber => {
 		itemDescriptions.forEach(itemDescription => {
 			itemDescription.classList.remove('offer-products-box__list-item-description--active');
 		});
+
+		listItems.forEach(item => {
+			item.classList.remove('offer-products-box__list-item-button--active');
+		});
+
+		listItemButton.classList.add('offer-products-box__list-item-button--active');
 
 		itemDescription.classList.add('offer-products-box__list-item-description--active');
 
@@ -98,8 +106,9 @@ const handleCarousel = e => {
 	}
 };
 class CreateOfferDisplay {
-	constructor(offerType, itemNumber, displaySrcPath, numberOfImages) {
-		(this.offerType = offerType),
+	constructor(listItemButton, offerType, itemNumber, displaySrcPath, numberOfImages) {
+		(this.listItemButton = listItemButton),
+			(this.offerType = offerType),
 			(this.itemNumber = itemNumber),
 			(this.displaySrcPath = displaySrcPath),
 			(this.numberOfImages = numberOfImages);
@@ -122,17 +131,18 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function (e) {
 			btn.classList.add('offer-products-box-images__btn--hidden');
 		});
 	}
-	handleItemVariables(this.itemNumber);
+	handleItemVariables(this.itemNumber, this.listItemButton);
 };
 
 const handleOfferType = e => {
 	displaySrcPath = e.target.dataset.displaySrcPath;
 	numberOfImages = e.target.dataset.numberOfImages;
 
+	const listItemButton = e.target;
 	const offerType = e.target.dataset.offerType;
 	const itemNumber = e.target.dataset.item;
 
-	const chosenOffer = new CreateOfferDisplay(offerType, itemNumber, displaySrcPath, numberOfImages);
+	const chosenOffer = new CreateOfferDisplay(listItemButton, offerType, itemNumber, displaySrcPath, numberOfImages);
 
 	chosenOffer.handleOfferDisplay(e);
 };

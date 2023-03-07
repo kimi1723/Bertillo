@@ -294,7 +294,7 @@ body {
 
 			&__img {
 				width: 100%;
-				height: 250px;
+				height: 350px;
 				object-fit: contain;
 				border-radius: 8px;
 			}
@@ -359,14 +359,26 @@ body {
 					&:focus {
 						color: c.$leading-brighter;
 					}
+
+					&--active {
+						color: c.$leading-brighter;
+					}
 				}
 
 				&-description {
-					display: none;
-					padding: 0.5em 0;
+					opacity: 0;
+					max-height: 0;
 					font-size: 1.4rem;
 					color: c.$dark;
 					line-height: 1.4;
+					overflow: hidden;
+					transition: max-height 0.5s, opacity 0.3s, padding 0.2s;
+
+					&--active {
+						padding: 0.5em 0;
+						opacity: 1;
+						max-height: 1000px;
+					}
 
 					&-bold-text {
 						font-weight: bold;
@@ -403,10 +415,6 @@ body {
 							}
 						}
 					}
-				}
-
-				&-description--active {
-					display: block;
 				}
 			}
 		}
