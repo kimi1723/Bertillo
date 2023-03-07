@@ -48,10 +48,9 @@ const turnItemsArrowDown = () => {
 	});
 };
 
-const handleItemVariables = (itemNumber, listItemButton) => {
-	const itemDescriptions = document.querySelectorAll('[data-description]');
+const handleItemVariables = itemNumber => {
 	const itemDescription = document.querySelector(`[data-description="${itemNumber}"]`);
-	const itemArrow = document.querySelector(`i[data-item="${itemNumber}"`);
+	const listItemButton = document.querySelector(`[data-item="${itemNumber}"`);
 
 	if (itemDescription.classList.contains('offer-products-box__list-item-description--active')) {
 		itemDescription.classList.remove('offer-products-box__list-item-description--active');
@@ -70,13 +69,17 @@ const handleItemVariables = (itemNumber, listItemButton) => {
 
 		turnItemsArrowDown();
 	} else {
-		itemDescriptions.forEach(itemDescription => {
-			itemDescription.classList.remove('offer-products-box__list-item-description--active');
-		});
+		const itemArrow = document.querySelector(`i[data-item="${itemNumber}"`);
+		const activeItemDescription = document.querySelector('.offer-products-box__list-item-description--active');
+		const activeButton = document.querySelector('.offer-products-box__list-item-button--active');
 
-		listItems.forEach(item => {
-			item.classList.remove('offer-products-box__list-item-button--active');
-		});
+		if (activeItemDescription !== null) {
+			activeItemDescription.classList.remove('offer-products-box__list-item-description--active');
+		}
+
+		if (activeButton !== null) {
+			activeButton.classList.remove('offer-products-box__list-item-button--active');
+		}
 
 		listItemButton.classList.add('offer-products-box__list-item-button--active');
 
@@ -106,16 +109,15 @@ const handleCarousel = e => {
 	}
 };
 class CreateOfferDisplay {
-	constructor(listItemButton, offerType, itemNumber, displaySrcPath, numberOfImages) {
-		(this.listItemButton = listItemButton),
-			(this.offerType = offerType),
+	constructor(offerType, itemNumber, displaySrcPath, numberOfImages) {
+		(this.offerType = offerType),
 			(this.itemNumber = itemNumber),
 			(this.displaySrcPath = displaySrcPath),
 			(this.numberOfImages = numberOfImages);
 	}
 }
 
-CreateOfferDisplay.prototype.handleOfferDisplay = function (e) {
+CreateOfferDisplay.prototype.handleOfferDisplay = function () {
 	const image = document.querySelector('.offer-products-box-images__img');
 
 	imageNumber = 1;
@@ -131,20 +133,20 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function (e) {
 			btn.classList.add('offer-products-box-images__btn--hidden');
 		});
 	}
-	handleItemVariables(this.itemNumber, this.listItemButton);
+
+	handleItemVariables(this.itemNumber);
 };
 
 const handleOfferType = e => {
 	displaySrcPath = e.target.dataset.displaySrcPath;
 	numberOfImages = e.target.dataset.numberOfImages;
 
-	const listItemButton = e.target;
 	const offerType = e.target.dataset.offerType;
 	const itemNumber = e.target.dataset.item;
 
-	const chosenOffer = new CreateOfferDisplay(listItemButton, offerType, itemNumber, displaySrcPath, numberOfImages);
+	const chosenOffer = new CreateOfferDisplay(offerType, itemNumber, displaySrcPath, numberOfImages);
 
-	chosenOffer.handleOfferDisplay(e);
+	chosenOffer.handleOfferDisplay();
 };
 
 const sendEmail = (userName, userEmail, userTel, userMsg) => {
