@@ -11,6 +11,15 @@
 		}
 	}
 }
+
+@media (min-width: 360px) {
+	.section {
+		&__heading {
+			font-size: 3.5rem;
+		}
+	}
+}
+
 @media (max-height: 440px) {
 	.navbar {
 		&-links {

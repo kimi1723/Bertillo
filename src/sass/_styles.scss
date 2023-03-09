@@ -167,11 +167,11 @@ body {
 			font-size: 2.4rem;
 			color: c.$white;
 			outline: none;
-			border-bottom: 2px solid c.$leading;
+			border-bottom: 3px solid c.$leading;
 			transition: color 0.3s;
 
 			&::before {
-				bottom: -2px;
+				bottom: -3px;
 			}
 
 			&:hover,
@@ -282,7 +282,9 @@ body {
 	&-box {
 		&__heading {
 			color: c.$matte-black;
-			border-bottom: 1px solid c.$matte-black;
+			&--underline {
+				border-bottom: 3px solid c.$leading-brighter;
+			}
 		}
 	}
 
@@ -337,7 +339,7 @@ body {
 
 		&__list {
 			&-item {
-				padding: 1.5em 0 0.5em;
+				padding: 1.5em 0 1.2em;
 				border-bottom: 1px solid c.$matte-black;
 
 				&:last-of-type {
@@ -345,9 +347,13 @@ body {
 				}
 
 				&-button {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					width: 100%;
 					text-align: left;
 					font-weight: bold;
-					font-size: 1.8rem;
+					font-size: 2rem;
 					color: c.$matte-black;
 					outline: none;
 					background: transparent;
@@ -362,6 +368,10 @@ body {
 
 					&--active {
 						color: c.$leading-lighter;
+					}
+
+					.fa-solid {
+						font-size: 3rem;
 					}
 				}
 
@@ -434,7 +444,7 @@ body {
 
 		&__heading {
 			color: c.$white;
-			border-bottom: 1px solid c.$white;
+			border-bottom: 3px solid c.$leading-lighter;
 		}
 
 		&-form {

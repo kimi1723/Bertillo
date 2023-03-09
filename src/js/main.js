@@ -9,7 +9,7 @@ const listItems = document.querySelectorAll('.offer-products-box__list-item-butt
 const imageCarouselBtns = document.querySelectorAll('.offer-products-box-images__btn');
 const image = document.querySelector('.offer-products-box-images__img');
 let imageNumber = 1,
-	displaySrcPath,
+	displaySrcPath = 'nasady-kominowe',
 	numberOfImages;
 
 const submitFormBtn = document.querySelector('.contact-box-form__submit-button');
@@ -50,6 +50,24 @@ const turnItemsArrowDown = () => {
 	});
 };
 
+const handleCarousel = e => {
+	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
+
+	if (e.target.dataset.direction === 'right' && imageNumber != numberOfImages) {
+		imageNumber++;
+		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
+	} else if (e.target.dataset.direction === 'left' && imageNumber !== 1) {
+		imageNumber--;
+		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
+	} else if (e.target.dataset.direction === 'left' && imageNumber === 1) {
+		imageNumber = numberOfImages;
+		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${numberOfImages}.webp`);
+	} else if (e.target.dataset.direction === 'right' && imageNumber == numberOfImages) {
+		imageNumber = 1;
+		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
+	}
+};
+
 const handleItemVariables = itemNumber => {
 	const itemDescription = document.querySelector(`[data-description="${itemNumber}"]`);
 	const listItemButton = document.querySelector(`[data-item="${itemNumber}"`);
@@ -83,23 +101,6 @@ const handleItemVariables = itemNumber => {
 	}
 };
 
-const handleCarousel = e => {
-	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
-
-	if (e.target.dataset.direction === 'right' && imageNumber != numberOfImages) {
-		imageNumber++;
-		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
-	} else if (e.target.dataset.direction === 'left' && imageNumber !== 1) {
-		imageNumber--;
-		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
-	} else if (e.target.dataset.direction === 'left' && imageNumber === 1) {
-		imageNumber = numberOfImages;
-		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${numberOfImages}.webp`);
-	} else if (e.target.dataset.direction === 'right' && imageNumber == numberOfImages) {
-		imageNumber = 1;
-		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
-	}
-};
 class CreateOfferDisplay {
 	constructor(offerType, itemNumber, displaySrcPath, numberOfImages) {
 		(this.offerType = offerType),
