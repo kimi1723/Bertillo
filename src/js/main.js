@@ -110,21 +110,25 @@ class CreateOfferDisplay {
 }
 
 CreateOfferDisplay.prototype.handleOfferDisplay = function () {
+	imageNumber = 1;
+	const images = document.querySelectorAll('.offer-products-box-images__img');
+
+	images.forEach(img => {
+		const imgSrcPath = img.dataset.displaySrcPath;
+
+		img.setAttribute('src', `/dist/img/offer/${imgSrcPath}/1.webp`);
+	});
+
 	const itemDescription = document.querySelector(`[data-description="${this.itemNumber}"]`);
 	const listItemButton = document.querySelector(`[data-item="${this.itemNumber}"`);
 
 	if (itemDescription.classList.contains('offer-products-box__list-item-description--active')) {
-		const image = document.querySelector(`img[src="/dist/img/offer/${this.displaySrcPath}/${imageNumber}.webp"]`);
-		image.setAttribute('src', `/dist/img/offer/${this.displaySrcPath}/${imageNumber}.webp`);
 		itemDescription.classList.remove('offer-products-box__list-item-description--active');
 
 		listItemButton.classList.remove('offer-products-box__list-item-button--active');
 
 		turnItemsArrowDown();
 	} else {
-		imageNumber = 1;
-		const image = document.querySelector(`img[src="/dist/img/offer/${this.displaySrcPath}/${imageNumber}.webp"]`);
-		image.setAttribute('src', `/dist/img/offer/${this.displaySrcPath}/${imageNumber}.webp`);
 		const itemArrow = document.querySelector(`i[data-item="${this.itemNumber}"`);
 		const activeItemDescription = document.querySelector('.offer-products-box__list-item-description--active');
 		const activeButton = document.querySelector('.offer-products-box__list-item-button--active');
