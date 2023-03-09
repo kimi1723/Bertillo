@@ -8,7 +8,9 @@ const aboutusBoxesToAnimate = ['first', 'second', 'third'];
 const listItems = document.querySelectorAll('.offer-products-box__list-item-button');
 const imageCarouselBtns = document.querySelectorAll('.offer-products-box-images__btn');
 const image = document.querySelector('.offer-products-box-images__img');
-let imageNumber, displaySrcPath, numberOfImages;
+let imageNumber = 1,
+	displaySrcPath,
+	numberOfImages;
 
 const submitFormBtn = document.querySelector('.contact-box-form__submit-button');
 
@@ -55,17 +57,7 @@ const handleItemVariables = itemNumber => {
 	if (itemDescription.classList.contains('offer-products-box__list-item-description--active')) {
 		itemDescription.classList.remove('offer-products-box__list-item-description--active');
 
-		image.setAttribute('src', `/dist/img/offer/main-image.webp`);
-		image.setAttribute(
-			'alt',
-			`Opis standardowych rozwiązań obróbek blacharskich, które wykonujemy według potrzeb klienta. Standardowa długość obróbki wynosi 2m.`,
-		);
-
 		listItemButton.classList.remove('offer-products-box__list-item-button--active');
-
-		imageCarouselBtns.forEach(btn => {
-			btn.classList.add('offer-products-box-images__btn--hidden');
-		});
 
 		turnItemsArrowDown();
 	} else {
@@ -92,7 +84,7 @@ const handleItemVariables = itemNumber => {
 };
 
 const handleCarousel = e => {
-	const image = document.querySelector('.offer-products-box-images__img');
+	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
 
 	if (e.target.dataset.direction === 'right' && imageNumber != numberOfImages) {
 		imageNumber++;
@@ -118,23 +110,41 @@ class CreateOfferDisplay {
 }
 
 CreateOfferDisplay.prototype.handleOfferDisplay = function () {
-	const image = document.querySelector('.offer-products-box-images__img');
+	const itemDescription = document.querySelector(`[data-description="${this.itemNumber}"]`);
+	const listItemButton = document.querySelector(`[data-item="${this.itemNumber}"`);
 
-	imageNumber = 1;
-	image.setAttribute('src', `/dist/img/offer/${this.displaySrcPath}/${imageNumber}.webp`);
-	image.setAttribute('alt', `Wybrana obróbka blacharska`);
+	if (itemDescription.classList.contains('offer-products-box__list-item-description--active')) {
+		const image = document.querySelector(`img[src="/dist/img/offer/${this.displaySrcPath}/${imageNumber}.webp"]`);
+		image.setAttribute('src', `/dist/img/offer/${this.displaySrcPath}/${imageNumber}.webp`);
+		itemDescription.classList.remove('offer-products-box__list-item-description--active');
 
-	if (this.offerType === 'carousel') {
-		imageCarouselBtns.forEach(btn => {
-			btn.classList.remove('offer-products-box-images__btn--hidden');
-		});
+		listItemButton.classList.remove('offer-products-box__list-item-button--active');
+
+		turnItemsArrowDown();
 	} else {
-		imageCarouselBtns.forEach(btn => {
-			btn.classList.add('offer-products-box-images__btn--hidden');
-		});
-	}
+		imageNumber = 1;
+		const image = document.querySelector(`img[src="/dist/img/offer/${this.displaySrcPath}/${imageNumber}.webp"]`);
+		image.setAttribute('src', `/dist/img/offer/${this.displaySrcPath}/${imageNumber}.webp`);
+		const itemArrow = document.querySelector(`i[data-item="${this.itemNumber}"`);
+		const activeItemDescription = document.querySelector('.offer-products-box__list-item-description--active');
+		const activeButton = document.querySelector('.offer-products-box__list-item-button--active');
 
-	handleItemVariables(this.itemNumber);
+		if (activeItemDescription !== null) {
+			activeItemDescription.classList.remove('offer-products-box__list-item-description--active');
+		}
+
+		if (activeButton !== null) {
+			activeButton.classList.remove('offer-products-box__list-item-button--active');
+		}
+
+		listItemButton.classList.add('offer-products-box__list-item-button--active');
+
+		itemDescription.classList.add('offer-products-box__list-item-description--active');
+
+		turnItemsArrowDown();
+		itemArrow.classList.remove('fa-chevron-down');
+		itemArrow.classList.add('fa-chevron-up');
+	}
 };
 
 const handleOfferType = e => {
