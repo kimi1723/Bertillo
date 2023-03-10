@@ -1,3 +1,5 @@
+@use 'colors' as c;
+
 @media (min-width: 576px) {
 	.section {
 		padding: 6em 4em;
@@ -173,6 +175,39 @@
 			align-items: flex-start;
 			margin: 6em 0;
 
+			&__desktop-list {
+				display: flex;
+				justify-content: flex-start;
+				flex-wrap: wrap;
+				width: 100%;
+
+				&-item {
+					margin-right: 1.6em;
+
+					&-button {
+						font-weight: bold;
+						font-size: 2.2rem;
+						color: c.$matte-black;
+						outline: none;
+						background: transparent;
+						border: none;
+						border-bottom: 2px solid transparent;
+						transition: color 0.3s;
+						cursor: pointer;
+
+						&:hover,
+						&:focus {
+							color: c.$leading-brighter;
+						}
+
+						&--active {
+							padding-bottom: 2px;
+							border-bottom: 2px solid c.$leading-brighter;
+						}
+					}
+				}
+			}
+
 			&-images {
 				margin: 0 1em;
 				max-width: 50%;
@@ -183,30 +218,7 @@
 			}
 
 			&__list {
-				padding-top: 0;
-				width: 45%;
-
-				&-item {
-					&:first-of-type {
-						padding: 0 0 0.5em;
-					}
-
-					&-description {
-						font-size: 1.6rem;
-
-						&-list {
-							&-item {
-								&-heading {
-									font-size: 1.8rem;
-								}
-							}
-						}
-					}
-
-					&-button {
-						font-size: 2rem;
-					}
-				}
+				display: none;
 			}
 		}
 	}

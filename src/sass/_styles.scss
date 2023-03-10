@@ -289,6 +289,10 @@ body {
 	}
 
 	&-products-box {
+		&__desktop-list {
+			display: none;
+		}
+		
 		&-images {
 			position: relative;
 			margin: 4em 0 3em;
@@ -353,7 +357,7 @@ body {
 					width: 100%;
 					text-align: left;
 					font-weight: bold;
-					font-size: 2rem;
+					font-size: 2.2rem;
 					color: c.$matte-black;
 					outline: none;
 					background: transparent;
@@ -378,7 +382,7 @@ body {
 				&-description {
 					opacity: 0;
 					max-height: 0;
-					font-size: 1.4rem;
+					font-size: 1.6rem;
 					color: c.$dark;
 					line-height: 1.4;
 					overflow: hidden;
@@ -420,7 +424,8 @@ body {
 							margin: 0.6em 0;
 
 							&-heading {
-								font-size: 1.6rem;
+								margin-bottom: 0.3em;
+								font-size: 2rem;
 								line-height: 1.1;
 							}
 						}
