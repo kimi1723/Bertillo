@@ -124,14 +124,15 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function () {
 	const itemDescription = document.querySelector(`[data-description="${this.itemNumber}"]`);
 	const listItemButton = document.querySelector(`[data-item="${this.itemNumber}"`);
 
-	if (itemDescription.classList.contains(`offer-products-box__${this.itemType}list-item-description--active`)) {
+	if (
+		itemDescription.classList.contains(`offer-products-box__${this.itemType}list-item-description--active`) &&
+		this.itemType !== 'desktop-'
+	) {
 		itemDescription.classList.remove(`offer-products-box__${this.itemType}list-item-description--active`);
 
 		listItemButton.classList.remove(`offer-products-box__${this.itemType}list-item-button--active`);
 
-		if (this.itemType !== 'desktop-') {
-			turnItemsArrowDown();
-		}
+		turnItemsArrowDown();
 	} else {
 		const itemArrow = document.querySelector(`i[data-item="${this.itemNumber}"`);
 		const activeItemDescription = document.querySelector(
