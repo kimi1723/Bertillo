@@ -1,3 +1,5 @@
+@use 'colors' as c;
+
 @media (min-width: 992px) {
 	html {
 		scroll-padding-top: 100px;
@@ -74,6 +76,99 @@
 			padding: 1em 3em 5em;
 			width: calc(100% / 3);
 			height: clamp(350px, 450px, 550px);
+		}
+	}
+
+	// Oferta
+
+	.offer {
+		&-products-box {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+
+			&__desktop-list {
+				display: flex;
+				justify-content: flex-start;
+				flex-wrap: wrap;
+				width: 100%;
+
+				&-item {
+					margin-right: 1.6em;
+
+					&-button {
+						position: relative;
+						padding-bottom: 2px;
+						font-weight: bold;
+						font-size: 2.2rem;
+						color: c.$matte-black;
+						outline: none;
+						background: transparent;
+						border: none;
+						border-bottom: 0px solid transparent;
+						transition: color 0.3s;
+						cursor: pointer;
+
+						&::after {
+							content: '';
+							position: absolute;
+							left: 0;
+							bottom: 0;
+							width: 100%;
+							height: 2px;
+							transform: scale(0);
+							transition: transform 0.4s;
+							background-color: c.$leading-brighter;
+						}
+
+						&:hover,
+						&:focus {
+							color: c.$leading-brighter;
+						}
+
+						&--active {
+							color: c.$leading-brighter;
+
+							&::after {
+								transform: scale(1);
+							}
+						}
+					}
+				}
+			}
+
+			&-images {
+				margin: 0 1em;
+				width: 45%;
+
+				&__img {
+					height: 700px;
+				}
+			}
+
+			&__list {
+				&-item {
+					border-bottom: none;
+
+					&-button {
+						display: none;
+					}
+
+					&-description {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+
+						&-p {
+							width: 45%;
+						}
+
+						&-box {
+							width: 45%;
+						}
+					}
+				}
+			}
 		}
 	}
 

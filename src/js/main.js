@@ -69,39 +69,6 @@ const handleCarousel = e => {
 	}
 };
 
-const handleItemVariables = itemNumber => {
-	const itemDescription = document.querySelector(`[data-description="${itemNumber}"]`);
-	const listItemButton = document.querySelector(`[data-item="${itemNumber}"`);
-
-	if (itemDescription.classList.contains('offer-products-box__list-item-description--active')) {
-		itemDescription.classList.remove('offer-products-box__list-item-description--active');
-
-		listItemButton.classList.remove('offer-products-box__list-item-button--active');
-
-		turnItemsArrowDown();
-	} else {
-		const itemArrow = document.querySelector(`i[data-item="${itemNumber}"`);
-		const activeItemDescription = document.querySelector('.offer-products-box__list-item-description--active');
-		const activeButton = document.querySelector('.offer-products-box__list-item-button--active');
-
-		if (activeItemDescription !== null) {
-			activeItemDescription.classList.remove('offer-products-box__list-item-description--active');
-		}
-
-		if (activeButton !== null) {
-			activeButton.classList.remove('offer-products-box__list-item-button--active');
-		}
-
-		listItemButton.classList.add('offer-products-box__list-item-button--active');
-
-		itemDescription.classList.add('offer-products-box__list-item-description--active');
-
-		turnItemsArrowDown();
-		itemArrow.classList.remove('fa-chevron-down');
-		itemArrow.classList.add('fa-chevron-up');
-	}
-};
-
 class CreateOfferDisplay {
 	constructor(itemNumber, itemType, displaySrcPath, numberOfImages) {
 		(this.itemNumber = itemNumber),
@@ -134,10 +101,10 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function () {
 
 		turnItemsArrowDown();
 	} else {
-		const itemArrow = document.querySelector(`i[data-item="${this.itemNumber}"`);
 		const activeItemDescription = document.querySelector(
 			`.offer-products-box__${this.itemType}list-item-description--active`,
 		);
+
 		const activeButton = document.querySelector(`.offer-products-box__${this.itemType}list-item-button--active`);
 
 		if (activeItemDescription !== null) {
@@ -153,6 +120,8 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function () {
 		itemDescription.classList.add(`offer-products-box__${this.itemType}list-item-description--active`);
 
 		if (this.itemType !== 'desktop-') {
+			const itemArrow = document.querySelector(`i[data-item="${this.itemNumber}"`);
+
 			turnItemsArrowDown();
 			itemArrow.classList.remove('fa-chevron-down');
 			itemArrow.classList.add('fa-chevron-up');
