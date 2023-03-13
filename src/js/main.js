@@ -141,28 +141,29 @@ const handleOffer = e => {
 	chosenOffer.handleOfferDisplay();
 };
 
-const sendEmail = (userName, userEmail, userTel, userMsg) => {
-	Email.send({
-		SecureToken: 'f92e3f5f-f024-4385-8998-1d6a74ce63ad',
-		// Host: 'smtp.elasticemail.com',
-		// Username: 'patrykskontakt@gmail.com',
-		// Password: 'C1FED554B7A98FE1B9DA05D889B9109DBDB2',
-		To: 'asdasdq391@gmail.com',
-		From: 'patrykskontakt@gmail.com',
-		Subject: `Wiadomość kontaktowa od ${userEmail.value}`,
-		Body: `<b> Imię: </b> ${userName.value} <br>
-			<b> E-mail: </b> ${userEmail.value}		<br>
-			<b> Numer tel.: </b> ${userTel.value} <br>
-			<b> Treść wiadomości: </b> ${userMsg.value}`,
-	}).then(message => alert('wiadomosc wyslana'));
+const sendEmail = async (userName, userEmail, userTel, userMsg) => {
+	const baseUrl = 'http://localhost:3000/';
+
+	const res = await fetch(baseUrl, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
+			userName: userName.value,
+			userEmail: userEmail.value,
+			userTel: userTel.value,
+			userMsg: userMsg.value,
+		}),
+	});
 };
 
 const resetForm = (userName, userEmail, userTel, userMsg, dataProcessingCheckbox) => {
-	userName.value = '';
-	userEmail.value = '';
-	userTel.value = '';
-	userMsg.value = '';
-	dataProcessingCheckbox.checked = false;
+	// userName.value = '';
+	// userEmail.value = '';
+	// userTel.value = '';
+	// userMsg.value = '';
+	// dataProcessingCheckbox.checked = false;
 };
 
 const checkName = () => {
@@ -272,7 +273,7 @@ const handleForm = e => {
 		messageSentBackground.classList.remove('contact-box-form-message-sent-bg--hidden');
 		messageSentContent.classList.remove('contact-box-form-message-sent-content--hidden');
 
-		// sendEmail(userName, userEmail, userTel, userMsg);
+		sendEmail(userName, userEmail, userTel, userMsg);
 		resetForm(userName, userEmail, userTel, userMsg, dataProcessingCheckbox);
 	}
 };
