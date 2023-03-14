@@ -5,6 +5,12 @@ const express = require('express');
 const app = express();
 const port = 443;
 
+const ngrok = require('ngrok');
+(async function () {
+	const url = await ngrok.connect(443);
+	// await ngrok.disconnect(); // stops all
+})();
+
 app.use(express.static('./'));
 
 app.use(express.json());
