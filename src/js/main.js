@@ -142,7 +142,7 @@ const handleOffer = e => {
 };
 
 const sendEmail = async (userName, userEmail, userTel, userMsg) => {
-	const baseUrl = 'http://localhost:3000/';
+	const baseUrl = 'https://bertillo.vercel.app/';
 
 	const res = await fetch(baseUrl, {
 		method: 'POST',
