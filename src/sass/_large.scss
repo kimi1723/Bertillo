@@ -140,10 +140,6 @@
 			&-images {
 				margin: 0 1em;
 				width: 45%;
-
-				&__img {
-					height: 700px;
-				}
 			}
 
 			&__list {
@@ -155,9 +151,15 @@
 					}
 
 					&-description {
-						display: flex;
+						display: none;
 						justify-content: space-between;
 						align-items: center;
+						max-height: max-content;
+
+						&--active {
+							display: flex;
+							max-height: max-content;
+						}
 
 						&-p {
 							width: 45%;

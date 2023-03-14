@@ -5,13 +5,11 @@ const logos = document.querySelectorAll('.logo');
 
 const aboutusBoxesToAnimate = ['first', 'second', 'third'];
 
-const listItems = document.querySelectorAll('.offer-products-box__list-item-button');
-const listDesktopItems = document.querySelectorAll('.offer-products-box__desktop-list-item-button');
+const listItems = document.querySelectorAll('.offer-products-box > ul > li > h3 > button');
 const imageCarouselBtns = document.querySelectorAll('.offer-products-box-images__btn');
 const image = document.querySelector('.offer-products-box-images__img');
 let imageNumber = 1,
-	displaySrcPath = 'nasady-kominowe',
-	numberOfImages;
+	displaySrcPath = 'nasady-kominowe';
 
 const submitFormBtn = document.querySelector('.contact-box-form__submit-button');
 
@@ -43,7 +41,7 @@ aboutusBoxesToAnimate.forEach(box => {
 });
 
 const turnItemsArrowDown = () => {
-	const itemsArrow = document.querySelectorAll(`i[data-item]`);
+	const itemsArrow = document.querySelectorAll(`.offer-products-box__arrow-icon`);
 
 	itemsArrow.forEach(itemArrow => {
 		itemArrow.classList.remove('fa-chevron-up');
@@ -53,6 +51,7 @@ const turnItemsArrowDown = () => {
 
 const handleCarousel = e => {
 	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
+	const numberOfImages = e.currentTarget.dataset.numberOfImages;
 
 	if (e.target.dataset.direction === 'right' && imageNumber != numberOfImages) {
 		imageNumber++;
@@ -70,11 +69,8 @@ const handleCarousel = e => {
 };
 
 class CreateOfferDisplay {
-	constructor(itemNumber, itemType, displaySrcPath, numberOfImages) {
-		(this.itemNumber = itemNumber),
-			(this.itemType = itemType),
-			(this.displaySrcPath = displaySrcPath),
-			(this.numberOfImages = numberOfImages);
+	constructor(itemNumber, itemType, displaySrcPath) {
+		(this.itemNumber = itemNumber), (this.itemType = itemType), (this.displaySrcPath = displaySrcPath);
 	}
 }
 
@@ -89,60 +85,91 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function () {
 	});
 
 	const itemDescription = document.querySelector(`[data-description="${this.itemNumber}"]`);
-	const listItemButton = document.querySelector(`[data-item="${this.itemNumber}"`);
+	const listItemButton = document.querySelector(`[data-item="${this.itemNumber}"][data-item-type="${this.itemType}"]`);
+
+	const otherItemType = this.itemType == '' ? 'desktop-' : '';
+	const otherListItemButton = document.querySelector(
+		`[data-item="${this.itemNumber}"][data-item-type="${otherItemType}"]`,
+	);
 
 	if (
-		itemDescription.classList.contains(`offer-products-box__${this.itemType}list-item-description--active`) &&
+		this.itemType == 'desktop-' &&
+		itemDescription.classList.contains(`offer-products-box__list-item-description--active`) === false
+	) {
+		itemDescription.classList.add('fade-in');
+	} else if (itemDescription.classList.contains('fade-in')) {
+		itemDescription.classList.remove('fade-in');
+	}
+
+	if (
+		itemDescription.classList.contains(`offer-products-box__list-item-description--active`) &&
 		this.itemType !== 'desktop-'
 	) {
 		itemDescription.classList.remove(`offer-products-box__${this.itemType}list-item-description--active`);
 
 		listItemButton.classList.remove(`offer-products-box__${this.itemType}list-item-button--active`);
+		otherListItemButton.classList.remove(`offer-products-box__${otherItemType}list-item-button--active`);
 
 		turnItemsArrowDown();
 	} else {
-		const activeItemDescription = document.querySelector(
-			`.offer-products-box__${this.itemType}list-item-description--active`,
-		);
+		const activeItemDescription = document.querySelector(`.offer-products-box__list-item-description--active`);
 
 		const activeButton = document.querySelector(`.offer-products-box__${this.itemType}list-item-button--active`);
+		const otherActiveButton = document.querySelector(`.offer-products-box__${otherItemType}list-item-button--active`);
 
 		if (activeItemDescription !== null) {
-			activeItemDescription.classList.remove(`offer-products-box__${this.itemType}list-item-description--active`);
+			activeItemDescription.classList.remove(`offer-products-box__list-item-description--active`);
 		}
 
 		if (activeButton !== null) {
 			activeButton.classList.remove(`offer-products-box__${this.itemType}list-item-button--active`);
+			otherActiveButton.classList.remove(`offer-products-box__${otherItemType}list-item-button--active`);
 		}
 
 		listItemButton.classList.add(`offer-products-box__${this.itemType}list-item-button--active`);
+		otherListItemButton.classList.add(`offer-products-box__${otherItemType}list-item-button--active`);
 
-		itemDescription.classList.add(`offer-products-box__${this.itemType}list-item-description--active`);
+		itemDescription.classList.add(`offer-products-box__list-item-description--active`);
 
-		if (this.itemType !== 'desktop-') {
-			const itemArrow = document.querySelector(`i[data-item="${this.itemNumber}"`);
+		const itemArrow = document.querySelector(`[data-item="${this.itemNumber}"][data-item-type=""] > i`);
 
-			turnItemsArrowDown();
-			itemArrow.classList.remove('fa-chevron-down');
-			itemArrow.classList.add('fa-chevron-up');
-		}
+		turnItemsArrowDown();
+		itemArrow.classList.remove('fa-chevron-down');
+		itemArrow.classList.add('fa-chevron-up');
 	}
 };
 
 const handleOffer = e => {
-	displaySrcPath = e.target.dataset.displaySrcPath;
-	numberOfImages = e.target.dataset.numberOfImages;
+	displaySrcPath = e.currentTarget.dataset.displaySrcPath;
 
-	const itemNumber = e.target.dataset.item;
-	const itemType = e.target.dataset.itemType;
+	const itemNumber = e.currentTarget.dataset.item;
+	const itemType = e.currentTarget.dataset.itemType;
 
-	const chosenOffer = new CreateOfferDisplay(itemNumber, itemType, displaySrcPath, numberOfImages);
+	const chosenOffer = new CreateOfferDisplay(itemNumber, itemType, displaySrcPath);
 
 	chosenOffer.handleOfferDisplay();
 };
 
+const handleNullOffer = () => {
+	const activeItemDescription = document.querySelector('.offer-products-box__list-item-description--active');
+
+	if (window.innerWidth >= 992 && activeItemDescription === null) {
+		const itemDescription = document.querySelector(`[data-description="1"]`);
+		const mobileListItemButton = document.querySelector(`[data-item="1"][data-item-type=""]`);
+		const mobileListItemButtonArrow = document.querySelector(`[data-item="1"][data-item-type=""] > i`);
+		const desktopListItemButton = document.querySelector(`[data-item="1"][data-item-type="desktop-"]`);
+
+		mobileListItemButtonArrow.classList.remove('fa-chevron-down');
+		mobileListItemButtonArrow.classList.add('fa-chevron-up');
+		mobileListItemButton.classList.add(`offer-products-box__list-item-button--active`);
+		desktopListItemButton.classList.add(`offer-products-box__desktop-list-item-button--active`);
+		itemDescription.classList.add('offer-products-box__list-item-description--active');
+	}
+};
+
 const sendEmail = async (userName, userEmail, userTel, userMsg) => {
-	const baseUrl = 'https://bertillo.vercel.app:443';
+	// const baseUrl = 'https://bertillo.vercel.app:443';
+	const baseUrl = 'http://localhost:443';
 
 	const res = await fetch(baseUrl, {
 		method: 'POST',
@@ -289,7 +316,8 @@ logos.forEach(logo => logo.addEventListener('click', handleNavByLogo));
 
 imageCarouselBtns.forEach(btn => btn.addEventListener('click', handleCarousel));
 listItems.forEach(item => item.addEventListener('click', handleOffer));
-listDesktopItems.forEach(item => item.addEventListener('click', handleOffer));
+
+window.onresize = handleNullOffer;
 
 submitFormBtn.addEventListener('click', handleForm);
 
