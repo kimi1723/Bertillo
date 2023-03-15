@@ -112,12 +112,15 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function () {
 
 		turnItemsArrowDown();
 	} else {
+		const listItem = document.querySelector(`.offer-products-box__list-item[data-item="${this.itemNumber}"]`);
 		const activeItemDescription = document.querySelector(`.offer-products-box__list-item-description--active`);
 
 		const activeButton = document.querySelector(`.offer-products-box__${this.itemType}list-item-button--active`);
 		const otherActiveButton = document.querySelector(`.offer-products-box__${otherItemType}list-item-button--active`);
 
 		if (activeItemDescription !== null) {
+			listItem.classList.add('offer-products-box__list-item--hidden');
+
 			activeItemDescription.classList.remove(`offer-products-box__list-item-description--active`);
 		}
 
@@ -125,6 +128,8 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function () {
 			activeButton.classList.remove(`offer-products-box__${this.itemType}list-item-button--active`);
 			otherActiveButton.classList.remove(`offer-products-box__${otherItemType}list-item-button--active`);
 		}
+
+		listItem.classList.remove('offer-products-box__list-item--hidden');
 
 		listItemButton.classList.add(`offer-products-box__${this.itemType}list-item-button--active`);
 		otherListItemButton.classList.add(`offer-products-box__${otherItemType}list-item-button--active`);

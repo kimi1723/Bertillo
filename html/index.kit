@@ -29,7 +29,7 @@
                     class="header-box__offer-link link-animation fade-in-top fade-in-top--offer-link">Sprawdź naszą
                     ofertę </a>
 
-                <a href="#aboutus" aria-label="Scroll down to about us section"><i
+                <a href="#aboutus" aria-label='Zjedź w dół do sekcji "O nas"'><i
                         class=" fa-solid fa-angle-down header-box__arrow-down-icon fade-in-top fade-in-top--arrow-down bounce-in-top"></i></a>
             </div>
 
@@ -225,32 +225,15 @@
 
                         </ul>
 
-                        <!--  <div class="offer-products-box-images">
 
-                            <img src="/dist/img/offer/main-image.webp"
-                                alt="Opis standardowych rozwiązań obróbek blacharskich, które wykonujemy według potrzeb klienta. Standardowa długość obróbki wynosi 2m."
-                                class="offer-products-box-images__img">
-
-                            <button
-                                class="offer-products-box-images__btn offer-products-box-images__btn--left offer-products-box-images__btn--hidden"
-                                data-direction="left"><span class="offer-products-box-images__btn-span"
-                                    data-direction="left">&lt;</span></button>
-
-                            <button
-                                class="offer-products-box-images__btn offer-products-box-images__btn--right offer-products-box-images__btn--hidden"
-                                data-direction="right"><span class="offer-products-box-images__btn-span"
-                                    data-direction="right">&gt;</span></button>
-
-
-                        </div> -->
 
                         <ul class="offer-products-box__list">
-                            <li class="offer-products-box__list-item">
+                            <li class="offer-products-box__list-item" data-item="1">
                                 <h3><button type="button"
                                         class="offer-products-box__list-item-button offer-products-box__list-item-button--active"
                                         data-item="1" data-item-type=""
                                         data-display-src-path="czerpnie-powietrza">Przegląd <i
-                                            class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i></button>
+                                            class="fa-solid fa-chevron-up offer-products-box__arrow-icon"></i></button>
                                 </h3>
 
                                 <div class="offer-products-box__list-item-description offer-products-box__list-item-description--active"
@@ -262,8 +245,6 @@
                                             alt="Standardowe rozwiązania obróbek blacharskich"
                                             class="offer-products-box-images__img" data-display-src-path="main">
 
-
-
                                     </div>
 
                                     <p class="offer-products-box__list-item-description-p">Lorem ipsum, dolor sit amet
@@ -272,11 +253,12 @@
                                 </div>
                             </li>
 
-                            <li class="offer-products-box__list-item">
+                            <li class="offer-products-box__list-item offer-products-box__list-item--hidden"
+                                data-item="2">
 
                                 <h3><button type="button" class="offer-products-box__list-item-button" data-item="2"
                                         data-item-type="" data-display-src-path="nasady-kominowe">Nasady
-                                        kominowe <i class="fa-solid fa-chevron-up offer-products-box__arrow-icon"></i>
+                                        kominowe <i class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i>
                                     </button></h3>
 
                                 <div class="offer-products-box__list-item-description" data-description="2">
@@ -288,14 +270,14 @@
 
                                         <button
                                             class="offer-products-box-images__btn offer-products-box-images__btn--left "
-                                            data-direction="left" data-number-of-images="13"><span
-                                                class="offer-products-box-images__btn-span"
+                                            data-direction="left" aria-label="Przesunięcie karuzeli zdjęć w lewo"
+                                            data-number-of-images="13"><span class="offer-products-box-images__btn-span"
                                                 data-direction="left">&lt;</span></button>
 
                                         <button
                                             class="offer-products-box-images__btn offer-products-box-images__btn--right "
-                                            data-direction="right" data-number-of-images="13"><span
-                                                class="offer-products-box-images__btn-span"
+                                            data-direction="right" aria-label="Przesunięcie karuzeli zdjęć w prawo"
+                                            data-number-of-images="13"><span class="offer-products-box-images__btn-span"
                                                 data-direction="right">&gt;</span></button>
 
 
@@ -366,7 +348,8 @@
                                 </div>
                             </li>
 
-                            <li class="offer-products-box__list-item">
+                            <li class="offer-products-box__list-item offer-products-box__list-item--hidden"
+                                data-item="3">
                                 <h3><button type="button" class="offer-products-box__list-item-button" data-item="3"
                                         data-item-type="" data-display-src-path="przedluzki-kominowe">Przedłużki
                                         <i class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i></button>
@@ -382,14 +365,14 @@
 
                                         <button
                                             class="offer-products-box-images__btn offer-products-box-images__btn--left "
-                                            data-direction="left" data-number-of-images="5"><span
-                                                class="offer-products-box-images__btn-span"
+                                            data-direction="left" aria-label="Przesunięcie karuzeli zdjęć w lewo"
+                                            data-number-of-images="5"><span class="offer-products-box-images__btn-span"
                                                 data-direction="left">&lt;</span></button>
 
                                         <button
                                             class="offer-products-box-images__btn offer-products-box-images__btn--right "
-                                            data-direction="right" data-number-of-images="5"><span
-                                                class="offer-products-box-images__btn-span"
+                                            data-direction="right" aria-label="Przesunięcie karuzeli zdjęć w prawo"
+                                            data-number-of-images="5"><span class="offer-products-box-images__btn-span"
                                                 data-direction="right">&gt;</span></button>
 
 
@@ -410,7 +393,8 @@
                                 </div>
                             </li>
 
-                            <li class="offer-products-box__list-item">
+                            <li class="offer-products-box__list-item offer-products-box__list-item--hidden"
+                                data-item="4">
                                 <h3><button type="button" class="offer-products-box__list-item-button" data-item="4"
                                         data-item-type="" data-display-src-path="system-rynnowy">Systemy rynnowe
                                         <i class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i></button>
@@ -426,14 +410,14 @@
 
                                         <button
                                             class="offer-products-box-images__btn offer-products-box-images__btn--left "
-                                            data-direction="left" data-number-of-images="2"><span
-                                                class="offer-products-box-images__btn-span"
+                                            data-direction="left" aria-label="Przesunięcie karuzeli zdjęć w lewo"
+                                            data-number-of-images="2"><span class="offer-products-box-images__btn-span"
                                                 data-direction="left">&lt;</span></button>
 
                                         <button
                                             class="offer-products-box-images__btn offer-products-box-images__btn--right "
-                                            data-direction="right" data-number-of-images="2"><span
-                                                class="offer-products-box-images__btn-span"
+                                            data-direction="right" aria-label="Przesunięcie karuzeli zdjęć w prawo"
+                                            data-number-of-images="2"><span class="offer-products-box-images__btn-span"
                                                 data-direction="right">&gt;</span></button>
 
 
@@ -453,7 +437,8 @@
                                 </div>
                             </li>
 
-                            <li class="offer-products-box__list-item">
+                            <li class="offer-products-box__list-item offer-products-box__list-item--hidden"
+                                data-item="5">
                                 <h3><button type="button" class="offer-products-box__list-item-button" data-item="5"
                                         data-item-type="" data-display-src-path="rura">Rury
                                         <i class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i></button>
@@ -468,14 +453,14 @@
 
                                         <button
                                             class="offer-products-box-images__btn offer-products-box-images__btn--left "
-                                            data-direction="left" data-number-of-images="6"><span
-                                                class="offer-products-box-images__btn-span"
+                                            data-direction="left" aria-label="Przesunięcie karuzeli zdjęć w lewo"
+                                            data-number-of-images="6"><span class="offer-products-box-images__btn-span"
                                                 data-direction="left">&lt;</span></button>
 
                                         <button
                                             class="offer-products-box-images__btn offer-products-box-images__btn--right "
-                                            data-direction="right" data-number-of-images="6"><span
-                                                class="offer-products-box-images__btn-span"
+                                            data-direction="right" aria-label="Przesunięcie karuzeli zdjęć w prawo"
+                                            data-number-of-images="6"><span class="offer-products-box-images__btn-span"
                                                 data-direction="right">&gt;</span></button>
 
 
@@ -491,7 +476,8 @@
                                 </div>
                             </li>
 
-                            <li class="offer-products-box__list-item">
+                            <li class="offer-products-box__list-item offer-products-box__list-item--hidden"
+                                data-item="6">
                                 <h3><button type="button" class="offer-products-box__list-item-button" data-item="6"
                                         data-item-type="" data-display-src-path="kolana-segmentowe">Kolana
                                         <i class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i></button>
@@ -517,7 +503,8 @@
                                 </div>
                             </li>
 
-                            <li class="offer-products-box__list-item">
+                            <li class="offer-products-box__list-item offer-products-box__list-item--hidden"
+                                data-item="7">
                                 <h3><button type="button" class="offer-products-box__list-item-button" data-item="7"
                                         data-item-type="" data-display-src-path="trojnik">Trójniki
                                         <i class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i></button>
@@ -532,14 +519,14 @@
 
                                         <button
                                             class="offer-products-box-images__btn offer-products-box-images__btn--left "
-                                            data-direction="left" data-number-of-images="6"><span
-                                                class="offer-products-box-images__btn-span"
+                                            data-direction="left" aria-label="Przesunięcie karuzeli zdjęć w lewo"
+                                            data-number-of-images="6"><span class="offer-products-box-images__btn-span"
                                                 data-direction="left">&lt;</span></button>
 
                                         <button
                                             class="offer-products-box-images__btn offer-products-box-images__btn--right "
-                                            data-direction="right" data-number-of-images="6"><span
-                                                class="offer-products-box-images__btn-span"
+                                            data-direction="right" aria-label="Przesunięcie karuzeli zdjęć w prawo"
+                                            data-number-of-images="6"><span class="offer-products-box-images__btn-span"
                                                 data-direction="right">&gt;</span></button>
                                     </div>
 
@@ -551,7 +538,8 @@
                                 </div>
                             </li>
 
-                            <li class="offer-products-box__list-item">
+                            <li class="offer-products-box__list-item offer-products-box__list-item--hidden"
+                                data-item="8">
                                 <h3><button type="button" class="offer-products-box__list-item-button" data-item="8"
                                         data-item-type="" data-display-src-path="czerpnie-powietrza">Czerpnie powietrza
                                         <i class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i></button>
@@ -567,14 +555,14 @@
 
                                         <button
                                             class="offer-products-box-images__btn offer-products-box-images__btn--left "
-                                            data-direction="left" data-number-of-images="6"><span
-                                                class="offer-products-box-images__btn-span"
+                                            data-direction="left" aria-label="Przesunięcie karuzeli zdjęć w lewo"
+                                            data-number-of-images="6"><span class="offer-products-box-images__btn-span"
                                                 data-direction="left">&lt;</span></button>
 
                                         <button
                                             class="offer-products-box-images__btn offer-products-box-images__btn--right "
-                                            data-direction="right" data-number-of-images="6"><span
-                                                class="offer-products-box-images__btn-span"
+                                            data-direction="right" aria-label="Przesunięcie karuzeli zdjęć w prawo"
+                                            data-number-of-images="6"><span class="offer-products-box-images__btn-span"
                                                 data-direction="right">&gt;</span></button>
                                     </div>
 
@@ -591,7 +579,8 @@
                                 </div>
                             </li>
 
-                            <li class="offer-products-box__list-item">
+                            <li class="offer-products-box__list-item offer-products-box__list-item--hidden"
+                                data-item="9">
                                 <h3><button type="button" class="offer-products-box__list-item-button" data-item="9"
                                         data-item-type="" data-display-src-path="parapety">Parapety stalowe
                                         <i class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i></button>
@@ -606,14 +595,14 @@
 
                                         <button
                                             class="offer-products-box-images__btn offer-products-box-images__btn--left "
-                                            data-direction="left" data-number-of-images="6"><span
-                                                class="offer-products-box-images__btn-span"
+                                            data-direction="left" aria-label="Przesunięcie karuzeli zdjęć w lewo"
+                                            data-number-of-images="6"><span class="offer-products-box-images__btn-span"
                                                 data-direction="left">&lt;</span></button>
 
                                         <button
                                             class="offer-products-box-images__btn offer-products-box-images__btn--right "
-                                            data-direction="right" data-number-of-images="6"><span
-                                                class="offer-products-box-images__btn-span"
+                                            data-direction="right" aria-label="Przesunięcie karuzeli zdjęć w prawo"
+                                            data-number-of-images="6"><span class="offer-products-box-images__btn-span"
                                                 data-direction="right">&gt;</span></button>
                                     </div>
 
@@ -647,7 +636,8 @@
                                 </div>
                             </li>
 
-                            <li class="offer-products-box__list-item">
+                            <li class="offer-products-box__list-item offer-products-box__list-item--hidden"
+                                data-item="10">
                                 <h3><button type="button" class="offer-products-box__list-item-button" data-item="10"
                                         data-item-type="" data-display-src-path="pas-nadrynnowy">Pas nadrynnowy
                                         <i class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i></button>
@@ -674,7 +664,8 @@
                                 </div>
                             </li>
 
-                            <li class="offer-products-box__list-item">
+                            <li class="offer-products-box__list-item offer-products-box__list-item--hidden"
+                                data-item="11">
                                 <h3><button type="button" class="offer-products-box__list-item-button" data-item="11"
                                         data-item-type="" data-display-src-path="obrobka">Obróbka gzmysu
                                         <i class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i></button>
@@ -700,7 +691,8 @@
                                 </div>
                             </li>
 
-                            <li class="offer-products-box__list-item">
+                            <li class="offer-products-box__list-item offer-products-box__list-item--hidden"
+                                data-item="12">
                                 <h3><button type="button" class="offer-products-box__list-item-button" data-item="12"
                                         data-item-type="" data-display-src-path="obrobka-przyscienna">Obróbka
                                         przyścienna
@@ -717,7 +709,7 @@
 
                                     </div>
 
-                                    <p class="offer-products-box__list-item-description-p">>Obróbka przyścienna zajmuje
+                                    <p class="offer-products-box__list-item-description-p">Obróbka przyścienna zajmuje
                                         się, jak nazwa wskazuje odprowadzaniem wody przy
                                         ścianie. Stanowi bardzo ważny element wykończenia dachów oraz elewacji. Można ją
                                         również zastosować jako bok komina.
@@ -725,7 +717,8 @@
                                 </div>
                             </li>
 
-                            <li class="offer-products-box__list-item">
+                            <li class="offer-products-box__list-item offer-products-box__list-item--hidden"
+                                data-item="13">
                                 <h3><button type="button" class="offer-products-box__list-item-button" data-item="13"
                                         data-item-type="" data-display-src-path="wiatrownica">Wiatrownica
                                         <i class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i></button>
@@ -809,7 +802,8 @@
                                 </div>
                             </li>
 
-                            <li class="offer-products-box__list-item">
+                            <li class="offer-products-box__list-item offer-products-box__list-item--hidden"
+                                data-item="14">
                                 <h3><button type="button" class="offer-products-box__list-item-button" data-item="14"
                                         data-item-type="" data-display-src-path="ciecie-plazmowe">Cięcie plazmowe
                                         <i class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i></button>
@@ -859,7 +853,8 @@
 
                                         <p class="offer-products-box__list-item-description-single-line-break">
                                             <strong>Zalety
-                                                cięcia plazmowego:</strong></p>
+                                                cięcia plazmowego:</strong>
+                                        </p>
                                         <ul>
                                             <li>-powierzchnie cięcia o dużej precyzji, znakomite kontury wyciętych
                                                 elementów
@@ -876,384 +871,6 @@
                                 </div>
                             </li>
 
-                            <!-- <li class="offer-products-box__list-item">
-                                <h3><button type="button" class="offer-products-box__list-item-button" data-item="3"
-                                        data-item-type="" data-display-src-path="przedluzki-kominowe">Przedłużki
-                                        <i class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i></button>
-                                </h3>
-
-                                <div class="offer-products-box__list-item-description" data-description="3">
-                                    <div class="offer-products-box-images">
-
-                                        <img src="/dist/img/offer/przedluzki-kominowe/1.webp"
-                                            alt="Wybrana obróbka blacharska." class="offer-products-box-images__img"
-                                            data-display-src-path="nasady-kominowe">
-
-                                        <button
-                                            class="offer-products-box-images__btn offer-products-box-images__btn--left "
-                                            data-direction="left" data-number-of-images="5"><span
-                                                class="offer-products-box-images__btn-span"
-                                                data-direction="left">&lt;</span></button>
-
-                                        <button
-                                            class="offer-products-box-images__btn offer-products-box-images__btn--right "
-                                            data-direction="right" data-number-of-images="5"><span
-                                                class="offer-products-box-images__btn-span"
-                                                data-direction="right">&gt;</span></button>
-
-
-                                    </div>
-
-                                    <p>Przedłużka kominowa stosowana jest na przewody dymne w celu przedłużenia komina
-                                        dzięki czemu nie brudzi ścian komina i przyległego dachu. W przedłużonym w ten
-                                        sposób kominie powstają lepsze warunki do naturalnego ciągu kominowego.
-                                        <span class="offer-products-box__list-item-description-double-line-break"> Komin
-                                            działa
-                                            prawidłowo, a ty masz pewność, że wszystkie produkty spalania zostaną
-                                            sprawnie i
-                                            szybko usunięte z pomieszczeń. Wykonywane w różnych kształtach, wymiarach z
-                                            blachy
-                                            nierdzewnej i kwasoodpornej.</span>
-                                    </p>
-                                </div>
-                            </li>
-
-                            <li class="offer-products-box__list-item">
-                                <h3><button type="button" class="offer-products-box__list-item-button" data-item="3"
-                                        data-item-type="" data-offer-type="carousel"
-                                        data-display-src-path="czerpnie-powietrza">Czerpnie powietrza <i
-                                            class="fa-solid fa-chevron-down offer-products-box__arrow-icon"></i></button>
-                                </h3>
-
-                                <div class="offer-products-box__list-item-description" data-description="3">
-
-                                    <div class="offer-products-box-images">
-
-                                        <img src="/dist/img/offer/czerpnie-powietrza/1.webp"
-                                            alt="Wybrana obróbka blacharska." class="offer-products-box-images__img"
-                                            data-display-src-path="czerpnie-powietrza">
-
-                                        <button
-                                            class="offer-products-box-images__btn offer-products-box-images__btn--left "
-                                            data-direction="left" data-number-of-images="6"><span
-                                                class="offer-products-box-images__btn-span"
-                                                data-direction="left">&lt;</span></button>
-
-                                        <button
-                                            class="offer-products-box-images__btn offer-products-box-images__btn--right "
-                                            data-direction="right" data-number-of-images="6"><span
-                                                class="offer-products-box-images__btn-span"
-                                                data-direction="right">&gt;</span></button>
-
-
-                                    </div>
-
-                                    <p class="offer-products-box__list-item-description-p">Czerpnia powietrza jest to
-                                        element instalacji wentylacyjnej lub klimatyzacyjnej,
-                                        przez który jest zasysane powietrze zewnętrzne. Stosuje się czerpnie terenowe,
-                                        ścienne i dachowe, o różnej średnicy. Wykonujemy je z blachy ocynkowanej,
-                                        stalowej,
-                                        a także w kolorach <span
-                                            class="offer-products-box__list-item-description-bold-text">złoty dąb,
-                                            orzech,
-                                            grafitowy, czarny, brązowy.</span></p>
-                                </div>
-                            </li>
-
-
-
-                            <li class="offer-products-box__list-item">
-                                <h3> <button type="button" class="offer-products-box__list-item-button" data-item="4"
-                                        data-offer-type="image" data-display-src-path="ciecie-plazmowe">Usługi
-                                        cięcia plazmowego <i class="fa-solid fa-chevron-down" data-item="4"
-                                            data-offer-type="image"
-                                            data-display-src-path="ciecie-plazmowe"></i></button></h3>
-                                <div class="offer-products-box__list-item-description" data-description="4">
-
-
-                                    Posiadamy w swojej ofercie specjalizowaną wysokowydajną maszynę do
-                                    cięcia CNC z integrowanym stołem materiałowym do wycinania detali w systemie cięcia
-                                    klasy HD (High Definition). Odznacza się ona wspaniałymi właściwościami
-                                    dynamicznymi, które predysponują ją do połączenia z najbardziej wymaganymi
-                                    plazmowymi technologiami cięcia współczesności.
-
-                                    <span class="offer-products-box__list-item-description-double-line-break"> W
-                                        definiowanych
-                                        zakresach grubości zapewnia wysokiej jakości i wydajne cięcie
-                                        szerokiego spektrum materiałów metalowych.</span>
-
-
-                                    <span class="offer-products-box__list-item-description-double-line-break">
-                                        <strong>Maksymalne
-                                            wymiary użytkowej powierzchni cięcia:</strong>
-                                    </span>
-                                    <ul>
-                                        <li>-arkusze blachy -1500 x 3000mm.</li>
-                                    </ul>
-
-                                    <span class="offer-products-box__list-item-description-single-line-break"><strong>
-                                            Maksymalne grubości blach:</strong></span>
-
-                                    <ul>
-                                        <li> -stal - 20 mm,</li>
-                                        <li> -aluminium - 8 mm,</li>
-                                        <li>-stal nierdzewna - 12 mm,</li>
-                                        <li> -mosiądz - 8 mm,</li>
-                                        <li>-miedź - 8 mm.</li>
-                                    </ul>
-
-                                    <span class="offer-products-box__list-item-description-single-line-break"><strong>Zalety
-                                            cięcia plazmowego:</strong></span>
-
-                                    <ul>
-                                        <li>-powierzchnie cięcia o dużej precyzji, znakomite kontury wyciętych elementów
-                                            zaoszczędzają koszty i czas podczas dalszej obróbki;</li>
-                                        <li>-cięcie w zakresie od 0,5mm w jakości zbliżonej do jakości cięcia
-                                            laserowego;
-                                        </li>
-                                        <li> -bez "strzępienia" do 15mm (zależnie od materiału);</li>
-                                        <li>-niska temperatura nagrzewania materiału;</li>
-                                        <li>-małe zniekształcenia.</li>
-                                    </ul>
-
-                                </div>
-                            </li>
-
-                            <li class="offer-products-box__list-item">
-                                <h3> <button type="button" class="offer-products-box__list-item-button" data-item="5"
-                                        data-offer-type="carousel" data-number-of-images="9"
-                                        data-display-src-path="trojnik">Trójnik
-                                        <i class="fa-solid fa-chevron-down" data-item="5" data-offer-type="carousel"
-                                            data-number-of-images="9" data-display-src-path="trojnik"></i></button></h3>
-                                <div class="offer-products-box__list-item-description" data-description="5">
-                                    <p>Kształtka umożliwiająca połączenie trzech odcinków rur. Różne rodzaje trójników
-                                        pozwalają na łączenie rur pod różnym kątem i w różnych płaszczyznach.
-                                        Wyróżniamy trójnik typu Y oraz T.</p>
-
-                                </div>
-                            </li>
-
-                            <li class="offer-products-box__list-item">
-                                <h3><button type="button" class="offer-products-box__list-item-button" data-item="6"
-                                        data-offer-type="image" data-display-src-path="system-rynnowy">Systemy
-                                        rynnowe
-                                        <i class="fa-solid fa-chevron-down" data-item="6" data-offer-type="image"
-                                            data-display-src-path="system-rynnowy"></i></button></h3>
-                                <div class="offer-products-box__list-item-description" data-description="6">
-                                    <p>Bertillo jest także producentem systemów rynnowych z blach: ocynkowanych,
-                                        ocynkowanych lakierowanych, tytan-cynkowych oraz miedzianych. Systemy
-                                        orynnowania
-                                        został zaprojektowany tak, aby odprowadzić z Państwa dachu każdą ilość wody oraz
-                                        cechować się bardzo dużą odpornością na zmienne warunki atmosferyczne.
-                                        <span class="offer-products-box__list-item-description-double-line-break"> W
-                                            swojej ofercie sprzedaży posiadamy elementy systemu takie jak: rynny,
-                                            narożniki, haki rynnowe, denka rynnowe, leje spustowe, kolanka i wylewki,
-                                            mufy, rury spustowe, trójniki i łapacze deszczówki.</span>
-                                    </p>
-
-                                </div>
-                            </li>
-
-                            <li class="offer-products-box__list-item">
-                                <h3><button type="button" class="offer-products-box__list-item-button" data-item="7"
-                                        data-offer-type="carousel" data-number-of-images="6"
-                                        data-display-src-path="rura">Rura
-                                        <i class="fa-solid fa-chevron-down" data-item="7" data-offer-type="carousel"
-                                            data-number-of-images="6" data-display-src-path="rura"></i></button></h3>
-                                <div class="offer-products-box__list-item-description" data-description="7">
-                                    <p>Prosta kominowa z blachy stalowej, chromoniklowej, kwasoodpornej. Przeznaczona
-                                        jest
-                                        do budowy prostych odcinków wkładu kominowego o żądanej długości do urządzeń
-                                        grzewczych.
-                                        Wykonujemy rury o różnych przekrojach długości 0,33mb, 0,5mb i 1mb</p>
-
-                                </div>
-                            </li>
-
-
-                            <li class="offer-products-box__list-item">
-                                <h3><button type="button" class="offer-products-box__list-item-button" data-item="8"
-                                        data-offer-type="image" data-display-src-path="kolana-segmentowe">Kolana
-                                        segmentowe <i class="fa-solid fa-chevron-down" data-item="8"
-                                            data-offer-type="image"
-                                            data-display-src-path="kolana-segmentowe"></i></button></h3>
-                                <div class="offer-products-box__list-item-description" data-description="8">
-                                    <p>Służą one do budowy ciągów w instalacjach wentylacyjnych grawitacyjnych oraz o
-                                        ciągu
-                                        wymuszonym, w systemach wentylacji mechanicznej, ogrzewania powietrznego i
-                                        klimatyzacji. Oferujemy kolana segmentowe z blachy nierdzewnej i ocynkowanej 90*
-                                        oraz
-                                        45*.</p>
-                                </div>
-                            </li>
-
-                            <li class="offer-products-box__list-item">
-                                <h3><button type="button" class="offer-products-box__list-item-button" data-item="9"
-                                        data-offer-type="image" data-display-src-path="pas-nadrynnowy">Pas
-                                        nadrynnowy stal powlekana<i class="fa-solid fa-chevron-down" data-item="9"
-                                            data-offer-type="image" data-display-src-path="pas-nadrynnowy"></i></button>
-                                </h3>
-                                <div class="offer-products-box__list-item-description" data-description="9">
-                                    <p>Pas nadrynnowy stanowi połączenie pokrycia dachu z rynną. Remontując, stawiając
-                                        nowy dach, nie możemy zapomnieć o pasie nadrynnowym. Jest to obróbka
-                                        odprowadzająca wodę do rynny.</p>
-                                </div>
-                            </li>
-
-                            <li class="offer-products-box__list-item">
-                                <h3><button type="button" class="offer-products-box__list-item-button" data-item="10"
-                                        data-offer-type="image" data-display-src-path="obrobka">Obróbka gzymsu / Pas
-                                        podrynnowy stal powlekana <i class="fa-solid fa-chevron-down" data-item="10"
-                                            data-offer-type="image" data-display-src-path="obrobka"></i></button></h3>
-                                <div class="offer-products-box__list-item-description" data-description="10">
-                                    <p>Pas podrynnowy jak i obróbka gzymsu mają jednakowy kształt, pas podrynnowy jest
-                                        przeznaczony do zabezpieczenia dachów płaskich w miejscu gdzie znajduje się
-                                        rynna, natomiast obróbka gzymsu stosowana jest w miejscach "schodkach",
-                                        ochraniając fasady budynków. Blachy te służą do odprowadzania wody poza obręb
-                                        budynku, zabezpieczając jego elementy przed wilgocią i zagrzybianiem.</p>
-                                </div>
-                            </li>
-
-                            <li class="offer-products-box__list-item">
-                                <h3><button type="button" class="offer-products-box__list-item-button" data-item="11"
-                                        data-offer-type="image" data-display-src-path="obrobka-komina">Obróbka komina
-                                        stal powlekana
-                                        <i class="fa-solid fa-chevron-down" data-item="11" data-offer-type="image"
-                                            data-display-src-path="obrobka-komina"></i></button></h3>
-                                <div class="offer-products-box__list-item-description" data-description="11">
-                                    <p>Styk przewodu kominowego z połacią dachu budynku to newralgiczne miejsce, które
-                                        wymaga odpowiedniego uszczelnienia. Celem jest tutaj uniemożliwienie
-                                        przesiąkania zarówno deszczówki, jak i wody roztopowej, co ogranicza ryzyko,
-                                        zawilgocenia konstrukcji pod pokryciem dachowym. Oczywiście jest to
-                                        ważne, również z punktu widzenia estetyki. Dlatego też dostępna w naszej
-                                        ofercie obróbka komina wykonana z blachy stalowej powlekanej to jeden z
-                                        podstawowych elementów wykorzystywanych w czasie realizacji prac dekarskich
-                                        związanych z budową lub renowacją dachu.
-
-                                        <span class="offer-products-box__list-item-description-double-line-break"> Do
-                                            wykonania opierzenia niezbędnych jest kilka elementów, takich jak czapki
-                                            kominowe, listwy czy też panele kieszeniowe. Co bardzo istotne, jesteśmy w
-                                            stanie przygotować te elementy na indywidualne zamówienie, idealnie
-                                            dopasowując je do konkretnych potrzeb. Produkujemy je z błyszczącej lub
-                                            matowej powlekanej blachy stalowej malowanej na różne kolory z szerokiej
-                                            palety RAL. Dzięki tak dużej swobodzie wyboru u nas szybko zamówisz elementy
-                                            pasujące do konstrukcji dachu i wyglądu jego pokrycia. Zapraszamy do
-                                            składania zamówień oraz kontaktu w celu dokładniejszego zapoznania się z
-                                            proponowaną ofertą!</span>
-                                    </p>
-                                </div>
-                            </li>
-
-
-                            <li class="offer-products-box__list-item">
-                                <h3><button type="button" class="offer-products-box__list-item-button" data-item="12"
-                                        data-offer-type="image" data-display-src-path="obrobka-przyscienna">Obróbka
-                                        przyścienna stal powlekana
-
-                                        <i class="fa-solid fa-chevron-down" data-item="12" data-offer-type="image"
-                                            data-display-src-path="obrobka-przyscienna"></i></button></h3>
-                                <div class="offer-products-box__list-item-description" data-description="12">
-                                    <p>Obróbka przyścienna zajmuje się, jak nazwa wskazuje odprowadzaniem wody przy
-                                        ścianie. Stanowi bardzo ważny element wykończenia dachów oraz elewacji. Można ją
-                                        również zastosować jako bok komina.
-                                    </p>
-                                </div>
-                            </li>
-
-                            <li class="offer-products-box__list-item">
-                                <h3><button type="button" class="offer-products-box__list-item-button" data-item="13"
-                                        data-offer-type="carousel" data-number-of-images="6"
-                                        data-display-src-path="parapety">Parapety stalowe
-                                        <i class="fa-solid fa-chevron-down" data-item="13" data-offer-type="carousel"
-                                            data-number-of-images="6" data-display-src-path="parapety"></i></button>
-                                </h3>
-                                <div class="offer-products-box__list-item-description" data-description="13">
-                                    <p>Doskonale wiedząc, jakie warunki muszą przede wszystkim spełniać parapety
-                                        montowane na zewnątrz budynków, w produkcji swoich modeli wykonanych ze stali
-                                        stawiamy w pierwszej kolejności na funkcjonalność. To dlatego nasze parapety
-                                        stalowe wzorowo spełniają swoją główną funkcję użytkową, jaką jest wspomaganie
-                                        odprowadzania wody deszczowej. Ponadto są to produkty, które odznaczają się
-                                        najwyższym stopniem odporności na działanie niekorzystnych i skrajnych warunków
-                                        pogodowych, takich jak niskie i bardzo wysokie temperatury, promienie słoneczne,
-                                        deszcz, śnieg, oblodzenie powierzchni, a nawet grad. Niewrażliwe są także na
-                                        środki czyszczące, wilgoć, działanie chemikaliów, zaplamienia, a dodatkowo są
-                                        niepalne. Dzięki temu skutecznie chronią elewacje budynków, zapewniając im
-                                        jednocześnie wysoce estetyczny wygląd.
-
-                                        <span
-                                            class="offer-products-box__list-item-description-double-line-break"><strong>Czym
-                                                wyróżniają się nasze parapety stalowe?</strong></span>
-                                        <span class="offer-products-box__list-item-description-single-line-break">
-                                            Parapety stalowe naszej produkcji można montować zarówno z oknami
-                                            aluminiowymi oraz PCV, jak i drewnianymi. Są elastyczne, co dodatkowo
-                                            korzystnie wpływa na ich trwałość oraz odporność. Produkujemy je z
-                                            ocynkowanej blachy o grubości 0,5 mm. Zamówić można dowolną szerokość w
-                                            zakresie od 90 do 400 milimetrów oraz dowolny kolor z palety RAL. Jako
-                                            doświadczony producent dbamy o precyzyjne wykonanie każdego zamawianego
-                                            elementu. Wpływa to na parametry użytkowe produktów oraz decyduje o ich
-                                            świetnej trwałości.
-                                            Posiadamy również w ofercie zakończenia boczne plastikowe jak i aluminiowe
-                                            pod kolor parapetu.</span>
-
-
-
-                                    </p>
-                                </div>
-                            </li>
-
-                            <li class="offer-products-box__list-item">
-                                <h3><button type="button" class="offer-products-box__list-item-button" data-item="14"
-                                        data-offer-type="image" data-display-src-path="wiatrownica">Wiatrownica stal
-                                        powlekana
-                                        <i class="fa-solid fa-chevron-down" data-item="14" data-offer-type="image"
-                                            data-display-src-path="wiatrownica"></i></button></h3>
-                                <div class="offer-products-box__list-item-description" data-description="14">
-                                    <p>W ofercie znajduje się zarówno wiatrownica boczna, jak i pod dachówkę ze stali
-                                        powlekanej – to najczęstsze warianty tego typu wyposażenia. Oprócz tego dostępne
-                                        są także inne ich rodzaje, czyli:
-                                    <ul>
-                                        <li>-pod papę</li>
-                                        <li>-na blachodachówkę,</li>
-                                        <li>-z przetłoczeniem.</li>
-                                    </ul>
-
-                                    <span class="offer-products-box__list-item-description-single-line-break">Produkty
-                                        można zakupić w wielu wersjach kolorystycznych, jak i materiałowych.
-                                        Zachęcamy także do obejrzenia innych akcesoriów dostępnych na stronie.</span>
-
-                                    <span class="offer-products-box__list-item-description-double-line-break"><strong>Wiatrownica
-                                            dachowa – jaką pełni funkcję?</strong></span>
-
-                                    <span class="offer-products-box__list-item-description-single-line-break"> Aby dach
-                                        był w pełni bezpieczną konstrukcją, konieczna będzie wiatrownica pod
-                                        dachówkę lub boczna, która jest skrajną częścią połaci dachu łączącą się z
-                                        krokwią.
-                                        Jej podstawowa funkcja to chronienie konstrukcji domu przed mocnymi nawiewami
-                                        wiatru
-                                        i deszczem. Usztywnia oraz wzmacnia pokrycia dachowe, a oprócz tego pełni rolę
-                                        ozdobną i wykończeniową. To także element, dzięki któremu możliwa jest obróbka
-                                        blacharska połaci.</span>
-
-                                    <span class="offer-products-box__list-item-description-double-line-break"> Przed
-                                        poderwaniem dachu chroni wiatrownica boczna, czyli deska czołowa montowana na
-                                        szczycie budynku. Używa się jej zwłaszcza wtedy, kiedy brakuje okapu. Dzięki
-                                        temu
-                                        rozwiązaniu dachówki i blachy nie będą się odrywać, zwłaszcza podczas
-                                        silniejszego
-                                        wiatru. W przypadku wiatrownicy pod dachówkę często zastępuje ona skrajne ich
-                                        elementy, co wpływa na oszczędność podczas budowania domu. Jeżeli chodzi o
-                                        wersję
-                                        pod papę, zapewnia zwłaszcza szczelność na krawędziach konstrukcji. Wariant z
-                                        przetłoczeniem natomiast lepiej usztywnia i jest estetyczny. Służymy
-                                        fachową pomocą
-                                        przy wybieraniu odpowiedniego produktu!</span>
-
-
-
-
-                                    </p>
-                                </div>
-                            </li> -->
 
 
                         </ul>
