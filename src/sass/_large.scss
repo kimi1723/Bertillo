@@ -44,7 +44,9 @@
 		&__link {
 			position: relative;
 			margin: 0;
+			padding: 1em 1.2em;
 			font-size: 2.5rem;
+			outline: none;
 			transition: color 0.3s, text-shadow 0.3s;
 			z-index: 1;
 
@@ -57,11 +59,13 @@
 				width: 100%;
 				height: 150%;
 				background-color: c.$leading;
+
 				transition: opacity 0.3s;
 				z-index: -1;
 			}
 
-			&:hover {
+			&:hover,
+			&:focus {
 				color: c.$white;
 				text-shadow: 0 0 7px #000;
 

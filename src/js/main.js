@@ -135,9 +135,13 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function () {
 		const activeButton = document.querySelector(`.offer-products-box__${this.itemType}list-item-button--active`);
 		const otherActiveButton = document.querySelector(`.offer-products-box__${otherItemType}list-item-button--active`);
 
-		if (activeItemDescription !== null) {
-			listItem.classList.add('offer-products-box__list-item--hidden');
+		const listItems = document.querySelectorAll('.offer-products-box__list-item');
 
+		listItems.forEach(item => {
+			item.classList.add('offer-products-box__list-item--hidden');
+		});
+
+		if (activeItemDescription !== null) {
 			activeItemDescription.classList.remove(`offer-products-box__list-item-description--active`);
 		}
 
