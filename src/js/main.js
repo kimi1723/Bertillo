@@ -8,6 +8,7 @@ const aboutusBoxesToAnimate = ['first', 'second', 'third'];
 const listItems = document.querySelectorAll('.offer-products-box > ul > li > h3 > button');
 const imageCarouselBtns = document.querySelectorAll('.offer-products-box-images__btn');
 const image = document.querySelector('.offer-products-box-images__img');
+
 let imageNumber = 1,
 	displaySrcPath = 'nasady-kominowe',
 	numberOfImages = 13,
@@ -53,6 +54,15 @@ const turnItemsArrowDown = () => {
 	});
 };
 
+const setCarouselInterval = () => {
+	clearCarouselInterval();
+	carouselInterval = setInterval(autoOfferCarousel, 2000);
+};
+
+const clearCarouselInterval = () => {
+	clearInterval(carouselInterval);
+};
+
 const autoOfferCarousel = () => {
 	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
 
@@ -63,13 +73,19 @@ const autoOfferCarousel = () => {
 		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/1.webp`);
 		imageNumber = 1;
 	}
+
+	image.removeEventListener('mouseover', clearCarouselInterval);
+	image.removeEventListener('mouseleave', setCarouselInterval);
+
+	image.addEventListener('mouseover', clearCarouselInterval);
+	image.addEventListener('mouseleave', setCarouselInterval);
 };
 
 const handleCarousel = e => {
 	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
 
-	clearInterval(carouselInterval);
-	carouselInterval = setInterval(autoOfferCarousel, 2000);
+	clearCarouselInterval();
+	setCarouselInterval();
 
 	if (e.target.dataset.direction === 'right' && imageNumber != numberOfImages) {
 		imageNumber++;
@@ -176,8 +192,8 @@ const handleOffer = e => {
 
 	numberOfImages = e.currentTarget.dataset.numberOfImages;
 
-	clearInterval(carouselInterval);
-	carouselInterval = setInterval(autoOfferCarousel, 2000);
+	clearCarouselInterval();
+	setCarouselInterval();
 
 	chosenOffer.handleOfferDisplay();
 };
@@ -380,8 +396,6 @@ logos.forEach(logo => logo.addEventListener('click', handleNavByLogo));
 imageCarouselBtns.forEach(btn => btn.addEventListener('click', handleCarousel));
 listItems.forEach(item => item.addEventListener('click', handleOffer));
 
-carouselInterval = setInterval(autoOfferCarousel, 2000);
-
 btnsInLiDescription.forEach(item => {
 	item.addEventListener('click', handleListInDescription);
 });
@@ -390,4 +404,5 @@ window.onresize = handleNullOffer;
 
 submitFormBtn.addEventListener('click', handleForm);
 
+setCarouselInterval();
 handleCopyrightYear();
