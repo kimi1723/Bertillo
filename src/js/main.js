@@ -10,7 +10,8 @@ const imageCarouselBtns = document.querySelectorAll('.offer-products-box-images_
 const image = document.querySelector('.offer-products-box-images__img');
 let imageNumber = 1,
 	displaySrcPath = 'main',
-	numberOfImages;
+	numberOfImages,
+	carouselInterval;
 
 const submitFormBtn = document.querySelector('.contact-box-form__submit-button');
 
@@ -50,9 +51,24 @@ const turnItemsArrowDown = () => {
 	});
 };
 
+const autoOfferCarousel = () => {
+	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
+
+	if (imageNumber != numberOfImages) {
+		imageNumber++;
+		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
+	} else if (imageNumber == numberOfImages) {
+		console.log('asd');
+		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/1.webp`);
+		imageNumber = 1;
+	}
+};
+
 const handleCarousel = e => {
 	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
-	numberOfImages = e.currentTarget.dataset.numberOfImages;
+
+	clearInterval(carouselInterval);
+	carouselInterval = setInterval(autoOfferCarousel, 3000);
 
 	if (e.target.dataset.direction === 'right' && imageNumber != numberOfImages) {
 		imageNumber++;
@@ -155,17 +171,8 @@ const handleOffer = e => {
 
 	numberOfImages = e.currentTarget.dataset.numberOfImages;
 
-	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
-
-	setInterval(() => {
-		if (imageNumber != numberOfImages) {
-			imageNumber++;
-			image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
-		} else if (imageNumber == numberOfImages) {
-			imageNumber = 1;
-			image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
-		}
-	}, 3000);
+	clearInterval(carouselInterval);
+	carouselInterval = setInterval(autoOfferCarousel, 3000);
 
 	chosenOffer.handleOfferDisplay();
 };
