@@ -449,10 +449,35 @@ body {
 						&-item {
 							margin: 0.6em 0;
 
-							&-heading {
+							&-button {
 								margin-bottom: 0.3em;
-								font-size: 2rem;
+								text-align: left;
+								font-size: 1.6rem;
 								line-height: 1.1;
+								background: none;
+								border: transparent;
+								transition: color 0.3s;
+								cursor: pointer;
+
+								&--active {
+									color: c.$leading;
+								}
+
+								&:hover {
+									color: c.$leading-brighter;
+								}
+							}
+
+							&-description {
+								opacity: 0;
+								max-height: 0;
+								overflow: hidden;
+								transition: opacity 0.3s, max-height 0.3s;
+
+								&--active {
+									opacity: 1;
+									max-height: max-content;
+								}
 							}
 						}
 					}

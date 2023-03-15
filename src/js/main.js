@@ -17,6 +17,43 @@ const submitFormBtn = document.querySelector('.contact-box-form__submit-button')
 
 const copyrightSpan = document.querySelector('.footer-box__copyright-year');
 
+const btnsInLiDescription = document.querySelectorAll('.offer-products-box__list-item-description-list-item-button');
+
+const handleListInDescription = e => {
+	const btn = e.currentTarget;
+	const itemNumber = btn.dataset.inLiItem;
+	const btnDescription = document.querySelector(
+		`.offer-products-box__list-item-description-list-item-description[data-in-li-item="${itemNumber}"]`,
+	);
+	const activeBtnDescription = document.querySelector(
+		'.offer-products-box__list-item-description-list-item-description--active',
+	);
+	const activeBtn = document.querySelector('.offer-products-box__list-item-description-list-item-button--active');
+	const btnArrow = document.querySelector(`[data-in-li-item="${itemNumber}"] > i`);
+	const activeBtnArrow = document.querySelector(
+		`.offer-products-box__list-item-description-list-item-button > .fa-chevron-up`,
+	);
+	const btnsArrow = document.querySelectorAll('.offer-products-box__list-item-description-list-item-button > i');
+
+	if (activeBtnDescription != null) {
+		activeBtnDescription.classList.remove('offer-products-box__list-item-description-list-item-description--active');
+		activeBtn.classList.remove('offer-products-box__list-item-description-list-item-button--active');
+		activeBtnArrow.classList.remove('fa-chevron-up');
+		activeBtnArrow.classList.add('fa-chevron-down');	
+	}
+
+	if (activeBtnDescription != btnDescription) {
+		btnDescription.classList.add('offer-products-box__list-item-description-list-item-description--active');
+		btn.classList.add('offer-products-box__list-item-description-list-item-button--active');
+		btnArrow.classList.remove('fa-chevron-down');
+		btnArrow.classList.add('fa-chevron-up');
+	}
+};
+
+btnsInLiDescription.forEach(item => {
+	item.addEventListener('click', handleListInDescription);
+});
+
 const handleNav = () => {
 	nav.classList.toggle('navbar-links--active');
 	navIcon.classList.toggle('navbar-hamburger--active');
