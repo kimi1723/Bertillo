@@ -9,50 +9,15 @@ const listItems = document.querySelectorAll('.offer-products-box > ul > li > h3 
 const imageCarouselBtns = document.querySelectorAll('.offer-products-box-images__btn');
 const image = document.querySelector('.offer-products-box-images__img');
 let imageNumber = 1,
-	displaySrcPath = 'main',
-	numberOfImages,
+	displaySrcPath = 'nasady-kominowe',
+	numberOfImages = 13,
 	carouselInterval;
+
+const btnsInLiDescription = document.querySelectorAll('.offer-products-box__list-item-description-list-item-button');
 
 const submitFormBtn = document.querySelector('.contact-box-form__submit-button');
 
 const copyrightSpan = document.querySelector('.footer-box__copyright-year');
-
-const btnsInLiDescription = document.querySelectorAll('.offer-products-box__list-item-description-list-item-button');
-
-const handleListInDescription = e => {
-	const btn = e.currentTarget;
-	const itemNumber = btn.dataset.inLiItem;
-	const btnDescription = document.querySelector(
-		`.offer-products-box__list-item-description-list-item-description[data-in-li-item="${itemNumber}"]`,
-	);
-	const activeBtnDescription = document.querySelector(
-		'.offer-products-box__list-item-description-list-item-description--active',
-	);
-	const activeBtn = document.querySelector('.offer-products-box__list-item-description-list-item-button--active');
-	const btnArrow = document.querySelector(`[data-in-li-item="${itemNumber}"] > i`);
-	const activeBtnArrow = document.querySelector(
-		`.offer-products-box__list-item-description-list-item-button > .fa-chevron-up`,
-	);
-	const btnsArrow = document.querySelectorAll('.offer-products-box__list-item-description-list-item-button > i');
-
-	if (activeBtnDescription != null) {
-		activeBtnDescription.classList.remove('offer-products-box__list-item-description-list-item-description--active');
-		activeBtn.classList.remove('offer-products-box__list-item-description-list-item-button--active');
-		activeBtnArrow.classList.remove('fa-chevron-up');
-		activeBtnArrow.classList.add('fa-chevron-down');	
-	}
-
-	if (activeBtnDescription != btnDescription) {
-		btnDescription.classList.add('offer-products-box__list-item-description-list-item-description--active');
-		btn.classList.add('offer-products-box__list-item-description-list-item-button--active');
-		btnArrow.classList.remove('fa-chevron-down');
-		btnArrow.classList.add('fa-chevron-up');
-	}
-};
-
-btnsInLiDescription.forEach(item => {
-	item.addEventListener('click', handleListInDescription);
-});
 
 const handleNav = () => {
 	nav.classList.toggle('navbar-links--active');
@@ -234,6 +199,37 @@ const handleNullOffer = () => {
 	}
 };
 
+const handleListInDescription = e => {
+	const btn = e.currentTarget;
+	const itemNumber = btn.dataset.inLiItem;
+	const btnDescription = document.querySelector(
+		`.offer-products-box__list-item-description-list-item-description[data-in-li-item="${itemNumber}"]`,
+	);
+	const activeBtnDescription = document.querySelector(
+		'.offer-products-box__list-item-description-list-item-description--active',
+	);
+	const activeBtn = document.querySelector('.offer-products-box__list-item-description-list-item-button--active');
+	const btnArrow = document.querySelector(`[data-in-li-item="${itemNumber}"] > i`);
+	const activeBtnArrow = document.querySelector(
+		`.offer-products-box__list-item-description-list-item-button > .fa-chevron-up`,
+	);
+	const btnsArrow = document.querySelectorAll('.offer-products-box__list-item-description-list-item-button > i');
+
+	if (activeBtnDescription != null) {
+		activeBtnDescription.classList.remove('offer-products-box__list-item-description-list-item-description--active');
+		activeBtn.classList.remove('offer-products-box__list-item-description-list-item-button--active');
+		activeBtnArrow.classList.remove('fa-chevron-up');
+		activeBtnArrow.classList.add('fa-chevron-down');
+	}
+
+	if (activeBtnDescription != btnDescription) {
+		btnDescription.classList.add('offer-products-box__list-item-description-list-item-description--active');
+		btn.classList.add('offer-products-box__list-item-description-list-item-button--active');
+		btnArrow.classList.remove('fa-chevron-down');
+		btnArrow.classList.add('fa-chevron-up');
+	}
+};
+
 const sendEmail = async (userName, userEmail, userTel, userMsg) => {
 	// const baseUrl = 'https://bertillo.vercel.app:443';
 	const baseUrl = 'http://localhost:443';
@@ -383,6 +379,12 @@ logos.forEach(logo => logo.addEventListener('click', handleNavByLogo));
 
 imageCarouselBtns.forEach(btn => btn.addEventListener('click', handleCarousel));
 listItems.forEach(item => item.addEventListener('click', handleOffer));
+
+carouselInterval = setInterval(autoOfferCarousel, 2000);
+
+btnsInLiDescription.forEach(item => {
+	item.addEventListener('click', handleListInDescription);
+});
 
 window.onresize = handleNullOffer;
 

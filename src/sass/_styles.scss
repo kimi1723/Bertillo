@@ -452,8 +452,10 @@ body {
 							&-button {
 								margin-bottom: 0.3em;
 								text-align: left;
+								font-weight: bold;
 								font-size: 1.6rem;
 								line-height: 1.1;
+								color: c.$matte-black;
 								background: none;
 								border: transparent;
 								transition: color 0.3s;
