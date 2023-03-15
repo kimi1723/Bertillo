@@ -9,7 +9,8 @@ const listItems = document.querySelectorAll('.offer-products-box > ul > li > h3 
 const imageCarouselBtns = document.querySelectorAll('.offer-products-box-images__btn');
 const image = document.querySelector('.offer-products-box-images__img');
 let imageNumber = 1,
-	displaySrcPath = 'main';
+	displaySrcPath = 'main',
+	numberOfImages;
 
 const submitFormBtn = document.querySelector('.contact-box-form__submit-button');
 
@@ -51,7 +52,7 @@ const turnItemsArrowDown = () => {
 
 const handleCarousel = e => {
 	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
-	const numberOfImages = e.currentTarget.dataset.numberOfImages;
+	numberOfImages = e.currentTarget.dataset.numberOfImages;
 
 	if (e.target.dataset.direction === 'right' && imageNumber != numberOfImages) {
 		imageNumber++;
@@ -151,6 +152,20 @@ const handleOffer = e => {
 	const itemType = e.currentTarget.dataset.itemType;
 
 	const chosenOffer = new CreateOfferDisplay(itemNumber, itemType, displaySrcPath);
+
+	numberOfImages = e.currentTarget.dataset.numberOfImages;
+
+	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
+
+	setInterval(() => {
+		if (imageNumber != numberOfImages) {
+			imageNumber++;
+			image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
+		} else if (imageNumber == numberOfImages) {
+			imageNumber = 1;
+			image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
+		}
+	}, 3000);
 
 	chosenOffer.handleOfferDisplay();
 };
