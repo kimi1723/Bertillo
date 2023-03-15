@@ -89,12 +89,12 @@
 
 			&__desktop-list {
 				display: flex;
-				justify-content: flex-start;
+				justify-content: center;
 				flex-wrap: wrap;
 				width: 100%;
 
 				&-item {
-					margin-right: 1.6em;
+					margin: 0 2em 1em 0;
 
 					&-button {
 						position: relative;

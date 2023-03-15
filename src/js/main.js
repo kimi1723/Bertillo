@@ -9,7 +9,7 @@ const listItems = document.querySelectorAll('.offer-products-box > ul > li > h3 
 const imageCarouselBtns = document.querySelectorAll('.offer-products-box-images__btn');
 const image = document.querySelector('.offer-products-box-images__img');
 let imageNumber = 1,
-	displaySrcPath = 'nasady-kominowe';
+	displaySrcPath = 'main';
 
 const submitFormBtn = document.querySelector('.contact-box-form__submit-button');
 
