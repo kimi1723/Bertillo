@@ -54,11 +54,10 @@ const turnItemsArrowDown = () => {
 const autoOfferCarousel = () => {
 	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
 
-	if (imageNumber != numberOfImages) {
+	if (imageNumber != numberOfImages && numberOfImages != undefined) {
 		imageNumber++;
 		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
 	} else if (imageNumber == numberOfImages) {
-		console.log('asd');
 		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/1.webp`);
 		imageNumber = 1;
 	}
@@ -68,7 +67,7 @@ const handleCarousel = e => {
 	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
 
 	clearInterval(carouselInterval);
-	carouselInterval = setInterval(autoOfferCarousel, 3000);
+	carouselInterval = setInterval(autoOfferCarousel, 2000);
 
 	if (e.target.dataset.direction === 'right' && imageNumber != numberOfImages) {
 		imageNumber++;
@@ -176,7 +175,7 @@ const handleOffer = e => {
 	numberOfImages = e.currentTarget.dataset.numberOfImages;
 
 	clearInterval(carouselInterval);
-	carouselInterval = setInterval(autoOfferCarousel, 3000);
+	carouselInterval = setInterval(autoOfferCarousel, 2000);
 
 	chosenOffer.handleOfferDisplay();
 };

@@ -3,6 +3,3 @@
 3. Opis strony (meta tag)
 4. Kolory
 
-TO DO
-
-1 ANIMACJE DO BOXOW ABOUTUS ZROBIC
