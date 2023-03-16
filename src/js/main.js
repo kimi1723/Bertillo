@@ -240,8 +240,8 @@ const handleListInDescription = e => {
 };
 
 const sendEmail = async (userName, userEmail, userTel, userMsg) => {
-	// const baseUrl = 'https://bertillo.vercel.app:443';
-	const baseUrl = 'http://localhost:443';
+	const baseUrl = 'http://localhost:3000';
+	// const baseUrl = 'https://bertillo.pl';
 
 	const res = await fetch(baseUrl, {
 		method: 'POST',
@@ -258,11 +258,11 @@ const sendEmail = async (userName, userEmail, userTel, userMsg) => {
 };
 
 const resetForm = (userName, userEmail, userTel, userMsg, dataProcessingCheckbox) => {
-	// userName.value = '';
-	// userEmail.value = '';
-	// userTel.value = '';
-	// userMsg.value = '';
-	// dataProcessingCheckbox.checked = false;
+	userName.value = '';
+	userEmail.value = '';
+	userTel.value = '';
+	userMsg.value = '';
+	dataProcessingCheckbox.checked = false;
 };
 
 const checkName = () => {

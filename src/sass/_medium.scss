@@ -9,14 +9,12 @@
 		font-size: 3.5rem;
 	}
 
-	// Nawigacja
 	.navbar {
 		&__link {
 			font-size: 3rem;
 		}
 	}
 
-	// Header
 	.header {
 		&-box {
 			&__heading {
@@ -33,7 +31,6 @@
 		}
 	}
 
-	// O nas
 	.aboutus {
 		&-box {
 			padding: 2.5em 2.5em 3.5em;
@@ -57,7 +54,6 @@
 		}
 	}
 
-	// Kontakt
 	.contact {
 		&-box {
 			&-form {
@@ -74,7 +70,6 @@
 		}
 	}
 
-	// Stopka
 	.footer {
 		&-box {
 			flex-direction: row;
@@ -114,7 +109,6 @@
 		font-size: 4rem;
 	}
 
-	// Nawigacja
 	.navbar {
 		&-links {
 			top: 81px;
@@ -126,7 +120,6 @@
 		}
 	}
 
-	// Header
 	.header {
 		background-image: url(/dist/img/desktop/header-bg.webp);
 
@@ -137,7 +130,6 @@
 		}
 	}
 
-	// O nas
 	.aboutus {
 		&-box {
 			&__heading {
@@ -150,7 +142,6 @@
 		}
 	}
 
-	// Oferta
 	.offer {
 		&-products-box__list-item-description,
 		&-products-box__list-item-description-list-item-button {
@@ -164,7 +155,6 @@
 		}
 	}
 
-	// Kontakt
 	.contact {
 		&-box {
 			&-form {
@@ -192,7 +182,6 @@
 		}
 	}
 
-	// Stopka
 	.footer {
 		&-box {
 			&__logo {
