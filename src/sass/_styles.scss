@@ -381,7 +381,6 @@ body {
 					font-weight: bold;
 					font-size: 2.2rem;
 					color: c.$matte-black;
-					outline: none;
 					background: transparent;
 					border: none;
 					transition: color 0.3s;
@@ -393,7 +392,7 @@ body {
 					}
 
 					&--active {
-						color: c.$leading-lighter;
+						color: c.$leading-brighter;
 					}
 
 					.fa-solid {
@@ -458,10 +457,11 @@ body {
 								cursor: pointer;
 
 								&--active {
-									color: c.$leading;
+									color: c.$leading-brighter;
 								}
 
-								&:hover {
+								&:hover,
+								&:focus {
 									color: c.$leading-brighter;
 								}
 							}
