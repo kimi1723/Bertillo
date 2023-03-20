@@ -11,8 +11,9 @@ const imageContainers = document.querySelectorAll('.offer-products-box-images');
 
 let imageNumber = 1,
 	displaySrcPath = 'nasady-kominowe',
-	numberOfImages = 13,
-	carouselInterval;
+	numberOfImages = undefined,
+	carouselInterval,
+	imageBoxCarouselButtons;
 
 const btnsInLiDescription = document.querySelectorAll('.offer-products-box__list-item-description-list-item-button');
 
@@ -189,6 +190,10 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function () {
 		activeBtnInLi.classList.remove('offer-products-box__list-item-description-list-item-button--active');
 		activeBtnInLiArrow.classList.remove('fa-chevron-up');
 		activeBtnInLiArrow.classList.add('fa-chevron-down');
+
+		imageBoxCarouselButtons.forEach(btn => {
+			btn.classList.add('offer-products-box-images__btn--hidden');
+		});
 	}
 };
 
@@ -240,18 +245,27 @@ const handleListInDescription = e => {
 		`.offer-products-box__list-item-description-list-item-button > .fa-chevron-up`,
 	);
 	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
+	const mainDisplaySrcPath = e.currentTarget.dataset.mainDisplaySrcPath;
+	imageBoxCarouselButtons = document.querySelectorAll(`[data-image-box-name="${mainDisplaySrcPath}"] > button`);
 
-	displaySrcPath = e.currentTarget.dataset.displaySrcPath;
 	numberOfImages = e.currentTarget.dataset.numberOfImages;
-	imageNumber = 1;
-	image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
-	clearCarouselInterval();
+
+	if (activeBtnDescription === btnDescription) {
+		numberOfImages = undefined;
+	}
 
 	if (activeBtnDescription != null) {
 		activeBtnDescription.classList.remove('offer-products-box__list-item-description-list-item-description--active');
 		activeBtn.classList.remove('offer-products-box__list-item-description-list-item-button--active');
 		activeBtnArrow.classList.remove('fa-chevron-up');
 		activeBtnArrow.classList.add('fa-chevron-down');
+
+		displaySrcPath = mainDisplaySrcPath;
+		imageNumber = 1;
+
+		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
+
+		clearCarouselInterval();
 	}
 
 	if (activeBtnDescription != btnDescription) {
@@ -259,6 +273,22 @@ const handleListInDescription = e => {
 		btn.classList.add('offer-products-box__list-item-description-list-item-button--active');
 		btnArrow.classList.remove('fa-chevron-down');
 		btnArrow.classList.add('fa-chevron-up');
+
+		displaySrcPath = e.currentTarget.dataset.displaySrcPath;
+		imageNumber = 1;
+		image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
+		clearCarouselInterval();
+	}
+
+	if (numberOfImages != undefined) {
+		imageBoxCarouselButtons.forEach(btn => {
+			btn.classList.remove('offer-products-box-images__btn--hidden');
+		});
+		setCarouselInterval();
+	} else {
+		imageBoxCarouselButtons.forEach(btn => {
+			btn.classList.add('offer-products-box-images__btn--hidden');
+		});
 	}
 };
 
@@ -422,5 +452,4 @@ window.onresize = handleNullOffer;
 
 submitFormBtn.addEventListener('click', handleForm);
 
-setCarouselInterval();
 handleCopyrightYear();
