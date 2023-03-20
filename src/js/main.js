@@ -240,8 +240,7 @@ const handleListInDescription = e => {
 };
 
 const sendEmail = async (userName, userEmail, userTel, userMsg) => {
-	const baseUrl = 'http://localhost:3000';
-	// const baseUrl = 'https://bertillo.pl';
+	const baseUrl = 'send-email.php';
 
 	const res = await fetch(baseUrl, {
 		method: 'POST',
