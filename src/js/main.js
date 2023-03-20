@@ -102,14 +102,7 @@ class CreateOfferDisplay {
 }
 
 CreateOfferDisplay.prototype.handleOfferDisplay = function () {
-	imageNumber = 1;
 	const images = document.querySelectorAll('.offer-products-box-images__img');
-
-	images.forEach(img => {
-		const imgSrcPath = img.dataset.displaySrcPath;
-
-		img.setAttribute('src', `/dist/img/offer/${imgSrcPath}/1.webp`);
-	});
 
 	const itemDescription = document.querySelector(`[data-description="${this.itemNumber}"]`);
 	const listItemButton = document.querySelector(`[data-item="${this.itemNumber}"][data-item-type="${this.itemType}"]`);
@@ -118,6 +111,16 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function () {
 	const otherListItemButton = document.querySelector(
 		`[data-item="${this.itemNumber}"][data-item-type="${otherItemType}"]`,
 	);
+	const activeBtnInLiDescription = document.querySelector(
+		'.offer-products-box__list-item-description-list-item-description--active',
+	);
+	imageNumber = 1;
+
+	images.forEach(img => {
+		const imgSrcPath = img.dataset.displaySrcPath;
+
+		img.setAttribute('src', `/dist/img/offer/${imgSrcPath}/1.webp`);
+	});
 
 	if (
 		this.itemType == 'desktop-' &&
@@ -173,6 +176,20 @@ CreateOfferDisplay.prototype.handleOfferDisplay = function () {
 		itemArrow.classList.remove('fa-chevron-down');
 		itemArrow.classList.add('fa-chevron-up');
 	}
+
+	if (activeBtnInLiDescription != null) {
+		const activeBtnInLi = document.querySelector('.offer-products-box__list-item-description-list-item-button--active');
+		const activeBtnInLiArrow = document.querySelector(
+			`.offer-products-box__list-item-description-list-item-button > .fa-chevron-up`,
+		);
+
+		activeBtnInLiDescription.classList.remove(
+			'offer-products-box__list-item-description-list-item-description--active',
+		);
+		activeBtnInLi.classList.remove('offer-products-box__list-item-description-list-item-button--active');
+		activeBtnInLiArrow.classList.remove('fa-chevron-up');
+		activeBtnInLiArrow.classList.add('fa-chevron-down');
+	}
 };
 
 const handleOffer = e => {
@@ -222,7 +239,13 @@ const handleListInDescription = e => {
 	const activeBtnArrow = document.querySelector(
 		`.offer-products-box__list-item-description-list-item-button > .fa-chevron-up`,
 	);
-	const btnsArrow = document.querySelectorAll('.offer-products-box__list-item-description-list-item-button > i');
+	const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
+
+	displaySrcPath = e.currentTarget.dataset.displaySrcPath;
+	numberOfImages = e.currentTarget.dataset.numberOfImages;
+	imageNumber = 1;
+	image.setAttribute('src', `/dist/img/offer/${displaySrcPath}/${imageNumber}.webp`);
+	clearCarouselInterval();
 
 	if (activeBtnDescription != null) {
 		activeBtnDescription.classList.remove('offer-products-box__list-item-description-list-item-description--active');
