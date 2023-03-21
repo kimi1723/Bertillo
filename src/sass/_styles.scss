@@ -810,17 +810,21 @@ body {
 			width: 100%;
 			text-align: center;
 			font-size: 1.4rem;
+			font-weight: bold;
 			color: c.$leading;
-			border-top: 2px solid c.$leading;
+			border-top: 1px solid c.$leading;
 		}
 	}
+}
+
+.error-404-body {
+	background-color: c.$white;
 }
 
 .error-404-main {
 	padding: 11em 2em 6em;
 	text-align: center;
 	color: c.$dark;
-	background-color: c.$white;
 
 	&__img {
 		object-fit: cover;
@@ -858,5 +862,32 @@ body {
 			bottom: -0.25em;
 			height: calc(100% + 0.5em);
 		}
+	}
+}
+
+.error-404-footer {
+	position: relative;
+	margin-top: 8em;
+	padding-top: 8em;
+	overflow: hidden;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		width: 25%;
+		height: 25px;
+		background-color: c.$leading;
+		transform: skew(45deg);
+	}
+
+	&::before {
+		top: 0;
+		left: -5%;
+	}
+
+	&::after {
+		top: 5%;
+		right: -5%;
 	}
 }
