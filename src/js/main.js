@@ -5,7 +5,7 @@ const logos = document.querySelectorAll('.logo');
 
 const aboutusBoxesToAnimate = ['first', 'second', 'third'];
 
-const listItems = document.querySelectorAll('.offer-products-box > ul > li > h3 > button');
+const listItems = document.querySelectorAll('.offer-products-box > ul > li > button');
 const imageCarouselBtns = document.querySelectorAll('.offer-products-box-images__btn');
 const imageContainers = document.querySelectorAll('.offer-products-box-images');
 

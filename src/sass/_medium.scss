@@ -92,6 +92,25 @@
 			}
 		}
 	}
+
+	.error-404-main {
+		padding: 15em 4em 6em;
+
+		&__img {
+			width: 50%;
+		}
+
+		&__header {
+			margin-top: 1.5em;
+			font-size: 3.4rem;
+		}
+
+		&__return-button {
+			margin-top: 2.5em;
+			padding: 0.25em 0.5em;
+			font-size: 2.4rem;
+		}
+	}
 }
 
 @media (min-width: 768px) {

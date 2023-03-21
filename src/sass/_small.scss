@@ -31,3 +31,17 @@
 		}
 	}
 }
+
+@media (min-height: 616px) {
+	.error-404-main {
+		padding: 15em 2em 6em;
+
+		&__header {
+			margin-top: 1.5em;
+		}
+
+		&__return-button {
+			margin-top: 2.5em;
+		}
+	}
+}

@@ -261,6 +261,22 @@
 			}
 		}
 	}
+
+	.error-404-main {
+		&__img {
+			width: 40%;
+		}
+
+		&__header {
+			margin-top: 2em;
+			font-size: 4rem;
+		}
+
+		&__return-button {
+			margin-top: 3em;
+			font-size: 3rem;
+		}
+	}
 }
 
 @media (min-width: 1200px) {
@@ -313,6 +329,12 @@
 			&__copyright {
 				font-size: 1.8rem;
 			}
+		}
+	}
+
+	.error-404-main {
+		&__img {
+			width: 35%;
 		}
 	}
 }
