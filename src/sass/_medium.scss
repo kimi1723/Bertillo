@@ -115,7 +115,7 @@
 
 @media (min-width: 768px) {
 	html {
-		scroll-padding-top: 81px;
+		scroll-padding-top: 77px;
 	}
 
 	.section {
@@ -130,8 +130,8 @@
 
 	.navbar {
 		&-links {
-			top: 81px;
-			min-height: calc(100vh - 81px);
+			top: 77px;
+			min-height: calc(100vh - 77px);
 		}
 
 		&__link {

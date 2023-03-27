@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1679875750735,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679877621852,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n @use 'reset';\r\n+@use 'components';\r\n @use 'styles';\r\n-@use 'components';\r\n @use 'animations';\r\n @use 'small';\r\n @use 'medium';\r\n @use 'large';\r\n"
                 }
             ],
             "date": 1679875750735,

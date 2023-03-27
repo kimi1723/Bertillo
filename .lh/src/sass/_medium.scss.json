@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/sass/_medium.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1679877726413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679877743466,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -129,10 +129,10 @@\n \t}\r\n \r\n \t.navbar {\r\n \t\t&-links {\r\n-\t\t\ttop: 81px;\r\n-\t\t\tmin-height: calc(100vh - 81px);\r\n+\t\t\ttop: 77px;\r\n+\t\t\tmin-height: calc(100vh - 77px);\r\n \t\t}\r\n \r\n \t\t&__link {\r\n \t\t\tfont-size: 3rem;\r\n"
+                }
+            ],
+            "date": 1679877726413,
+            "name": "Commit-0",
+            "content": "@use 'colors' as c;\r\n\r\n@media (min-width: 576px) {\r\n\t.section {\r\n\t\tpadding: 6em 4em;\r\n\t}\r\n\r\n\t.logo {\r\n\t\tfont-size: 3.5rem;\r\n\t}\r\n\r\n\t.navbar {\r\n\t\t&__link {\r\n\t\t\tfont-size: 3rem;\r\n\t\t}\r\n\t}\r\n\r\n\t.header {\r\n\t\t&-box {\r\n\t\t\t&__heading {\r\n\t\t\t\tfont-size: 7rem;\r\n\r\n\t\t\t\t&-span {\r\n\t\t\t\t\tfont-size: 2.4rem;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\r\n\t\t\t&__offer-link {\r\n\t\t\t\tfont-size: 3rem;\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t.aboutus {\r\n\t\t&-box {\r\n\t\t\tpadding: 2.5em 2.5em 3.5em;\r\n\r\n\t\t\t&__heading {\r\n\t\t\t\tfont-size: 3rem;\r\n\r\n\t\t\t\t.fa-solid {\r\n\t\t\t\t\tfont-size: 4rem;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\t&__content {\r\n\t\t\t\tfont-size: 1.8rem;\r\n\r\n\t\t\t\t&-link {\r\n\t\t\t\t\t&:last-of-type {\r\n\t\t\t\t\t\tfont-size: 2.2rem;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t.contact {\r\n\t\t&-box {\r\n\t\t\t&-form {\r\n\t\t\t\t&-message-sent {\r\n\t\t\t\t\t&-content {\r\n\t\t\t\t\t\twidth: 75%;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\r\n\t\t\t&__map {\r\n\t\t\t\tmargin-top: 5em;\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t.footer {\r\n\t\t&-box {\r\n\t\t\tflex-direction: row;\r\n\t\t\tjustify-content: space-around;\r\n\r\n\t\t\t&__logo {\r\n\t\t\t\tfont-size: 4.5rem;\r\n\t\t\t}\r\n\r\n\t\t\t&-info {\r\n\t\t\t\t&__list {\r\n\t\t\t\t\t&-link {\r\n\t\t\t\t\t\tfont-size: 1.8rem;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\r\n\t\t\t&__copyright {\r\n\t\t\t\tfont-size: 1.6rem;\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t.error-404-main {\r\n\t\tpadding: 15em 4em 6em;\r\n\r\n\t\t&__img {\r\n\t\t\twidth: 50%;\r\n\t\t}\r\n\r\n\t\t&__header {\r\n\t\t\tmargin-top: 1.5em;\r\n\t\t\tfont-size: 3.4rem;\r\n\t\t}\r\n\r\n\t\t&__return-button {\r\n\t\t\tmargin-top: 2.5em;\r\n\t\t\tpadding: 0.25em 0.5em;\r\n\t\t\tfont-size: 2.4rem;\r\n\t\t}\r\n\t}\r\n}\r\n\r\n@media (min-width: 768px) {\r\n\thtml {\r\n\t\tscroll-padding-top: 77px;\r\n\t}\r\n\r\n\t.section {\r\n\t\t&__heading {\r\n\t\t\tfont-size: 4.5rem;\r\n\t\t}\r\n\t}\r\n\r\n\t.logo {\r\n\t\tfont-size: 4rem;\r\n\t}\r\n\r\n\t.navbar {\r\n\t\t&-links {\r\n\t\t\ttop: 81px;\r\n\t\t\tmin-height: calc(100vh - 81px);\r\n\t\t}\r\n\r\n\t\t&__link {\r\n\t\t\tfont-size: 3rem;\r\n\t\t}\r\n\t}\r\n\r\n\t.header {\r\n\t\tbackground-image: url(/dist/img/desktop/header-bg.webp);\r\n\r\n\t\t&-box {\r\n\t\t\t&__heading {\r\n\t\t\t\tfont-size: 8.5rem;\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t.aboutus {\r\n\t\t&-box {\r\n\t\t\t&__heading {\r\n\t\t\t\tfont-size: 3.5rem;\r\n\r\n\t\t\t\t.fa-solid {\r\n\t\t\t\t\tfont-size: 4.5rem;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t.offer {\r\n\t\t&-products-box__list-item-description,\r\n\t\t&-products-box__list-item-description-list-item-button {\r\n\t\t\tfont-size: 1.8rem;\r\n\t\t}\r\n\r\n\t\t&-box {\r\n\t\t\t&__heading {\r\n\t\t\t\tmargin-bottom: 0.5em;\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t.contact {\r\n\t\t&-box {\r\n\t\t\t&-form {\r\n\t\t\t\tflex-direction: row;\r\n\t\t\t\tjustify-content: space-between;\r\n\t\t\t\tflex-wrap: wrap;\r\n\t\t\t\tfont-size: 2rem;\r\n\r\n\t\t\t\t&__item {\r\n\t\t\t\t\tmargin: 0.2em 0;\r\n\r\n\t\t\t\t\t&:first-of-type,\r\n\t\t\t\t\t&:nth-of-type(2),\r\n\t\t\t\t\t&:nth-of-type(3) {\r\n\t\t\t\t\t\twidth: 30%;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\r\n\t\t\t\t&__submit-button {\r\n\t\t\t\t\tleft: 100%;\r\n\t\t\t\t\tfont-size: 2.5rem;\r\n\t\t\t\t\ttransform: translateX(-100%);\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\r\n\t.footer {\r\n\t\t&-box {\r\n\t\t\t&__logo {\r\n\t\t\t\tfont-size: 5rem;\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}\r\n"
+        }
+    ]
+}

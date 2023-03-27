@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1679875692534,
@@ -16,6 +16,14 @@
                 {
                     "date": 1679875707351,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n }\r\n \r\n .logo {\r\n \tpadding: 0.3em 0.6em;\r\n-\tfont-family: 'Cinzel', serif;\r\n+\tfont-family: 'cinzel-regular', serif;\r\n \tfont-size: 3rem;\r\n \tfont-weight: bold;\r\n \ttext-transform: uppercase;\r\n \tcolor: c.$leading;\r\n"
+                },
+                {
+                    "date": 1679877558117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \r\n .logo {\r\n \tpadding: 0.3em 0.6em;\r\n \tfont-family: 'cinzel-regular', serif;\r\n-\tfont-size: 3rem;\r\n+\tfont-size: 3.5rem;\r\n \tfont-weight: bold;\r\n \ttext-transform: uppercase;\r\n \tcolor: c.$leading;\r\n \toutline: none;\r\n"
+                },
+                {
+                    "date": 1679877646426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \r\n .logo {\r\n \tpadding: 0.3em 0.6em;\r\n \tfont-family: 'cinzel-regular', serif;\r\n-\tfont-size: 3.5rem;\r\n+\tfont-size: 3rem;\r\n \tfont-weight: bold;\r\n \ttext-transform: uppercase;\r\n \tcolor: c.$leading;\r\n \toutline: none;\r\n"
                 }
             ],
             "date": 1679875692534,
