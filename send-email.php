@@ -30,9 +30,11 @@ try {
     $mail->Port       = 465;                                    
 
     $email = 'testmailphp98@gmail.com';
-    $clientId = '703730296199-kaunhgu3e0od4fa9lk2qme5f8n0chafa.apps.googleusercontent.com';
-    $clientSecret = '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';
-    $refreshToken = '1//0cUmvEcBpUxUKCgYIARAAGAwSNwF-L9Ir15xQdA2Uwvcj_OJuPSEL2xR6e1TJ7PnBhJVR5bCAuPFIwAEv909Nt5Po8pDe5mWVDqU';
+    $clientId = '34231537940-t14957kqh9td4po9et3ogkrehuptmle5.apps.googleusercontent.com
+    ';
+    $clientSecret = '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
+    ';
+    $refreshToken = '1//0c77YvQ7LW1q-CgYIARAAGAwSNwF-L9IrlJi3A2D8BXoDXKLBkKwTR2EMJkIN4wBtQyjvhUv8igIsTL0qbq9hR7zOxZ0odbnKBXE';
 
     $provider = new Google(
       [
@@ -57,7 +59,7 @@ try {
     $data = json_decode(file_get_contents("php://input"), true);
 
     $mail->CharSet = "UTF-8";
-    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->isHTML(true);                                  
     $mail->Subject = 'Wiadomość ze strony Bertillo.pl' ;
     $mail->Body    = "<b>" . 'Imię: ' . "</b>" . $data["userName"] . "<br>" . "<b>" .'E-mail: ' .  "</b>" . $data["userEmail"] . "<br>" . "<b>" ."Nr. tel: " .  "</b>" . $data["userTel"] . "<br>" ."<b>" . "Wiadomość: " .  "</b>" . $data["userMsg"] ;
     $mail->AltBody = "<b>" . 'Imię: ' . "</b>" . $data["userName"] . "<br>" . "<b>" .'E-mail: ' .  "</b>" . $data["userEmail"] . "<br>" . "<b>" ."Nr. tel: " .  "</b>" . $data["userTel"] . "<br>" ."<b>" . "Wiadomość: " .  "</b>" . $data["userMsg"] ;

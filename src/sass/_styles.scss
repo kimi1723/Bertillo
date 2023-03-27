@@ -1,5 +1,32 @@
 @use 'colors' as c;
 
+@font-face {
+	font-family: 'sans-regular';
+	src: url('../fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
+		url('../fonts/sourcesanspro-regular-webfont.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'sans-bold';
+	src: url('../fonts/sourcesanspro-bold-webfont.woff2') format('woff2'),
+		url('../fonts/sourcesanspro-bold-webfont.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'cinzel-regular';
+	src: url('../fonts/cinzel-bold-webfont.woff2') format('woff2'),
+		url('../fonts/cinzel-bold-webfont.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
 html {
 	scroll-behavior: smooth;
 	scroll-padding-top: 74px;
@@ -7,7 +34,7 @@ html {
 }
 
 body {
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'sans-regular', sans-serif;
 }
 
 .nav {
@@ -151,14 +178,14 @@ body {
 
 		&__heading {
 			font-size: 5rem;
-			font-family: 'Cinzel', serif;
+			font-family: 'cinzel-regular', serif;
 			text-transform: uppercase;
 			color: c.$leading;
 			text-shadow: 0 0 10px #000;
 
 			&-span {
 				display: block;
-				font-family: 'Montserrat', sans-serif;
+				font-family: 'sans-regular', sans-serif;
 				font-size: 1.8rem;
 				color: c.$white;
 				text-shadow: 0 0 10px #000;
@@ -272,13 +299,22 @@ body {
 }
 
 .offer {
-	background: rgb(0, 212, 255);
-	background: linear-gradient(
-		90deg,
-		rgba(0, 212, 255, 1) 0%,
-		rgba(174, 174, 181, 0.30575980392156865) 0%,
-		rgba(49, 55, 54, 0.022846638655462215) 100%
-	);
+	background-color: #fff;
+	position: relative;
+	&::before {
+		content: '';
+		position: absolute;
+		width: 35%;
+		height: 60px;
+		background-color: #fff;
+		transform: skew(45deg);
+	}
+
+	&::before {
+		top: -2%;
+		left: -5%;
+		width: 45%;
+	}
 
 	&-box {
 		&__heading {
@@ -486,8 +522,32 @@ body {
 }
 
 .contact {
+	position: relative;
 	background: rgb(4, 4, 50);
 	background: radial-gradient(circle, rgba(4, 4, 50, 1) 16%, rgba(2, 5, 18, 1) 100%);
+	overflow: hidden;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 35%;
+		height: 50px;
+		background-color: #fff;
+		transform: skew(45deg);
+	}
+
+	&::before {
+		right: -5%;
+		width: 50%;
+	}
+
+	// &::after {
+	// 	top: 0;
+	// 	left: 10%;
+	// 	width: 45%;
+	// 	background-color: c.$leading;
+	// 	transform: skew(45deg);
+	// }
 
 	&-box {
 		display: flex;
@@ -626,7 +686,7 @@ body {
 
 				&:focus {
 					border: 1px solid c.$leading;
-					box-shadow: 0 0 5px 2px c.$leading;
+					box-shadow: 0 2px 10px 2px c.$leading-brighter;
 				}
 			}
 
@@ -643,7 +703,7 @@ body {
 				background-color: transparent;
 				border: 1px solid c.$matte-black;
 				border-radius: 8px;
-				box-shadow: 0 1px 5px 2px c.$dark;
+				box-shadow: 0 2px 8px 4px c.$dark;
 				overflow: hidden;
 				outline: none;
 				transition: box-shadow 0.3s, border 0.3s;
@@ -667,8 +727,8 @@ body {
 
 				&:hover,
 				&:focus {
-					border: 1px solid c.$dark;
-					box-shadow: 0 1px 5px 2px c.$matte-black;
+					border: 1px solid transparent;
+					box-shadow: none;
 
 					&::before {
 						transform: scaleX(1);
@@ -766,8 +826,35 @@ body {
 
 .footer {
 	position: relative;
-	padding: 0 2em 6em;
+	padding: 5em 2em 6em;
 	background-color: c.$white;
+	overflow: hidden;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		width: 35%;
+		height: 50px;
+		background-color: c.$white;
+		transform: skew(45deg);
+	}
+
+	&::before {
+		top: 0;
+		left: 45%;
+		width: 45%;
+		background-color: c.$leading;
+		transform: skew(135deg);
+	}
+
+	&::after {
+		top: 0;
+		left: 10%;
+		width: 45%;
+		background-color: c.$leading;
+		transform: skew(45deg);
+	}
 
 	&-box {
 		display: flex;

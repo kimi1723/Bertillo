@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/sass/_components.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1679875692534,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679875702194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n }\r\n \r\n .logo {\r\n \tpadding: 0.3em 0.6em;\r\n-\tfont-family: 'cinzel-regular', serif;\r\n+\tfont-family: 'Cinzel', serif;\r\n \tfont-size: 3rem;\r\n \tfont-weight: bold;\r\n \ttext-transform: uppercase;\r\n \tcolor: c.$leading;\r\n"
+                },
+                {
+                    "date": 1679875707351,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n }\r\n \r\n .logo {\r\n \tpadding: 0.3em 0.6em;\r\n-\tfont-family: 'Cinzel', serif;\r\n+\tfont-family: 'cinzel-regular', serif;\r\n \tfont-size: 3rem;\r\n \tfont-weight: bold;\r\n \ttext-transform: uppercase;\r\n \tcolor: c.$leading;\r\n"
+                }
+            ],
+            "date": 1679875692534,
+            "name": "Commit-0",
+            "content": "@use 'colors' as c;\r\n\r\n.wrapper {\r\n\tmargin: 0 auto;\r\n\theight: 100%;\r\n\twidth: 100%;\r\n\tmax-width: 1400px;\r\n}\r\n\r\n.section {\r\n\tpadding: 6em 2em;\r\n\r\n\t&__heading {\r\n\t\tpadding-bottom: 0.2em;\r\n\t\ttext-align: center;\r\n\t\tfont-size: 3rem;\r\n\t}\r\n}\r\n\r\n.logo {\r\n\tpadding: 0.3em 0.6em;\r\n\tfont-family: 'cinzel-regular', serif;\r\n\tfont-size: 3rem;\r\n\tfont-weight: bold;\r\n\ttext-transform: uppercase;\r\n\tcolor: c.$leading;\r\n\toutline: none;\r\n\ttransition: color 0.3s;\r\n\r\n\t&:hover,\r\n\t&:focus {\r\n\t\tcolor: c.$leading-brighter;\r\n\t}\r\n}\r\n\r\n.link-animation {\r\n\tdisplay: inline-block;\r\n\tposition: relative;\r\n\tz-index: 1;\r\n\toverflow: hidden;\r\n\r\n\t&::before {\r\n\t\tcontent: '';\r\n\t\tposition: absolute;\r\n\t\tleft: -1.5%;\r\n\t\theight: 100%;\r\n\t\twidth: 103%;\r\n\t\ttransform: scaleX(0);\r\n\t\tbackground-color: c.$leading-lighter;\r\n\t\ttransition: transform 0.3s;\r\n\t\ttransform-origin: right;\r\n\t\tz-index: -1;\r\n\t}\r\n\r\n\t&:hover::before,\r\n\t&:focus::before {\r\n\t\ttransform: scaleX(1);\r\n\t\ttransform-origin: left;\r\n\t}\r\n}\r\n"
+        }
+    ]
+}

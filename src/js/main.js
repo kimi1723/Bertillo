@@ -34,7 +34,8 @@ if (body) {
 		displaySrcPath = 'nasady-kominowe',
 		numberOfImages = undefined,
 		carouselInterval,
-		imageBoxCarouselButtons;
+		imageBoxCarouselButtons,
+		liItemNumber;
 
 	const btnsInLiDescription = document.querySelectorAll('.offer-products-box__list-item-description-list-item-button');
 
@@ -52,6 +53,21 @@ if (body) {
 		const boxToAnimate = document.querySelector(`.scale-in-center--aboutus-${box}`);
 		observer.observe(boxToAnimate);
 	});
+
+	const offerProducts = document.querySelector('.offer-products-box');
+
+	const offerProductsObserver = new IntersectionObserver(entries => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				clearCarouselInterval();
+				setCarouselInterval();
+			} else {
+				clearCarouselInterval();
+			}
+		});
+	});
+
+	offerProductsObserver.observe(offerProducts);
 
 	const turnItemsArrowDown = () => {
 		const itemsArrow = document.querySelectorAll(`.offer-products-box__arrow-icon`);
@@ -210,6 +226,7 @@ if (body) {
 
 	const handleOffer = e => {
 		displaySrcPath = e.currentTarget.dataset.displaySrcPath;
+		liItemNumber = e.currentTarget.dataset.item;
 
 		const itemNumber = e.currentTarget.dataset.item;
 		const itemType = e.currentTarget.dataset.itemType;
@@ -224,7 +241,7 @@ if (body) {
 		chosenOffer.handleOfferDisplay();
 	};
 
-	const handleNullOffer = () => {
+	const handleNullOffer = e => {
 		const activeItemDescription = document.querySelector('.offer-products-box__list-item-description--active');
 
 		if (window.innerWidth >= 992 && activeItemDescription === null) {
@@ -232,6 +249,13 @@ if (body) {
 			const mobileListItemButton = document.querySelector(`[data-item="1"][data-item-type=""]`);
 			const mobileListItemButtonArrow = document.querySelector(`[data-item="1"][data-item-type=""] > i`);
 			const desktopListItemButton = document.querySelector(`[data-item="1"][data-item-type="desktop-"]`);
+			const itemLiDescription = document.querySelector('.offer-products-box__list-item[data-item="1"]');
+			const activeitemLiDescription = document.querySelector(
+				`.offer-products-box__list-item[data-item="${liItemNumber}"]`,
+			);
+
+			activeitemLiDescription.classList.add('offer-products-box__list-item--hidden');
+			itemLiDescription.classList.remove('offer-products-box__list-item--hidden');
 
 			mobileListItemButtonArrow.classList.remove('fa-chevron-down');
 			mobileListItemButtonArrow.classList.add('fa-chevron-up');

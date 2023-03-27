@@ -20,14 +20,24 @@
 	}
 }
 
-@media (max-height: 440px) {
+@media (max-height: 280px) {
+	.navbar {
+		&__link {
+			margin: 0;
+			padding: 0.3em 2em;
+		}
+	}
+}
+
+@media (min-height: 281px) and (max-height: 440px) {
 	.navbar {
 		&-links {
 			height: calc(100vh - 73px);
 		}
 
 		&__link {
-			padding: 0.3em 2em;
+			margin: 0.2em 0;
+			padding: 0.5em 2em;
 		}
 	}
 }
