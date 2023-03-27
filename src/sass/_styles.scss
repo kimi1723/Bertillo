@@ -411,6 +411,11 @@ body {
 					&:hover,
 					&:focus {
 						color: c.$leading-brighter;
+
+						.offer-products-box__list-item-button-chevron-down {
+							transform: rotate(180deg);
+							// background-image: url(/dist/img/icons/chevron-down-active.svg);
+						}
 					}
 
 					&--active {
@@ -419,6 +424,22 @@ body {
 
 					.fa-solid {
 						font-size: 3rem;
+					}
+
+					&-chevron {
+						display: inline-block;
+						aspect-ratio: 1/1;
+						width: 1.5em;
+						background-size: cover;
+					}
+
+					&-chevron-up {
+						background-image: url(/dist/img/icons/chevron-up-active.svg);
+					}
+
+					&-chevron-down {
+						background-image: url(/dist/img/icons/chevron-down.svg);
+						transition: transform 0.3s;
 					}
 				}
 
@@ -467,6 +488,8 @@ body {
 							margin: 0.6em 0;
 
 							&-button {
+								display: flex;
+								align-items: center;
 								margin-bottom: 0.3em;
 								text-align: left;
 								font-weight: bold;
@@ -485,6 +508,11 @@ body {
 								&:hover,
 								&:focus {
 									color: c.$leading-brighter;
+
+									.offer-products-box__list-item-button-chevron-down {
+										transform: rotate(180deg);
+										background-image: url(/dist/img/icons/chevron-down-active.svg);
+									}
 								}
 							}
 

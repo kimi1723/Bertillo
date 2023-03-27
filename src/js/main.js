@@ -70,11 +70,11 @@ if (body) {
 	offerProductsObserver.observe(offerProducts);
 
 	const turnItemsArrowDown = () => {
-		const itemsArrow = document.querySelectorAll(`.offer-products-box__arrow-icon`);
+		const itemsArrow = document.querySelectorAll(`.offer-products-box__list-item-button-chevron`);
 
 		itemsArrow.forEach(itemArrow => {
-			itemArrow.classList.remove('fa-chevron-up');
-			itemArrow.classList.add('fa-chevron-down');
+			itemArrow.classList.remove('offer-products-box__list-item-button-chevron-up');
+			itemArrow.classList.add('offer-products-box__list-item-button-chevron-down');
 		});
 	};
 
@@ -199,8 +199,8 @@ if (body) {
 			const itemArrow = document.querySelector(`[data-item="${this.itemNumber}"][data-item-type=""] > i`);
 
 			turnItemsArrowDown();
-			itemArrow.classList.remove('fa-chevron-down');
-			itemArrow.classList.add('fa-chevron-up');
+			itemArrow.classList.remove('offer-products-box__list-item-button-chevron-down');
+			itemArrow.classList.add('offer-products-box__list-item-button-chevron-up');
 		}
 
 		if (activeBtnInLiDescription != null) {
@@ -208,15 +208,15 @@ if (body) {
 				'.offer-products-box__list-item-description-list-item-button--active',
 			);
 			const activeBtnInLiArrow = document.querySelector(
-				`.offer-products-box__list-item-description-list-item-button > .fa-chevron-up`,
+				`.offer-products-box__list-item-description-list-item-button > .offer-products-box__list-item-button-chevron-up`,
 			);
 
 			activeBtnInLiDescription.classList.remove(
 				'offer-products-box__list-item-description-list-item-description--active',
 			);
 			activeBtnInLi.classList.remove('offer-products-box__list-item-description-list-item-button--active');
-			activeBtnInLiArrow.classList.remove('fa-chevron-up');
-			activeBtnInLiArrow.classList.add('fa-chevron-down');
+			activeBtnInLiArrow.classList.remove('offer-products-box__list-item-button-chevron-up');
+			activeBtnInLiArrow.classList.add('offer-products-box__list-item-button-chevron-down');
 
 			imageBoxCarouselButtons.forEach(btn => {
 				btn.classList.add('offer-products-box-images__btn--hidden');
@@ -257,8 +257,9 @@ if (body) {
 			activeitemLiDescription.classList.add('offer-products-box__list-item--hidden');
 			itemLiDescription.classList.remove('offer-products-box__list-item--hidden');
 
-			mobileListItemButtonArrow.classList.remove('fa-chevron-down');
-			mobileListItemButtonArrow.classList.add('fa-chevron-up');
+			mobileListItemButtonArrow.classList.remove('offer-products-box__list-item-button-chevron-down');
+			mobileListItemButtonArrow.classList.add('offer-products-box__list-item-button-chevron-up');
+
 			mobileListItemButton.classList.add(`offer-products-box__list-item-button--active`);
 			desktopListItemButton.classList.add(`offer-products-box__desktop-list-item-button--active`);
 			itemDescription.classList.add('offer-products-box__list-item-description--active');
@@ -277,7 +278,7 @@ if (body) {
 		const activeBtn = document.querySelector('.offer-products-box__list-item-description-list-item-button--active');
 		const btnArrow = document.querySelector(`[data-in-li-item="${itemNumber}"] > i`);
 		const activeBtnArrow = document.querySelector(
-			`.offer-products-box__list-item-description-list-item-button > .fa-chevron-up`,
+			`.offer-products-box__list-item-description-list-item-button > .offer-products-box__list-item-button-chevron-up`,
 		);
 		const image = document.querySelector(`img[src="/dist/img/offer/${displaySrcPath}/${imageNumber}.webp"]`);
 		const mainDisplaySrcPath = e.currentTarget.dataset.mainDisplaySrcPath;
@@ -292,8 +293,8 @@ if (body) {
 		if (activeBtnDescription != null) {
 			activeBtnDescription.classList.remove('offer-products-box__list-item-description-list-item-description--active');
 			activeBtn.classList.remove('offer-products-box__list-item-description-list-item-button--active');
-			activeBtnArrow.classList.remove('fa-chevron-up');
-			activeBtnArrow.classList.add('fa-chevron-down');
+			activeBtnArrow.classList.remove('offer-products-box__list-item-button-chevron-up');
+			activeBtnArrow.classList.add('offer-products-box__list-item-button-chevron-down');
 
 			displaySrcPath = mainDisplaySrcPath;
 			imageNumber = 1;
@@ -306,8 +307,8 @@ if (body) {
 		if (activeBtnDescription != btnDescription) {
 			btnDescription.classList.add('offer-products-box__list-item-description-list-item-description--active');
 			btn.classList.add('offer-products-box__list-item-description-list-item-button--active');
-			btnArrow.classList.remove('fa-chevron-down');
-			btnArrow.classList.add('fa-chevron-up');
+			btnArrow.classList.remove('offer-products-box__list-item-button-chevron-down');
+			btnArrow.classList.add('offer-products-box__list-item-button-chevron-up');
 
 			displaySrcPath = e.currentTarget.dataset.displaySrcPath;
 			imageNumber = 1;
