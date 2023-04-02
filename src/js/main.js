@@ -329,6 +329,11 @@ if (body) {
 	};
 
 	const sendEmail = async (userName, userEmail, userTel, userMsg) => {
+		const messageSentBackground = document.querySelector('.contact-box-form-message-sent-bg');
+		const messageSentContent = document.querySelector('.contact-box-form-message-sent-content');
+		const confirmButton = document.querySelector('.contact-box-form-message-sent-content__confirm-button');
+		const eventListenersArray = [confirmButton, messageSentBackground];
+		const messageContent = document.querySelector('.contact-box-form-message-sent-content__text');
 		const baseUrl = 'send-email.php';
 
 		const res = await fetch(baseUrl, {
@@ -343,6 +348,27 @@ if (body) {
 				userMsg: userMsg.value,
 			}),
 		});
+
+		if (res.status === 200) {
+			messageContent.innerHTML = `Twoja wiadomość została wysłana.
+			<span
+				class="contact-box-form-message-sent-content__text--single-line-break">Skontaktujemy
+				się z tobą najszybciej jak to możliwe!</span>`;
+		} else {
+			messageContent.innerHTML = `Twoja wiadomość niestety nie została wysłana. <span
+			class="contact-box-form-message-sent-content__text--single-line-break">Za utrudnienia przepraszamy.</span>`;
+		}
+
+		eventListenersArray.forEach(listener => {
+			listener.addEventListener('click', e => {
+				e.preventDefault();
+				messageSentBackground.classList.add('contact-box-form-message-sent-bg--hidden');
+				messageSentContent.classList.add('contact-box-form-message-sent-content--hidden');
+			});
+		});
+
+		messageSentBackground.classList.remove('contact-box-form-message-sent-bg--hidden');
+		messageSentContent.classList.remove('contact-box-form-message-sent-content--hidden');
 	};
 
 	const resetForm = (userName, userEmail, userTel, userMsg, dataProcessingCheckbox) => {
@@ -444,22 +470,6 @@ if (body) {
 		});
 
 		if (validationsPassed === 5) {
-			const messageSentBackground = document.querySelector('.contact-box-form-message-sent-bg');
-			const messageSentContent = document.querySelector('.contact-box-form-message-sent-content');
-			const confirmButton = document.querySelector('.contact-box-form-message-sent-content__confirm-button');
-			const eventListenersArray = [confirmButton, messageSentBackground];
-
-			eventListenersArray.forEach(listener => {
-				listener.addEventListener('click', e => {
-					e.preventDefault();
-					messageSentBackground.classList.add('contact-box-form-message-sent-bg--hidden');
-					messageSentContent.classList.add('contact-box-form-message-sent-content--hidden');
-				});
-			});
-
-			messageSentBackground.classList.remove('contact-box-form-message-sent-bg--hidden');
-			messageSentContent.classList.remove('contact-box-form-message-sent-content--hidden');
-
 			sendEmail(userName, userEmail, userTel, userMsg);
 			resetForm(userName, userEmail, userTel, userMsg, dataProcessingCheckbox);
 		}

@@ -1,4 +1,4 @@
-<?php 
+<?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -18,16 +18,16 @@ require './vendor/PHPMailer/PHPMailer/src/SMTP.php';
 $mail = new PHPMailer(true);
 
 try {
-    $mail->SMTPDebug = SMTP::DEBUG_OFF;                   
-    $mail->isSMTP();                                        
-    $mail->Host       = 'smtp.gmail.com ';                    
-    $mail->SMTPAuth   = true;                                  
-    $mail->Username   = 'testmailphp98@gmail.com';                   
-    $mail->Password   = 'TestAs#@s!@aH';                               
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
+    $mail->SMTPDebug = SMTP::DEBUG_OFF;
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com ';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'testmailphp98@gmail.com';
+    $mail->Password   = 'TestAs#@s!@aH';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->SMTPAuth = true;
     $mail->AuthType = 'XOAUTH2';
-    $mail->Port       = 465;                                    
+    $mail->Port       = 465;
 
     $email = 'testmailphp98@gmail.com';
     $clientId = '34231537940-t14957kqh9td4po9et3ogkrehuptmle5.apps.googleusercontent.com
@@ -54,12 +54,12 @@ try {
     )
 );
     $mail->setFrom('biuro@bertillo.pl', 'Bertillo.pl');
-    $mail->addAddress('biuro@bertillo.pl');              
+    $mail->addAddress('biuro@bertillo.pl');
 
     $data = json_decode(file_get_contents("php://input"), true);
 
     $mail->CharSet = "UTF-8";
-    $mail->isHTML(true);                                  
+    $mail->isHTML(true);
     $mail->Subject = 'Wiadomość ze strony Bertillo.pl' ;
     $mail->Body    = "<b>" . 'Imię: ' . "</b>" . $data["userName"] . "<br>" . "<b>" .'E-mail: ' .  "</b>" . $data["userEmail"] . "<br>" . "<b>" ."Nr. tel: " .  "</b>" . $data["userTel"] . "<br>" ."<b>" . "Wiadomość: " .  "</b>" . $data["userMsg"] ;
     $mail->AltBody = "<b>" . 'Imię: ' . "</b>" . $data["userName"] . "<br>" . "<b>" .'E-mail: ' .  "</b>" . $data["userEmail"] . "<br>" . "<b>" ."Nr. tel: " .  "</b>" . $data["userTel"] . "<br>" ."<b>" . "Wiadomość: " .  "</b>" . $data["userMsg"] ;

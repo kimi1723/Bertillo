@@ -1,0 +1,22 @@
+{
+    "sourceFile": "html/_js.kit",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1679943675753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1679943688305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-<script src=\"/dist/js/main.min.js\" async cors=\"\"></script>\n\\ No newline at end of file\n+<script src=\"/dist/js/main.min.js\" async crossorigin=\"anonymous\"></script>\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1679943675753,
+            "name": "Commit-0",
+            "content": "<script src=\"/dist/js/main.min.js\" async cors=\"\"></script>"
+        }
+    ]
+}

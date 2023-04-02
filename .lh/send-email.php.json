@@ -1,0 +1,18 @@
+{
+    "sourceFile": "send-email.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1679943633610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1679943633610,
+            "name": "Commit-0",
+            "content": "<?php\r\nuse PHPMailer\\PHPMailer\\PHPMailer;\r\nuse PHPMailer\\PHPMailer\\Exception;\r\nuse PHPMailer\\PHPMailer\\SMTP;\r\nuse PHPMailer\\PHPMailer\\OAuth;\r\nuse League\\OAuth2\\Client\\Provider\\Google;\r\n\r\n\r\n\r\n\r\ndate_default_timezone_set('Etc/UTC');\r\n\r\nrequire './vendor/autoload.php';\r\nrequire './vendor/PHPMailer/PHPMailer/src/Exception.php';\r\nrequire './vendor/PHPMailer/PHPMailer/src/PHPMailer.php';\r\nrequire './vendor/PHPMailer/PHPMailer/src/SMTP.php';\r\n\r\n$mail = new PHPMailer(true);\r\n\r\ntry {\r\n    $mail->SMTPDebug = SMTP::DEBUG_OFF;\r\n    $mail->isSMTP();\r\n    $mail->Host       = 'smtp.gmail.com ';\r\n    $mail->SMTPAuth   = true;\r\n    $mail->Username   = 'testmailphp98@gmail.com';\r\n    $mail->Password   = 'TestAs#@s!@aH';\r\n    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;\r\n    $mail->SMTPAuth = true;\r\n    $mail->AuthType = 'XOAUTH2';\r\n    $mail->Port       = 465;\r\n\r\n    $email = 'testmailphp98@gmail.com';\r\n    $clientId = '34231537940-t14957kqh9td4po9et3ogkrehuptmle5.apps.googleusercontent.com\r\n    ';\r\n    $clientSecret = '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\r\n    ';\r\n    $refreshToken = '1//0c77YvQ7LW1q-CgYIARAAGAwSNwF-L9IrlJi3A2D8BXoDXKLBkKwTR2EMJkIN4wBtQyjvhUv8igIsTL0qbq9hR7zOxZ0odbnKBXE';\r\n\r\n    $provider = new Google(\r\n      [\r\n          'clientId' => $clientId,\r\n          'clientSecret' => $clientSecret,\r\n      ]\r\n  );\r\n  $mail->setOAuth(\r\n    new OAuth(\r\n        [\r\n            'provider' => $provider,\r\n            'clientId' => $clientId,\r\n            'clientSecret' => $clientSecret,\r\n            'refreshToken' => $refreshToken,\r\n            'userName' => $email,\r\n        ]\r\n    )\r\n);\r\n    $mail->setFrom('biuro@bertillo.pl', 'Bertillo.pl');\r\n    $mail->addAddress('biuro@bertillo.pl');\r\n\r\n    $data = json_decode(file_get_contents(\"php://input\"), true);\r\n\r\n    $mail->CharSet = \"UTF-8\";\r\n    $mail->isHTML(true);\r\n    $mail->Subject = 'Wiadomość ze strony Bertillo.pl' ;\r\n    $mail->Body    = \"<b>\" . 'Imię: ' . \"</b>\" . $data[\"userName\"] . \"<br>\" . \"<b>\" .'E-mail: ' .  \"</b>\" . $data[\"userEmail\"] . \"<br>\" . \"<b>\" .\"Nr. tel: \" .  \"</b>\" . $data[\"userTel\"] . \"<br>\" .\"<b>\" . \"Wiadomość: \" .  \"</b>\" . $data[\"userMsg\"] ;\r\n    $mail->AltBody = \"<b>\" . 'Imię: ' . \"</b>\" . $data[\"userName\"] . \"<br>\" . \"<b>\" .'E-mail: ' .  \"</b>\" . $data[\"userEmail\"] . \"<br>\" . \"<b>\" .\"Nr. tel: \" .  \"</b>\" . $data[\"userTel\"] . \"<br>\" .\"<b>\" . \"Wiadomość: \" .  \"</b>\" . $data[\"userMsg\"] ;\r\n\r\n    $mail->send();\r\n    echo 'Message has been sent';\r\n} catch (Exception $e) {\r\n    echo \"Message could not be sent. Mailer Error: {$mail->ErrorInfo}\";\r\n}\r\n?>"
+        }
+    ]
+}
