@@ -1,0 +1,22 @@
+{
+    "sourceFile": "html/_footer.kit",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1693434972069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1693435509788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,8 +37,8 @@\n                     </li>\r\n                 </ul>\r\n             </div>\r\n \r\n-            <p class=\"footer-box__copyright\">&copy; <span class=\"footer-box__copyright-year\"></span> Bertilloo</p>\r\n+            <p class=\"footer-box__copyright\">&copy; <span class=\"footer-box__copyright-year\"></span> Bertillo</p>\r\n         </div>\r\n     </div>\r\n </footer>\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1693434972069,
+            "name": "Commit-0",
+            "content": "<footer class=\"footer\">\r\n    <div class=\"wrapper\">\r\n        <div class=\"footer-box\">\r\n            <a href=\"#\" class=\"logo footer-box__logo\">Bertillo</a>\r\n\r\n            <div class=\"footer-box-info\">\r\n                <ul class=\"footer-box-info__list\">\r\n\r\n                    <li class=\"footer-box-info__list-item\"><a href=\"https://allegro.pl/uzytkownik/bertillo_pl\"\r\n                            class=\"footer-box-info__list-link\" target=\"_blank\" rel=\"noopener\"><i\r\n                                class=\"fa-solid fa-basket-shopping\"></i>\r\n                            Allegro\r\n                        </a>\r\n                    </li>\r\n\r\n                    <li class=\"footer-box-info__list-item\"><a href=\"tel:+48788470273\"\r\n                            class=\"footer-box-info__list-link\"> <i class=\"fa-solid fa-phone\"></i>\r\n                            +48 788\r\n                            470\r\n                            273\r\n                        </a></li>\r\n\r\n                    <li class=\"footer-box-info__list-item\"><a href=\"mailto:bertillo@wp.pl\"\r\n                            class=\"footer-box-info__list-link\">\r\n                            <i class=\"fa-solid fa-envelope\"></i>\r\n                            biuro@bertillo.pl\r\n                        </a>\r\n                    </li>\r\n\r\n                    <li class=\"footer-box-info__list-item\"><a\r\n                            href=\"https://www.google.com/maps?ll=50.049922,21.607119&z=19&t=m&hl=pl&gl=PL&mapclient=embed&q=Monte+Casino+8+39-100+Ropczyce\"\r\n                            class=\"footer-box-info__list-link\" rel=\"noopener\" target=\"_blank\"> <i\r\n                                class=\"fa-solid fa-location-dot\"></i>\r\n                            ul. Monte\r\n                            Cassino 8, 39-100 Ropczyce\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n\r\n            <p class=\"footer-box__copyright\">&copy; <span class=\"footer-box__copyright-year\"></span> Bertilloo</p>\r\n        </div>\r\n    </div>\r\n</footer>"
+        }
+    ]
+}

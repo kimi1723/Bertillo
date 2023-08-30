@@ -18,43 +18,23 @@ require './vendor/PHPMailer/PHPMailer/src/SMTP.php';
 $mail = new PHPMailer(true);
 
 try {
-    $mail->SMTPDebug = SMTP::DEBUG_OFF;
+    // $mail->SMTPDebug = SMTP::DEBUG_OFF;
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com ';
-    $mail->SMTPAuth   = true;
+    $mail->Host       = 'ssl://smtp.gmail.com ';
+    $mail->SMTPAuth   = false;
     $mail->Username   = 'testmailphp98@gmail.com';
     $mail->Password   = 'TestAs#@s!@aH';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->SMTPAuth = true;
+    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->AuthType = 'XOAUTH2';
     $mail->Port       = 465;
 
     $email = 'testmailphp98@gmail.com';
-    $clientId = '34231537940-t14957kqh9td4po9et3ogkrehuptmle5.apps.googleusercontent.com
-    ';
-    $clientSecret = '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
-    ';
-    $refreshToken = '1//0c77YvQ7LW1q-CgYIARAAGAwSNwF-L9IrlJi3A2D8BXoDXKLBkKwTR2EMJkIN4wBtQyjvhUv8igIsTL0qbq9hR7zOxZ0odbnKBXE';
 
-    $provider = new Google(
-      [
-          'clientId' => $clientId,
-          'clientSecret' => $clientSecret,
-      ]
-  );
-  $mail->setOAuth(
-    new OAuth(
-        [
-            'provider' => $provider,
-            'clientId' => $clientId,
-            'clientSecret' => $clientSecret,
-            'refreshToken' => $refreshToken,
-            'userName' => $email,
-        ]
-    )
-);
-    $mail->setFrom('biuro@bertillo.pl', 'Bertillo.pl');
-    $mail->addAddress('biuro@bertillo.pl');
+
+
+
+    $mail->setFrom('hacks@onet.pl', 'Bertillo.pl');
+    $mail->addAddress('hacks@onet.pl');
 
     $data = json_decode(file_get_contents("php://input"), true);
 

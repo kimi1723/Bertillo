@@ -3,11 +3,39 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1679943633610,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1680539191652,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n try {\r\n     $mail->SMTPDebug = SMTP::DEBUG_OFF;\r\n     $mail->isSMTP();\r\n     $mail->Host       = 'smtp.gmail.com ';\r\n-    $mail->SMTPAuth   = true;\r\n+    $mail->SMTPAuth   = false;\r\n     $mail->Username   = 'testmailphp98@gmail.com';\r\n     $mail->Password   = 'TestAs#@s!@aH';\r\n     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;\r\n     $mail->SMTPAuth = true;\r\n"
+                },
+                {
+                    "date": 1680541251127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,14 +19,13 @@\n \r\n try {\r\n     $mail->SMTPDebug = SMTP::DEBUG_OFF;\r\n     $mail->isSMTP();\r\n-    $mail->Host       = 'smtp.gmail.com ';\r\n+    $mail->Host       = 'ssl:/smtp.gmail.com ';\r\n     $mail->SMTPAuth   = false;\r\n     $mail->Username   = 'testmailphp98@gmail.com';\r\n     $mail->Password   = 'TestAs#@s!@aH';\r\n     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;\r\n-    $mail->SMTPAuth = true;\r\n     $mail->AuthType = 'XOAUTH2';\r\n     $mail->Port       = 465;\r\n \r\n     $email = 'testmailphp98@gmail.com';\r\n"
+                },
+                {
+                    "date": 1680541274400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \r\n try {\r\n     $mail->SMTPDebug = SMTP::DEBUG_OFF;\r\n     $mail->isSMTP();\r\n-    $mail->Host       = 'ssl:/smtp.gmail.com ';\r\n+    $mail->Host       = 'ssl://smtp.gmail.com ';\r\n     $mail->SMTPAuth   = false;\r\n     $mail->Username   = 'testmailphp98@gmail.com';\r\n     $mail->Password   = 'TestAs#@s!@aH';\r\n     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;\r\n@@ -40,19 +40,9 @@\n           'clientId' => $clientId,\r\n           'clientSecret' => $clientSecret,\r\n       ]\r\n   );\r\n-  $mail->setOAuth(\r\n-    new OAuth(\r\n-        [\r\n-            'provider' => $provider,\r\n-            'clientId' => $clientId,\r\n-            'clientSecret' => $clientSecret,\r\n-            'refreshToken' => $refreshToken,\r\n-            'userName' => $email,\r\n-        ]\r\n-    )\r\n-);\r\n+\r\n     $mail->setFrom('biuro@bertillo.pl', 'Bertillo.pl');\r\n     $mail->addAddress('biuro@bertillo.pl');\r\n \r\n     $data = json_decode(file_get_contents(\"php://input\"), true);\r\n"
+                },
+                {
+                    "date": 1680541299815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,26 +23,17 @@\n     $mail->Host       = 'ssl://smtp.gmail.com ';\r\n     $mail->SMTPAuth   = false;\r\n     $mail->Username   = 'testmailphp98@gmail.com';\r\n     $mail->Password   = 'TestAs#@s!@aH';\r\n-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;\r\n+    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;\r\n     $mail->AuthType = 'XOAUTH2';\r\n     $mail->Port       = 465;\r\n \r\n     $email = 'testmailphp98@gmail.com';\r\n-    $clientId = '34231537940-t14957kqh9td4po9et3ogkrehuptmle5.apps.googleusercontent.com\r\n-    ';\r\n-    $clientSecret = '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\r\n-    ';\r\n-    $refreshToken = '1//0c77YvQ7LW1q-CgYIARAAGAwSNwF-L9IrlJi3A2D8BXoDXKLBkKwTR2EMJkIN4wBtQyjvhUv8igIsTL0qbq9hR7zOxZ0odbnKBXE';\r\n \r\n-    $provider = new Google(\r\n-      [\r\n-          'clientId' => $clientId,\r\n-          'clientSecret' => $clientSecret,\r\n-      ]\r\n-  );\r\n \r\n+\r\n+\r\n     $mail->setFrom('biuro@bertillo.pl', 'Bertillo.pl');\r\n     $mail->addAddress('biuro@bertillo.pl');\r\n \r\n     $data = json_decode(file_get_contents(\"php://input\"), true);\r\n"
+                },
+                {
+                    "date": 1680541304908,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n \r\n $mail = new PHPMailer(true);\r\n \r\n try {\r\n-    $mail->SMTPDebug = SMTP::DEBUG_OFF;\r\n+    // $mail->SMTPDebug = SMTP::DEBUG_OFF;\r\n     $mail->isSMTP();\r\n     $mail->Host       = 'ssl://smtp.gmail.com ';\r\n     $mail->SMTPAuth   = false;\r\n     $mail->Username   = 'testmailphp98@gmail.com';\r\n"
+                },
+                {
+                    "date": 1680541336709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n \r\n \r\n \r\n \r\n-    $mail->setFrom('biuro@bertillo.pl', 'Bertillo.pl');\r\n+    $mail->setFrom('hacks@on', 'Bertillo.pl');\r\n     $mail->addAddress('biuro@bertillo.pl');\r\n \r\n     $data = json_decode(file_get_contents(\"php://input\"), true);\r\n \r\n"
+                },
+                {
+                    "date": 1680541358089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,10 +32,10 @@\n \r\n \r\n \r\n \r\n-    $mail->setFrom('hacks@on', 'Bertillo.pl');\r\n-    $mail->addAddress('biuro@bertillo.pl');\r\n+    $mail->setFrom('hacks@onet.pl', 'Bertillo.pl');\r\n+    $mail->addAddress('hacks@onet.pl');\r\n \r\n     $data = json_decode(file_get_contents(\"php://input\"), true);\r\n \r\n     $mail->CharSet = \"UTF-8\";\r\n"
                 }
             ],
             "date": 1679943633610,

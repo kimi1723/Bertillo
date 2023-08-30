@@ -334,22 +334,11 @@ if (body) {
 		const confirmButton = document.querySelector('.contact-box-form-message-sent-content__confirm-button');
 		const eventListenersArray = [confirmButton, messageSentBackground];
 		const messageContent = document.querySelector('.contact-box-form-message-sent-content__text');
-		const baseUrl = 'send-email.php';
+		const form = document.querySelector('.contact-box-form');
 
-		const res = await fetch(baseUrl, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				userName: userName.value,
-				userEmail: userEmail.value,
-				userTel: userTel.value,
-				userMsg: userMsg.value,
-			}),
-		});
+		const res = await emailjs.sendForm('service_bisr83m', 'template_fo22mcn', form).then(res => res.status);
 
-		if (res.status === 200) {
+		if (res == 200) {
 			messageContent.innerHTML = `Twoja wiadomość została wysłana.
 			<span
 				class="contact-box-form-message-sent-content__text--single-line-break">Skontaktujemy

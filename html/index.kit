@@ -988,7 +988,7 @@
                             <label for="name" class="contact-box-form__label"><i
                                     class="fa-solid fa-user contact-box-form__icon"></i>
                                 Imię:</label>
-                            <input type="text" id="name" class="contact-box-form__input">
+                            <input type="text" id="name" name="name" class="contact-box-form__input">
 
                             <p class="contact-box-form__error-message contact-box-form__error-message--name ">
                                 <i class="fa-solid fa-circle-exclamation"></i> Imię może zawierać tylko litery oraz
@@ -1003,7 +1003,7 @@
                                     class="fa-solid fa-envelope  contact-box-form__icon"></i>
                                 E-mail:</label>
 
-                            <input type="email" id="email" class="contact-box-form__input">
+                            <input type="email" id="email" name="email" class="contact-box-form__input">
                             <p class="contact-box-form__error-message contact-box-form__error-message--email ">
                                 <i class="fa-solid fa-circle-exclamation"></i> Podaj prawidłowy adres e-mail!
                             </p>
@@ -1015,7 +1015,8 @@
                                     class="fa-solid fa-phone  contact-box-form__icon"></i>
                                 Telefon:</label>
 
-                            <input type="tel" id="tel" class="contact-box-form__input" minlength="9" maxlength="15">
+                            <input type="tel" id="tel" name="tel" class="contact-box-form__input" minlength="9"
+                                maxlength="15">
 
                             <p class="contact-box-form__error-message contact-box-form__error-message--tel ">
                                 <i class="fa-solid fa-circle-exclamation"></i> Numer telefonu musi składać się z
@@ -1028,7 +1029,8 @@
                             <label for="message" class="contact-box-form__label"><i
                                     class="fa-solid fa-message contact-box-form__icon"></i>
                                 Wiadomość:</label>
-                            <textarea id="message" cols="30" rows="10" class="contact-box-form__textarea"></textarea>
+                            <textarea id="message" name="message" cols="30" rows="10"
+                                class="contact-box-form__textarea"></textarea>
 
                             <p class="contact-box-form__error-message contact-box-form__error-message--message ">
                                 <i class="fa-solid fa-circle-exclamation"></i> Wiadomość musi zawierać minimum 3 znaki!
@@ -1060,7 +1062,7 @@
                         </div>
                         <div
                             class="contact-box-form-message-sent-content contact-box-form-message-sent-content--hidden">
-                            <p class="contact-box-form-message-sent-content__text"> 
+                            <p class="contact-box-form-message-sent-content__text">
                             </p>
 
                             <button class="contact-box-form-message-sent-content__confirm-button">Ok</button>

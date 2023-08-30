@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1679943675753,
@@ -12,6 +12,14 @@
                 {
                     "date": 1679943688305,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-<script src=\"/dist/js/main.min.js\" async cors=\"\"></script>\n\\ No newline at end of file\n+<script src=\"/dist/js/main.min.js\" async crossorigin=\"anonymous\"></script>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1693436391583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,9 @@\n-<script src=\"/dist/js/main.min.js\" async crossorigin=\"anonymous\"></script>\n\\ No newline at end of file\n+<script src=\"/dist/js/main.min.js\" async crossorigin=\"anonymous\"></script>\r\n+<script type=\"text/javascript\"\r\n+        src=\"https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js\">\r\n+</script>\r\n+<script type=\"text/javascript\">\r\n+   (function(){\r\n+      emailjs.init(\"YOUR_PUBLIC_KEY\");\r\n+   })();\r\n+</script>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1693436415013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+<script type=\"text/javascript\" src=\"https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js\">\r\n+</script>\r\n+<script type=\"text/javascript\">\r\n+    (function () {\r\n+        emailjs.init(\"GitpJdjWlA5_XjcRX\");\r\n+    })();\r\n+</script>\r\n+<script src=\"/dist/js/main.min.js\" async crossorigin=\"anonymous\"></script>\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1679943675753,
