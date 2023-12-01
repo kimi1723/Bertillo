@@ -336,7 +336,7 @@ if (body) {
 		const messageContent = document.querySelector('.contact-box-form-message-sent-content__text');
 		const form = document.querySelector('.contact-box-form');
 
-		const res = await emailjs.sendForm('service_bisr83m', 'template_fo22mcn', form).then(res => res.status);
+		const res = await emailjs.sendForm('data', 'data', form).then(res => res.status);
 
 		if (res == 200) {
 			messageContent.innerHTML = `Twoja wiadomość została wysłana.
